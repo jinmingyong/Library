@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.BookInuseMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.BookInuse" >
+    <id column="inu_id" property="inuId" jdbcType="INTEGER" />
+    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+    <result column="inusetime" property="inusetime" jdbcType="TIMESTAMP" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <association property="bookRes" column="isbn" fetchType="lazy" javaType="com.entity.BookRes" select="com.dao.IBookResDao.findBookResByIsbn"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    inu_id, isbn, inusetime, amount
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from book_inuse
+    where inu_id = #{inuId,jdbcType=INTEGER}
+  </select>
+
+  <select id="findAll" resultMap="BaseResultMap">
+    select * from book_inuse
+  </select>
+
+  <select id="selectByIsbn" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from book_inuse
+    where isbn = #{isbn,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from book_inuse
+    where inu_id = #{inuId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.BookInuse" >
+    <selectKey resultType="java.lang.Integer" keyProperty="inuId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into book_inuse (isbn, inusetime, amount
+      )
+    values (#{isbn,jdbcType=VARCHAR}, #{inusetime,jdbcType=TIMESTAMP}, #{amount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.BookInuse" >
+    <selectKey resultType="java.lang.Integer" keyProperty="inuId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into book_inuse
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="isbn != null" >
+        isbn,
+      </if>
+      <if test="inusetime != null" >
+        inusetime,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="isbn != null" >
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="inusetime != null" >
+        #{inusetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.BookInuse" >
+    update book_inuse
+    <set >
+      <if test="isbn != null" >
+        isbn = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="inusetime != null" >
+        inusetime = #{inusetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where inu_id = #{inuId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.BookInuse" >
+    update book_inuse
+    set isbn = #{isbn,jdbcType=VARCHAR},
+      inusetime = #{inusetime,jdbcType=TIMESTAMP},
+      amount = #{amount,jdbcType=INTEGER}
+    where inu_id = #{inuId,jdbcType=INTEGER}
+  </update>
+</mapper>

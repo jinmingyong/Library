@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.*">
+        <!--只扫描Controller-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--跳转的路径-->
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <!--访问的文件后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--开始SpringMvc框架注解的支持-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <!--注入自定义的转换器-->
+            <set>
+            </set>
+        </property>
+    </bean>
+    <!--前端控制器：那些不拦截-->
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
+    <mvc:resources mapping="/img/**" location="/img/"></mvc:resources>
+    <mvc:resources mapping="/fonts/**" location="/fonts/"></mvc:resources>
+    <!--配置文件解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="209715200"></property>
+        <property name="maxInMemorySize">
+            <value>4096</value><!-- 4KB大小读写 -->
+        </property>
+    </bean>
+    <!--配置异常处理器-->
+  <!--  <bean id="sysExceptionResolver" class="com.exception.SysExceptionResolver"/>-->
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--要拦截的具体方法-->
+            <mvc:mapping path="/user/*"/>
+            <!--不拦截的具体方法-->
+            <!--<mvc:exclude-mapping path=""/>-->
+            <!--配置拦截器对象-->
+            <bean class="com.interceptor.MyInterceptor"></bean>
+        </mvc:interceptor>
+
+        <!--配置第二个-->
+    </mvc:interceptors>
+    <!--开启控件-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+</beans>

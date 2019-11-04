@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.ReaderMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.Reader" >
+    <id column="read_id" property="readId" jdbcType="BIGINT" />
+    <result column="rname" property="rname" jdbcType="VARCHAR" />
+    <result column="rpwd" property="rpwd" jdbcType="VARCHAR" />
+    <result column="rsex" property="rsex" jdbcType="VARCHAR" />
+    <result column="remail" property="remail" jdbcType="VARCHAR" />
+    <result column="rphone" property="rphone" jdbcType="VARCHAR" />
+    <result column="raddress" property="raddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    read_id, rname, rpwd, rsex, remail, rphone, raddress
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from reader
+    where read_id = #{readId,jdbcType=BIGINT}
+  </select>
+
+  <select id="readerlogin" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    *
+    from reader
+    where rname=#{rname} and rpwd=#{rpwd}
+  </select>
+
+  <select id="selectAllReader" resultMap="BaseResultMap">
+    select * from reader
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from reader
+    where read_id = #{readId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Reader" >
+    <selectKey resultType="java.lang.Long" keyProperty="readId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into reader (rname, rpwd, rsex, 
+      remail, rphone, raddress
+      )
+    values (#{rname,jdbcType=VARCHAR}, #{rpwd,jdbcType=VARCHAR}, #{rsex,jdbcType=VARCHAR}, 
+      #{remail,jdbcType=VARCHAR}, #{rphone,jdbcType=VARCHAR}, #{raddress,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Reader" >
+    <selectKey resultType="java.lang.Long" keyProperty="readId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into reader
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rname != null" >
+        rname,
+      </if>
+      <if test="rpwd != null" >
+        rpwd,
+      </if>
+      <if test="rsex != null" >
+        rsex,
+      </if>
+      <if test="remail != null" >
+        remail,
+      </if>
+      <if test="rphone != null" >
+        rphone,
+      </if>
+      <if test="raddress != null" >
+        raddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rname != null" >
+        #{rname,jdbcType=VARCHAR},
+      </if>
+      <if test="rpwd != null" >
+        #{rpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="rsex != null" >
+        #{rsex,jdbcType=VARCHAR},
+      </if>
+      <if test="remail != null" >
+        #{remail,jdbcType=VARCHAR},
+      </if>
+      <if test="rphone != null" >
+        #{rphone,jdbcType=VARCHAR},
+      </if>
+      <if test="raddress != null" >
+        #{raddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Reader" >
+    update reader
+    <set >
+      <if test="rname != null" >
+        rname = #{rname,jdbcType=VARCHAR},
+      </if>
+      <if test="rpwd != null" >
+        rpwd = #{rpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="rsex != null" >
+        rsex = #{rsex,jdbcType=VARCHAR},
+      </if>
+      <if test="remail != null" >
+        remail = #{remail,jdbcType=VARCHAR},
+      </if>
+      <if test="rphone != null" >
+        rphone = #{rphone,jdbcType=VARCHAR},
+      </if>
+      <if test="raddress != null" >
+        raddress = #{raddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where read_id = #{readId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Reader" >
+    update reader
+    set rname = #{rname,jdbcType=VARCHAR},
+      rpwd = #{rpwd,jdbcType=VARCHAR},
+      rsex = #{rsex,jdbcType=VARCHAR},
+      remail = #{remail,jdbcType=VARCHAR},
+      rphone = #{rphone,jdbcType=VARCHAR},
+      raddress = #{raddress,jdbcType=VARCHAR}
+    where read_id = #{readId,jdbcType=BIGINT}
+  </update>
+</mapper>

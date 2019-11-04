@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.PenaltyMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.Penalty" >
+    <id column="pen_id" property="penId" jdbcType="BIGINT" />
+    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+    <result column="rid" property="rid" jdbcType="BIGINT" />
+    <result column="pen_type" property="penType" jdbcType="VARCHAR" />
+    <result column="repay" property="repay" jdbcType="DOUBLE" />
+    <result column="pen_time" property="penTime" jdbcType="TIMESTAMP" />
+    <association property="bookRes" column="isbn" fetchType="lazy" javaType="com.entity.BookRes" select="com.dao.IBookResDao.findBookResByIsbn"/>
+    <association property="reader" column="rid" fetchType="lazy" javaType="com.entity.Reader" select="com.dao.ReaderMapper.selectByPrimaryKey"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pen_id, isbn, rid, pen_type, repay, pen_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from penalty
+    where pen_id = #{penId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectAllPenalty" resultMap="BaseResultMap">
+    select * from penalty
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from penalty
+    where pen_id = #{penId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Penalty" >
+    <selectKey resultType="java.lang.Long" keyProperty="penId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into penalty (isbn, rid, pen_type, 
+      repay, pen_time)
+    values (#{isbn,jdbcType=VARCHAR}, #{rid,jdbcType=BIGINT}, #{penType,jdbcType=VARCHAR}, 
+      #{repay,jdbcType=DOUBLE}, #{penTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Penalty" >
+    <selectKey resultType="java.lang.Long" keyProperty="penId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into penalty
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="isbn != null" >
+        isbn,
+      </if>
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="penType != null" >
+        pen_type,
+      </if>
+      <if test="repay != null" >
+        repay,
+      </if>
+      <if test="penTime != null" >
+        pen_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="isbn != null" >
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="penType != null" >
+        #{penType,jdbcType=VARCHAR},
+      </if>
+      <if test="repay != null" >
+        #{repay,jdbcType=DOUBLE},
+      </if>
+      <if test="penTime != null" >
+        #{penTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Penalty" >
+    update penalty
+    <set >
+      <if test="isbn != null" >
+        isbn = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null" >
+        rid = #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="penType != null" >
+        pen_type = #{penType,jdbcType=VARCHAR},
+      </if>
+      <if test="repay != null" >
+        repay = #{repay,jdbcType=DOUBLE},
+      </if>
+      <if test="penTime != null" >
+        pen_time = #{penTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pen_id = #{penId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Penalty" >
+    update penalty
+    set isbn = #{isbn,jdbcType=VARCHAR},
+      rid = #{rid,jdbcType=BIGINT},
+      pen_type = #{penType,jdbcType=VARCHAR},
+      repay = #{repay,jdbcType=DOUBLE},
+      pen_time = #{penTime,jdbcType=TIMESTAMP}
+    where pen_id = #{penId,jdbcType=BIGINT}
+  </update>
+</mapper>

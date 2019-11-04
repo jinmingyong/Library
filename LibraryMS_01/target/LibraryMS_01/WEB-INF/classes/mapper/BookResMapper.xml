@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.IBookResDao">
+    <resultMap id="BooKResMap" type="com.entity.BookRes">
+        <id property="bid" column="bid"/>
+        <result property="isbn" column="isbn"/>
+        <result property="bname" column="bname"/>
+        <result property="btype" column="btype"/>
+        <result property="author" column="author"/>
+        <result property="publisher" column="publisher"/>
+        <result property="importTime" column="import_time"/>
+        <result property="amount" column="amount"/>
+        <result property="image" column="image"/>
+        <association property="booktype" column="btype" javaType="com.entity.Btype" fetchType="eager" select="com.dao.BtypeMapper.selectByPrimaryKey"></association>
+    </resultMap>
+    <sql id="bookRes">
+        isbn,bname,btype,author,publisher,amount,image
+    </sql>
+
+    <insert id="addBookRes" parameterType="com.entity.BookRes">
+        <selectKey keyColumn="bid" keyProperty="bid" resultType="int" order="AFTER">
+            select  last_insert_id();
+        </selectKey>
+        insert into book_reserve(<include refid="bookRes"/>)values (#{isbn},#{bname},#{btype},#{author},#{publisher},#{amount},#{image})
+    </insert>
+
+    <insert id="addBookResList" parameterType="list">
+        insert into book_reserve (<include refid="bookRes"/>) values 
+        <foreach collection="list" item="bookRes" separator=",">
+            (#{bookRes.isbn},#{bookRes.bname},#{bookRes.btype},#{bookRes.author},#{bookRes.publisher},#{bookRes.amount},#{bookRes.image})
+        </foreach>
+    </insert>
+
+    <select id="findAllBookRes" resultMap="BooKResMap">
+        select * from book_reserve
+    </select>
+
+    <update id="updateBookRes" parameterType="com.entity.BookRes">
+        update book_reserve set isbn=#{isbn},bname=#{bname},btype=#{btype},author=#{author},publisher=#{publisher},amount=#{amount},image=#{image}
+        where bid=#{bid}
+    </update>
+
+    <update id="updateBookResList" parameterType="java.util.ArrayList">
+        <foreach collection="list" item="bookRes" separator=",">
+        update book_reserve set bname=#{bookRes.bname} where bid=#{bookRes.bid}
+        </foreach>
+    </update>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.entity.BookRes" >
+        update book_reserve
+        <set >
+            <if test="isbn != null" >
+                isbn = #{isbn,jdbcType=VARCHAR},
+            </if>
+            <if test="bname != null" >
+                bname = #{bname,jdbcType=VARCHAR},
+            </if>
+            <if test="btype != null" >
+                btype = #{btype,jdbcType=INTEGER},
+            </if>
+            <if test="author != null" >
+                author = #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="publisher != null" >
+                publisher = #{publisher,jdbcType=VARCHAR},
+            </if>
+            <if test="importTime != null" >
+                import_time = #{importTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="amount != null" >
+                amount = #{amount,jdbcType=INTEGER},
+            </if>
+            <if test="image != null" >
+                image = #{image,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where bid = #{bid,jdbcType=BIGINT}
+    </update>
+
+    <delete id="deleBookRes" parameterType="com.entity.BookRes">
+        delete  from  book_reserve where bid=#{bid};
+    </delete>
+
+    <delete id="deleBookResList" parameterType="java.util.List">
+        delete from book_reserve
+        where bid
+        in
+        <foreach collection="list" item="bid" open="(" separator="," close=")">
+            #{bid}
+        </foreach>
+    </delete>
+
+    <select id="findBookResById" parameterType="int" resultMap="BooKResMap">
+         select * from book_reserve where bid=#{bid}
+    </select>
+
+    <select id="findBookResByIsbn" parameterType="String" resultMap="BooKResMap">
+         select * from book_reserve where isbn=#{isbn}
+    </select>
+
+    <select id="findBookResByName" parameterType="String" resultMap="BooKResMap">
+        select * from book_reserve where bname like #{bname}
+    </select>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/websocket
+        http://www.springframework.org/schema/websocket/spring-websocket.xsd">
+
+
+    <context:property-placeholder location="classpath:JdbcConfig.properties"></context:property-placeholder>
+    <!--开启扫描，不需要扫描Controller-->
+    <context:component-scan base-package="com.*">
+        <!--除了-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--配置连接池-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driver}"></property>
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${name}"/>
+        <property name="password" value="${pwd}"/>
+    </bean>
+
+    <bean id="mybatisConfig" class="org.apache.ibatis.session.Configuration">
+        <property name="lazyLoadingEnabled" value="true"/>
+        <property name="aggressiveLazyLoading" value="false"/>
+        <property name="lazyLoadTriggerMethods" value="toString"/>
+    </bean>
+    <!--配置SqlsessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+        <property name="configuration" ref="mybatisConfig"/>
+        <property name="dataSource" ref="dataSource"></property>
+        <!--找映射文件-->
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:mapper/*Mapper.xml</value>
+            </list>
+        </property>
+        <!--找实体-->
+        <property name="typeAliasesPackage" value="com.entity"></property>
+        <!--分页插件-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value>
+                            helperDialect=mysql
+                            reasonable=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+    <!--<bean id="mapperScannerConfigurer" class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.dao"></property>
+
+    </bean>-->
+    <!--配置接口扫描的包-->
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--找daomapper-->
+        <property name="basePackage" value="com.dao"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+    <!--配置spring声明式事务管理-->
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--配置事务通知-->
+    <tx:advice id="txadvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="*" isolation="DEFAULT" propagation="SUPPORTS" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置AOP增强-->
+    <aop:config>
+        <aop:pointcut id="pt" expression="execution(* *..service..*.*(..))"/>
+        <aop:advisor advice-ref="txadvice" pointcut-ref="pt"></aop:advisor>
+    </aop:config>
+</beans>
