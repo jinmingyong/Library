@@ -29,7 +29,7 @@ public class ReaderServiceimpl implements IReaderService {
 
     @Override
     public Reader selectByPrimaryKey(Long readId) {
-        return null;
+        return readerMapper.selectByPrimaryKey(readId);
     }
 
     @Override

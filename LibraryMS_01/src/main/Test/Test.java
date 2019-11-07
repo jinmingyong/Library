@@ -2,7 +2,10 @@ import com.dao.*;
 import com.entity.BookBad;
 import com.entity.BookInuse;
 import com.entity.BookRes;
+import com.entity.Comment;
+import com.service.IBookInuseService;
 import com.service.IBookResService;
+import com.service.ICommentService;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -35,9 +38,19 @@ public class Test {
     @Autowired
     ReaderMapper readerMapper;
     @Autowired
+    RemarkMapper remarkMapper;
+    @Autowired
     IBookResService bookResService;
+    @Autowired
+    IBookInuseService bookInuseService;
+    @Autowired
+    ICommentService commentService;
   @org.junit.Test
     public void test(){
-      readerMapper.readerlogin("1","1");
+      Comment comment=new Comment();
+      comment.setImage("11111111");
+      comment.setContext("2222222");
+      System.out.println(commentMapper.insertSelective(comment));
+
     }
 }

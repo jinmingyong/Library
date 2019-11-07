@@ -30,6 +30,11 @@ public class BookResController {
     @Resource(name = "bookResService")
     private IBookResService bookResService;
 
+    @RequestMapping("/showallbook")
+    public String showallbook(){
+        return "jsp/showAllbook";
+    }
+
     @RequestMapping("/addBookRes")
     public @ResponseBody List<BookRes> addBookRes(@RequestBody List<BookRes> bookResList){
         bookResService.addBookResList(bookResList);
@@ -76,6 +81,6 @@ public class BookResController {
         bookRes.setBid(bid);
         bookRes.setImage(filename);
         bookResService.updateBookRes(bookRes);
-        return "success";
+        return "http://localhost:9090/uploads/"+filename;
     }
 }

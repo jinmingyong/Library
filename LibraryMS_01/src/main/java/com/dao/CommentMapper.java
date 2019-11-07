@@ -18,6 +18,8 @@ public interface CommentMapper  {
 
     List<Comment> selectAllComment();
 
+    List<Comment> selectCommentByIsbn(String isbn);
+
     int updateByPrimaryKeySelective(Comment record);
 
     int updateByPrimaryKeyWithBLOBs(Comment record);

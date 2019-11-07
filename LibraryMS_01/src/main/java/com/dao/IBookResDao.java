@@ -32,4 +32,6 @@ public interface IBookResDao  {
     List<BookRes> findBookResByName(String bname);
 
     BookRes findBookResByIsbn(String isbn);
+
+    List<BookRes> findBookResByType(Integer btype);
 }

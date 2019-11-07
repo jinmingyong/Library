@@ -326,12 +326,12 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-messaging</artifactId>
-      <version>4.0.5.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-websocket</artifactId>
-      <version>4.0.5.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -339,10 +339,17 @@
       <version>2.3.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-websocket</artifactId>
+      <version>8.5.15</version>
+    </dependency>
+
 
   </dependencies>
 
   <build>
+
     <finalName>LibraryMS_01</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -374,6 +381,12 @@
           <version>3.2.2</version>
           <configuration>
             <!-- true:打包包含空文件夹 --><includeEmptyDirectories>true</includeEmptyDirectories>
+            <webResources>
+              <resource>
+                <directory>src/main/webapp</directory>
+                <filtering>false</filtering>
+              </resource>
+            </webResources>
           </configuration>
         </plugin>
         <plugin>

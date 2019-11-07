@@ -28,6 +28,12 @@
         .speed {
             float: left;
         }
+        .imgdiv{
+            position: absolute;
+            left: 100px;
+            display: none;
+            z-index: 5;
+        }
     </style>
 </head>
 <body>
@@ -59,12 +65,16 @@
             <td>${bookRes.publisher}</td>
             <td>${bookRes.amount}</td>
             <td>${bookRes.importTime}</td>
-            <td><form enctype="multipart/form-data">
+            <td style="position: relative"><form enctype="multipart/form-data">
                 <input type="file" id="oFile" class="oFile" name="UploadForm[image]" onchange="FileChangeFn(${status.index},this)" style="float: left">
                 <%--<div class="speed_box">--%>
                     <div class="speed">
                     </div>
                 <span style="float: left;line-height: 40px;color: #5cb85c"></span>
+                <div class="imgdiv">
+                    <img src="" id="img${status.index}">
+                </div>
+
               <%--  </div>--%>
             </form></td>
             <td>
@@ -80,6 +90,13 @@
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/radialIndicator.min.js"></script>
+<script>
+    $(function () {
+        $(".oFile").hover(function () {
+            $(this).siblings(".imgdiv").toggle();
+        })
+    })
+</script>
 <script>
     var uploadUrl = 'bookres/upload';
     //文件选择完毕时
@@ -145,11 +162,15 @@
                 }
             },
             success: function(returndata) {
-                console.log($(target).children());
+                console.log(returndata);
+                document.getElementById("img"+index).setAttribute("src",returndata);
+        /*        $("#img"+index).setAttribute("src",returndata)*/
+                console.log($(target).children().next().next());
                 $(target).next().html("上传成功");
                 //alert(returndata);
             },
             error: function(returndata) {
+
                 $(target).html("上传失败");
                 console.log(returndata)
                 alert('请正确配置后台服务！');

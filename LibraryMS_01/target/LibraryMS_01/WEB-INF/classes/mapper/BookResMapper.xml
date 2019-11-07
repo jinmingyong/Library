@@ -13,23 +13,24 @@
         <result property="importTime" column="import_time"/>
         <result property="amount" column="amount"/>
         <result property="image" column="image"/>
+        <result property="introduce" column="introduce"/>
         <association property="booktype" column="btype" javaType="com.entity.Btype" fetchType="eager" select="com.dao.BtypeMapper.selectByPrimaryKey"></association>
     </resultMap>
     <sql id="bookRes">
-        isbn,bname,btype,author,publisher,amount,image
+        isbn,bname,btype,author,publisher,amount,image,introduce
     </sql>
 
     <insert id="addBookRes" parameterType="com.entity.BookRes">
         <selectKey keyColumn="bid" keyProperty="bid" resultType="int" order="AFTER">
             select  last_insert_id();
         </selectKey>
-        insert into book_reserve(<include refid="bookRes"/>)values (#{isbn},#{bname},#{btype},#{author},#{publisher},#{amount},#{image})
+        insert into book_reserve(<include refid="bookRes"/>)values (#{isbn},#{bname},#{btype},#{author},#{publisher},#{amount},#{image},#{introduce})
     </insert>
 
     <insert id="addBookResList" parameterType="list">
         insert into book_reserve (<include refid="bookRes"/>) values 
         <foreach collection="list" item="bookRes" separator=",">
-            (#{bookRes.isbn},#{bookRes.bname},#{bookRes.btype},#{bookRes.author},#{bookRes.publisher},#{bookRes.amount},#{bookRes.image})
+            (#{bookRes.isbn},#{bookRes.bname},#{bookRes.btype},#{bookRes.author},#{bookRes.publisher},#{bookRes.amount},#{bookRes.image},#{bookRes.introduce})
         </foreach>
     </insert>
 
@@ -37,8 +38,12 @@
         select * from book_reserve
     </select>
 
+    <select id="findBookResByType" resultMap="BooKResMap" parameterType="int">
+        select * from book_reserve where btype=#{btype}
+    </select>
+
     <update id="updateBookRes" parameterType="com.entity.BookRes">
-        update book_reserve set isbn=#{isbn},bname=#{bname},btype=#{btype},author=#{author},publisher=#{publisher},amount=#{amount},image=#{image}
+        update book_reserve set isbn=#{isbn},bname=#{bname},btype=#{btype},author=#{author},publisher=#{publisher},amount=#{amount},image=#{image},introduce=#{introduce}
         where bid=#{bid}
     </update>
 
@@ -74,6 +79,9 @@
             </if>
             <if test="image != null" >
                 image = #{image,jdbcType=VARCHAR},
+            </if>
+            <if test="introduce != null" >
+                introduce = #{introduce,jdbcType=VARCHAR},
             </if>
         </set>
         where bid = #{bid,jdbcType=BIGINT}

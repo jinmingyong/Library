@@ -2,6 +2,7 @@ package com.service.impl;
 
 import com.dao.CommentMapper;
 import com.entity.Comment;
+import com.github.pagehelper.PageHelper;
 import com.service.ICommentService;
 import org.springframework.stereotype.Service;
 
@@ -24,31 +25,39 @@ public class CommentServiceimpl implements ICommentService {
 
     @Override
     public int insertSelective(Comment record) {
-        return 0;
+        return commentMapper.insertSelective(record);
     }
 
     @Override
     public Comment selectByPrimaryKey(Long comId) {
-        return null;
+        return commentMapper.selectByPrimaryKey(comId);
     }
 
     @Override
     public List<Comment> selectAllComment() {
-        return null;
+        return commentMapper.selectAllComment();
+    }
+
+    @Override
+    public List<Comment> selectCommentByIsbn(String isbn) {
+        return commentMapper.selectCommentByIsbn(isbn);
+    }
+
+    @Override
+    public List<Comment> selectCommentByIsbn(String isbn, Integer pageNum) {
+        PageHelper.startPage(pageNum,2);
+        return commentMapper.selectCommentByIsbn(isbn);
     }
 
     @Override
     public int updateByPrimaryKeySelective(Comment record) {
-        return 0;
+        return commentMapper.updateByPrimaryKeySelective(record);
     }
 
-    @Override
-    public int updateByPrimaryKeyWithBLOBs(Comment record) {
-        return 0;
-    }
+
 
     @Override
     public int updateByPrimaryKey(Comment record) {
-        return 0;
+        return commentMapper.updateByPrimaryKey(record);
     }
 }

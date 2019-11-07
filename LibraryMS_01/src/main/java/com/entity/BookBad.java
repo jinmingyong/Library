@@ -1,6 +1,7 @@
 package com.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
+@JsonIgnoreProperties(value = { "handler" })
 public class BookBad implements Serializable {
     private Integer badId;
     private String isbn;

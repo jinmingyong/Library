@@ -5,11 +5,11 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="com.*">
         <!--只扫描Controller-->
@@ -31,11 +31,23 @@
             </set>
         </property>
     </bean>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
     <!--前端控制器：那些不拦截-->
     <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
     <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
     <mvc:resources mapping="/img/**" location="/img/"></mvc:resources>
     <mvc:resources mapping="/fonts/**" location="/fonts/"></mvc:resources>
+    <mvc:resources mapping="/vendor/**" location="/vendor/"></mvc:resources>
     <!--配置文件解析器-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="209715200"></property>
@@ -56,10 +68,6 @@
             <bean class="com.interceptor.MyInterceptor"></bean>
         </mvc:interceptor>
 
-        <mvc:interceptor>
-            <mvc:mapping path="/websocket/*"/>
-            <bean class="com.interceptor.MyHandShakeInterceptor"></bean>
-        </mvc:interceptor>
         <!--配置第二个-->
     </mvc:interceptors>
     <!--开启控件-->

@@ -65,6 +65,11 @@ public class BookResServiceimpl implements IBookResService {
     }
 
     @Override
+    public BookRes findBookResByisbn(String isbn) {
+        return bookResDao.findBookResByIsbn(isbn);
+    }
+
+    @Override
     public List<BookRes> findAll() {
         return bookResDao.findAllBookRes();
     }

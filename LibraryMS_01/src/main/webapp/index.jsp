@@ -35,14 +35,28 @@
                 <form id="from1">
                     bname:<input type="text" name="bname" v-model="bookres.bname">
                     isbn:<input type="text" name="isbn"  v-model="bookres.isbn">
-                    btype:<select name="btype" v-model="bookres.btype">
-                    <option value="1">拉拉</option>
-                    <option value="2">jjj</option>
-                </select>
+                    btype:
+                    <section class="selectbox_section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="selectStyle1">
+                                        <select name="btype" v-model="bookres.btype">
+                                            <option value="1" class="option">Choose an option</option>
+                                            <option value="2"  class="option">Car</option>
+                                            <option value="3"  class="option">Launch</option>
+                                            <option value="Bus"  class="option">Bus</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     author:<input type="text" name="author" v-model="bookres.author">
                     publisher:<input type="text" name="publisher" v-model="bookres.publisher">
                     <%--    import_time<input type="date" name="importTime">--%>
                     amount:<input type="text" name="amount" v-model="bookres.amount">
+                    introduce:<input type="text" name="introduce" v-model="bookres.introduce">
                 </form>
             </div>
             <div class="modal-footer">
@@ -52,10 +66,12 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
 </div>
-
+<%
+    session.setAttribute("rid",1);
+%>
 <a href="bookres/findAllBookRes">查询所有</a>
+<a href="bookres/showallbook">showallBook</a>
 </body>
 <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
@@ -64,7 +80,7 @@
    new Vue({
         el:'#myVue',
        data:{
-           bookres:{bname:'',bookres:'',btype:'1',author:'',publisher:'',amount:''},
+           bookres:{bname:'',bookres:'',btype:'1',author:'',publisher:'',amount:'',introduce:''},
            bookResList:[],
            ids:[],
        },
@@ -97,7 +113,7 @@
             addlist:function () {
                 this.bookResList.push(this.bookres);
                 console.log(this.bookResList);
-                this.bookres={bname:'',bookres:'',btype:'1',author:'',publisher:'',amount:''}
+                this.bookres={bname:'',bookres:'',btype:'1',author:'',publisher:'',amount:'',introduce:''}
             },
             dele:function () {
 

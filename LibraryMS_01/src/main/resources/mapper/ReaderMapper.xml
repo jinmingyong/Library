@@ -9,9 +9,10 @@
     <result column="remail" property="remail" jdbcType="VARCHAR" />
     <result column="rphone" property="rphone" jdbcType="VARCHAR" />
     <result column="raddress" property="raddress" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    read_id, rname, rpwd, rsex, remail, rphone, raddress
+    read_id, rname, rpwd, rsex, remail, rphone, raddress,image
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -40,10 +41,10 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into reader (rname, rpwd, rsex, 
-      remail, rphone, raddress
+      remail, rphone, raddress,image
       )
     values (#{rname,jdbcType=VARCHAR}, #{rpwd,jdbcType=VARCHAR}, #{rsex,jdbcType=VARCHAR}, 
-      #{remail,jdbcType=VARCHAR}, #{rphone,jdbcType=VARCHAR}, #{raddress,jdbcType=VARCHAR}
+      #{remail,jdbcType=VARCHAR}, #{rphone,jdbcType=VARCHAR}, #{raddress,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.entity.Reader" >
@@ -70,6 +71,9 @@
       <if test="raddress != null" >
         raddress,
       </if>
+      <if test="image != null" >
+        image
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="rname != null" >
@@ -89,6 +93,9 @@
       </if>
       <if test="raddress != null" >
         #{raddress,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -113,6 +120,9 @@
       <if test="raddress != null" >
         raddress = #{raddress,jdbcType=VARCHAR},
       </if>
+      <if test="image != null" >
+        raddress = #{image,jdbcType=VARCHAR},
+      </if>
     </set>
     where read_id = #{readId,jdbcType=BIGINT}
   </update>
@@ -123,7 +133,8 @@
       rsex = #{rsex,jdbcType=VARCHAR},
       remail = #{remail,jdbcType=VARCHAR},
       rphone = #{rphone,jdbcType=VARCHAR},
-      raddress = #{raddress,jdbcType=VARCHAR}
+      raddress = #{raddress,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR}
     where read_id = #{readId,jdbcType=BIGINT}
   </update>
 </mapper>

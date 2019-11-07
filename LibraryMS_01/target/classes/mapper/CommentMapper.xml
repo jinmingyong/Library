@@ -5,15 +5,19 @@
     <id column="com_id" property="comId" jdbcType="BIGINT" />
     <result column="rid" property="rid" jdbcType="BIGINT" />
     <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="com_createtime" property="comCreatetime" jdbcType="TIMESTAMP" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
     <association property="bookRes" column="isbn" fetchType="lazy" javaType="com.entity.BookRes" select="com.dao.IBookResDao.findBookResByIsbn"/>
     <association property="reader" column="rid" fetchType="lazy" javaType="com.entity.Reader" select="com.dao.ReaderMapper.selectByPrimaryKey"/>
+    <collection property="remarks" column="com_id" ofType="com.entity.Remark" fetchType="lazy" select="com.dao.RemarkMapper.selectRemarkBycomId">
+    </collection>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.entity.Comment" extends="BaseResultMap" >
     <result column="context" property="context" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    com_id, rid, isbn, com_createtime
+    com_id, rid, isbn, title, com_createtime,image
   </sql>
   <sql id="Blob_Column_List" >
     context
@@ -27,10 +31,18 @@
     where com_id = #{comId,jdbcType=BIGINT}
   </select>
 
+  <select id="selectCommentByIsbn" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from comment
+    where isbn= #{isbn,jdbcType=VARCHAR}
+  </select>
+
   <select id="selectAllComment" resultMap="BaseResultMap">
     select * from comment
   </select>
-
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from comment
     where com_id = #{comId,jdbcType=BIGINT}
@@ -39,10 +51,10 @@
     <selectKey resultType="java.lang.Long" keyProperty="comId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into comment (rid, isbn, com_createtime, 
-      context)
-    values (#{rid,jdbcType=BIGINT}, #{isbn,jdbcType=VARCHAR}, #{comCreatetime,jdbcType=TIMESTAMP}, 
-      #{context,jdbcType=LONGVARCHAR})
+    insert into comment (rid, isbn, title, 
+      com_createtime, context,image)
+    values (#{rid,jdbcType=BIGINT}, #{isbn,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{comCreatetime,jdbcType=TIMESTAMP}, #{context,jdbcType=LONGVARCHAR}),#{image,jdbcType=VARCHAR}
   </insert>
   <insert id="insertSelective" parameterType="com.entity.Comment" >
     <selectKey resultType="java.lang.Long" keyProperty="comId" order="AFTER" >
@@ -56,12 +68,18 @@
       <if test="isbn != null" >
         isbn,
       </if>
+      <if test="title != null" >
+        title,
+      </if>
       <if test="comCreatetime != null" >
         com_createtime,
       </if>
-      <if test="context != null" >
-        context,
+      <if test="image != null" >
+        image,
       </if>
+      <if test="context != null" >
+      context
+    </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="rid != null" >
@@ -70,8 +88,14 @@
       <if test="isbn != null" >
         #{isbn,jdbcType=VARCHAR},
       </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
       <if test="comCreatetime != null" >
         #{comCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
       </if>
       <if test="context != null" >
         #{context,jdbcType=LONGVARCHAR},
@@ -87,6 +111,12 @@
       <if test="isbn != null" >
         isbn = #{isbn,jdbcType=VARCHAR},
       </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+       image= #{image,jdbcType=VARCHAR},
+      </if>
       <if test="comCreatetime != null" >
         com_createtime = #{comCreatetime,jdbcType=TIMESTAMP},
       </if>
@@ -100,7 +130,9 @@
     update comment
     set rid = #{rid,jdbcType=BIGINT},
       isbn = #{isbn,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
       com_createtime = #{comCreatetime,jdbcType=TIMESTAMP},
+      image = #{image,jdbcType=VARCHAR},
       context = #{context,jdbcType=LONGVARCHAR}
     where com_id = #{comId,jdbcType=BIGINT}
   </update>
@@ -108,6 +140,8 @@
     update comment
     set rid = #{rid,jdbcType=BIGINT},
       isbn = #{isbn,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
       com_createtime = #{comCreatetime,jdbcType=TIMESTAMP}
     where com_id = #{comId,jdbcType=BIGINT}
   </update>

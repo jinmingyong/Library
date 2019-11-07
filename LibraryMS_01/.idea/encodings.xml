@@ -2,6 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/angularjs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/dist" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/fonts/glyphicons-halflings-regular.woff2" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/src" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/vendor/font-awesome/fonts/glyphicons-halflings-regular.woff2" charset="ISO-8859-1" />
   </component>
 </project>

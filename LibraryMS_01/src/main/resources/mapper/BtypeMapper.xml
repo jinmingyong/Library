@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.entity.Btype" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="typename" property="typename" jdbcType="VARCHAR" />
-    <collection property="resList" column="bid" ofType="com.entity.BookRes" fetchType="lazy" select="com.dao.IBookResDao.findBookResById">
+    <collection property="resList" column="bid" ofType="com.entity.BookRes" fetchType="lazy" select="com.dao.IBookResDao.findBookResByType">
     </collection>
   </resultMap>
   <sql id="Base_Column_List" >

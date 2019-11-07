@@ -25,6 +25,8 @@ public interface IBookResService {
     List<BookRes> findBookResByType(String btybe);*/
     //id查询
     BookRes findBookResById(Integer id);
+
+    BookRes findBookResByisbn(String isbn);
     //查询所有
     List<BookRes> findAll();
     //分页
