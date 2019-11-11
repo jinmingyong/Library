@@ -379,7 +379,6 @@
         websocket.onerror = function () {
             console.log("WebSocket连接发生错误");
         };
-
         //连接成功建立的回调方法
         websocket.onopen = function () {
             console.log("WebSocket连接成功");
@@ -414,7 +413,6 @@
                                 "                        </li>"
                         })
                         $("#readerlist").html(result)
-
                     }
                 })
           /*      $.each(msg, function (i, el) {
