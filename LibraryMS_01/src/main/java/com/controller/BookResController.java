@@ -27,25 +27,27 @@ import java.util.jar.JarOutputStream;
 @Controller
 @RequestMapping("/bookres")
 public class BookResController {
+    //maki:same
     @Resource(name = "bookResService")
     private IBookResService bookResService;
-
+    //maki:none
     @RequestMapping("/showallbook")
     public String showallbook(){
         return "jsp/showAllbook";
     }
-
+    //maki:same
     @RequestMapping("/addBookRes")
     public @ResponseBody List<BookRes> addBookRes(@RequestBody List<BookRes> bookResList){
         bookResService.addBookResList(bookResList);
         return bookResList;
     }
-
+    //same
     @RequestMapping("/updateBookRes")
     public void updateBookRes(BookRes bookRes,Integer bid){
         System.out.println(bid);
         bookResService.updateBookRes(bookRes);
     }
+    //same
     @RequestMapping("/findAllBookRes")
     public String findAllBookRes(@RequestParam(name = "currpage",required = false) Integer currpage,Model model){
         if (currpage==null){
@@ -56,6 +58,8 @@ public class BookResController {
         model.addAttribute("pageInfo",pageInfo);
         return "BookRes/showAll";
     }
+
+    //
     @RequestMapping("/upload")
     @ResponseBody
     public  String upload(@RequestBody@RequestParam(value = "UploadForm[image]") MultipartFile upload,@RequestBody@RequestParam(value = "bid")Integer bid){

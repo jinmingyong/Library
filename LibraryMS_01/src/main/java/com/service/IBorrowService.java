@@ -54,4 +54,7 @@ public interface IBorrowService {
      * 查询单个学生已还的信息
      */
     List<Borrow> selectByRidWithType1(Long rid);
+
+    List<Borrow> moreBorrow();
+
 }

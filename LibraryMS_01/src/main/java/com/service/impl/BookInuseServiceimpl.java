@@ -3,6 +3,8 @@ package com.service.impl;
 import com.dao.BookInuseMapper;
 import com.entity.BookInuse;
 import com.entity.BookRes;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.service.IBookInuseService;
 import com.service.IBookResService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +67,7 @@ public class BookInuseServiceimpl implements IBookInuseService {
     public int updateInuseShelf(String isbn, Integer account) {
         BookInuse bookInuse=selectByIsbn(isbn);
         System.out.println("bookInuse:"+bookInuse);
-        BookRes bookRes=iBookResService.findBookResByIsbn(isbn);
+        BookRes bookRes=iBookResService.findBookResByisbn(isbn);
         System.out.println("bookRes:"+bookInuse);
         System.out.println("数量:"+(bookInuse.getAmount()+account));
         if (bookInuse!=null){
@@ -88,7 +90,7 @@ public class BookInuseServiceimpl implements IBookInuseService {
     @Override
     public int deleteInuseShelf(Integer id) {
         BookInuse bookInuse=selectByPrimaryKey(id);
-        BookRes bookRes=iBookResService.findBookResByIsbn(bookInuse.getIsbn());
+        BookRes bookRes=iBookResService.findBookResByisbn(bookInuse.getIsbn());
         bookRes.setAmount((bookRes.getAmount()+bookInuse.getAmount()));
         iBookResService.updateBookRes(bookRes);
         int i=deleteByPrimaryKey(id);
@@ -100,7 +102,7 @@ public class BookInuseServiceimpl implements IBookInuseService {
         BookInuse bookInuse1=selectByIsbn(isbn);
         BookInuse bookInuse=new BookInuse();
         if (bookInuse1==null) {
-            BookRes bookRes = iBookResService.findBookResByIsbn(isbn);
+            BookRes bookRes = iBookResService.findBookResByisbn(isbn);
             if (bookRes != null) {
                 if (bookRes.getAmount()>account){
                     bookInuse.setIsbn(isbn);
@@ -119,5 +121,20 @@ public class BookInuseServiceimpl implements IBookInuseService {
         }else {
             return 0;
         }
+    }
+
+    @Override
+    public List<BookInuse> findAll(String bname) {
+        return bookInuseMapper.findAll(bname);
+
+    }
+
+    @Override
+    public PageInfo<BookInuse> findAllByPage(Integer pageNo, String bname) {
+        PageHelper.startPage(pageNo,2);
+        List<BookInuse> list=bookInuseMapper.findAll("%"+bname+"%");
+        PageInfo<BookInuse> pageInfo=new PageInfo<BookInuse>(list);
+        return pageInfo;
+
     }
 }

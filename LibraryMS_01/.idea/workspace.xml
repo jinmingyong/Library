@@ -6,21 +6,70 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="">
+    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="new">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1a00ceea-5b63-4163-9d59-92f7af7f59a8.corrupted.20191111-043622.reason.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1a00ceea-5b63-4163-9d59-92f7af7f59a8.corrupted.20191111-043622.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Test.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/addComment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/addComment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllRemark.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllRemark.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllbook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllbook.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showComment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showComment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/BookResController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/BookResController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/BookInuseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/BookInuseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/BorrowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/BorrowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/entity/Borrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/entity/Borrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/IBookInuseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/IBookInuseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/IBookResService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/IBookResService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/IBorrowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/IBorrowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/impl/BookInuseServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/impl/BookInuseServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/impl/BorrowServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/impl/BorrowServiceimpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/JdbcConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JdbcConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/JdbcConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/JdbcConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookBorrowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookBorrowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookInuseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookInuseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookResController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookResController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/ChatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/dao/BookInuseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/dao/BookInuseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/dao/BorrowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/dao/BorrowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/dao/PenaltyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/dao/PenaltyMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/entity/Borrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/entity/Borrow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/IBookInuseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/IBookInuseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/IBorrowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/IBorrowService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/IPenaltyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/IPenaltyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/impl/BookInuseServiceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/impl/BookInuseServiceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/impl/BorrowServiceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/impl/BorrowServiceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/impl/PenaltyServiceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/service/impl/PenaltyServiceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/BookInuseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/BookInuseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/BorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/BorrowMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/PenaltyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/PenaltyMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/addComment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/addComment.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/head.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showAllRemark.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showAllRemark.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showAllbook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showAllbook.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showComment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showComment.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/JdbcConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/JdbcConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/LibraryMS_01.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/BookBorrowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/BookBorrowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/BookInuseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/BookInuseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/BookResController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/BookResController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/ChatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/controller/CommentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/BookInuseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/BookInuseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/BorrowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/BorrowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/PenaltyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/PenaltyMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/entity/Borrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/entity/Borrow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/IBookInuseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/IBookInuseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/IBorrowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/IBorrowService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/IPenaltyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/IPenaltyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/impl/BookInuseServiceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/impl/BookInuseServiceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/impl/BorrowServiceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/impl/BorrowServiceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/service/impl/PenaltyServiceimpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/service/impl/PenaltyServiceimpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BookInuseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BookInuseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BorrowMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PenaltyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/PenaltyMapper.xml" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,27 +87,154 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="libraryms@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="libraryms@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="libraryms@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="libraryms: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-    </expand>
+    <expand />
     <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1574329094">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="java" value="22" />
+          <entry key="jsp" value="9" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="JAVA" value="22" />
+          <entry key="JSP" value="9" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="197" />
+          <entry key="properties" value="11" />
+          <entry key="txt" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="197" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="Properties" value="11" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="LibraryMS_01" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/JdbcConfig.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/Test.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Borrow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/service/impl/BorrowServiceimpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
+              <folding>
+                <element signature="e#1925#1926#0" expanded="true" />
+                <element signature="e#1973#1974#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/BorrowMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="597">
+              <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/service/IBorrowService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1680">
+              <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/service/impl/BookInuseServiceimpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2323">
+              <caret line="128" selection-start-line="128" selection-end-line="128" />
+              <folding>
+                <element signature="e#4272#4283#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/service/IBookResService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -72,8 +248,37 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>IBookInuseService</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/BookResController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/service/IBookInuseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dao/BookInuseMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/service/impl/BookInuseServiceimpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/service/IBookResService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/service/IBorrowService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/service/impl/BorrowServiceimpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/dao/BorrowMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/entity/Borrow.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/JdbcConfig.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -96,8 +301,129 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="width" value="1315" />
+    <option name="height" value="1056" />
+  </component>
   <component name="ProjectId" id="1SVNQXc9Gr9gHvC1EeIi94XcWxx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LibraryMS_01" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LibraryMS_01" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -107,7 +433,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573468467437" />
+    <property name="last_opened_file_path" value="E:/实训期间/备份2019.11.11/备份2019.11.11/LibraryMS_01" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -124,11 +451,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Git\Library\LibraryMS_01\src\main\webapp" />
+      <recent name="E:\Git\Library\LibraryMS_01\src\main\webapp\WEB-INF\pages" />
+      <recent name="E:\Git\Library\LibraryMS_01\src\main\java\com\dao" />
+      <recent name="E:\Git\Library\LibraryMS_01\target\LibraryMS_01\WEB-INF\pages" />
       <recent name="D:\IntelliJ IDEA 2019.1.2\work\LibraryMS_01\src\main\webapp\css" />
-      <recent name="D:\IntelliJ IDEA 2019.1.2\work\LibraryMS_01\src\main\webapp\js" />
-      <recent name="D:\IntelliJ IDEA 2019.1.2\work\LibraryMS_01\src\main\webapp\vendor\font-awesome\fonts" />
-      <recent name="D:\IntelliJ IDEA 2019.1.2\work\LibraryMS_01\src\main\webapp" />
-      <recent name="D:\IntelliJ IDEA 2019.1.2\work\LibraryMS_01\src\main\webapp\jsp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.controller" />
@@ -141,6 +468,134 @@
       <recent name="D:\IntelliJ IDEA 2019.1.2\work\LibraryMS_01\src\main\webapp" />
       <recent name="D:\IntelliJ IDEA 2019.1.2\work\LibraryMS_01\src\main\webapp\WEB-INF\pages" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/controller/ChatController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/controller/CommentController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/com/controller/MyWebSocketHandler.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/chat1.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/addComment.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/head.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllRemark.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllbook.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showComment.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/MyWebSocketHandler.class</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/Chat/chat1.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/head.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showAllbook.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showComment.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/target/classes/com/controller/MyWebSocketHandler.class</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/login.jsp</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/webapp/login.jsp</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -159,7 +614,6 @@
       <module name="LibraryMS_01" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Test" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,10 +628,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="showAllbook.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/jsp/showAllbook.jsp">
+    <configuration name="showAllbook.jsp" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/jsp/showAllbook.jsp">
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 9.0.6" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.6" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.6" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.29" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
@@ -192,11 +646,11 @@
         <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_6_LibraryMS_01" />
         <option name="DEPLOY_TOMCAT_APPS" value="true" />
       </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="63683" />
       </RunnerSettings>
@@ -259,11 +713,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="_LibraryManager" />
       </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="63683" />
       </RunnerSettings>
@@ -322,10 +776,10 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Tomcat Server.Tomcat 9.0.6" />
       <item itemvalue="JavaScript Debug.showAllbook.jsp" />
       <item itemvalue="JUnit.Test.test" />
       <item itemvalue="JUnit.Test" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.6" />
     </list>
     <recent_temporary>
       <list>
@@ -349,7 +803,7 @@
     <option name="allowAutoConfigurationMode" value="true" />
   </component>
   <component name="SvnConfiguration">
-    <configuration>C:\Users\King-小明\AppData\Roaming\Subversion</configuration>
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -389,7 +843,8 @@
       <workItem from="1573005377958" duration="150341000" />
       <workItem from="1573364337788" duration="36031000" />
       <workItem from="1573451061919" duration="179000" />
-      <workItem from="1573451370358" duration="7853000" />
+      <workItem from="1573451370358" duration="3855000" />
+      <workItem from="1573461384073" duration="2303000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1573451601582</created>
@@ -419,22 +874,50 @@
       <option name="project" value="LOCAL" />
       <updated>1573451897472</updated>
     </task>
-    <task id="LOCAL-00005" summary="new">
-      <created>1573459833734</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1573459833734</updated>
-    </task>
-    <task id="LOCAL-00006" summary="new">
-      <created>1573461482043</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1573461482043</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="6546000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2238806" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Sequence" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.123667374" side_tool="true" visible="true" weight="0.19305857" />
+      <window_info anchor="bottom" id="Messages" sideWeight="0.49928468" weight="0.329718" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.87633264" visible="true" weight="0.19305857" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Database" weight="0.32995737" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -445,12 +928,21 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -464,6 +956,7 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/controller/ChatController.java</url>
           <line>51</line>
+          <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -473,5 +966,205 @@
         <watch expression="readerIds" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="418" column="32" lean-forward="true" selection-start-line="418" selection-start-column="32" selection-end-line="418" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/success.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1082" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/test.jsp" />
+    <entry file="file://$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/bookinuse.jsp" />
+    <entry file="file://$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/error.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/test.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/实训期间/备份2019.11.11/LibraryMS_01/src/main/java/com/dao/BtypeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/borrow.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/IPenaltyService.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PenaltyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/实训期间/备份2019.11.11/LibraryMS_01/src/main/java/com/controller/BookResController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/BookRes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3313" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/impl/BookBadServiceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BookInuseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/ChatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/CommentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookResController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/IBookResDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/BookInuseMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/IBookInuseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="75" column="9" lean-forward="true" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/impl/BookInuseServiceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2323">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
+          <folding>
+            <element signature="e#4272#4283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/IBookResService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/impl/BorrowServiceimpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="81" column="34" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
+          <folding>
+            <element signature="e#1925#1926#0" expanded="true" />
+            <element signature="e#1973#1974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/dao/BorrowMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1680">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/IBorrowService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Borrow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Maven/maven-repository/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar!/com/mysql/jdbc/Util.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/JdbcConfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

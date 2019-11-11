@@ -58,16 +58,14 @@
             <!--   *** SIDEBAR ***-->
             <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas">
                 <div class="sidebar-content">
-                    <h1 class="sidebar-heading"> <a href="">Creative</a></h1>
-                    <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience. </p>
-                    <p class="sidebar-p">Originally from Toronto, currently based in London. </p>
+                    <h1 class="sidebar-heading">评论及聊天</h1>
                     <ul class="sidebar-menu">
                         <!-- Link-->
-                        <li class="sidebar-item"><a href="bookres/showAllbookjsp" class="sidebar-link active">Home</a></li>
+                        <li class="sidebar-item"><a href="bookInuse/showAllbookjsp" class="sidebar-link active">Home</a></li>
                         <!-- Link-->
                         <li class="sidebar-item"><a href="comment/showCommentjsp" class="sidebar-link">About</a></li>
                         <!-- Link-->
-                        <li class="sidebar-item"><a href="" class="sidebar-link">Get in touch</a></li>
+                        <li class="sidebar-item"><a href="chat/chatjsp" class="sidebar-link">Get in touch</a></li>
                     </ul>
                     <p class="social"><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="external instagram"><i class="fa fa-instagram"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
                 </div>

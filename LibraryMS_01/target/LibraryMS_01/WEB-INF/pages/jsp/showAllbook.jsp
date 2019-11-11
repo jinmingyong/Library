@@ -16,7 +16,7 @@
 <div class="col-md-8 col-lg-9 content-column" id="myVue">
     <div class="small-navbar d-flex d-md-none">
         <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-        <h1 class="small-navbar-heading"> <a href="index.jsp">Creative </a></h1>
+        <h1 class="small-navbar-heading">
     </div>
     <section class="container" style="height: 100px">
         <form onsubmit="submitFn(this, event);">

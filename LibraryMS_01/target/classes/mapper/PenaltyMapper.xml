@@ -108,4 +108,7 @@
       pen_time = #{penTime,jdbcType=TIMESTAMP}
     where pen_id = #{penId,jdbcType=BIGINT}
   </update>
+  <select id="selectPenaltyByRid" resultMap="BaseResultMap">
+    select * from penalty where rid=#{rid}
+  </select>
 </mapper>

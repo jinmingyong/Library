@@ -76,4 +76,9 @@ public class BorrowServiceimpl implements IBorrowService {
     public List<Borrow> selectByRidWithType1(Long rid) {
         return borrowMapper.selectByRidWithType1(rid);
     }
+
+    @Override
+    public List<Borrow> moreBorrow() {
+        return borrowMapper.moreBorrow();
+    }
 }

@@ -19,6 +19,10 @@ public class Borrow implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date retTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date realTime;
+    private String borType;
     private BookRes bookRes;
     private Reader reader;
     private static final long serialVersionUID = 1L;
