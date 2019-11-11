@@ -6,7 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="" />
+    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="new">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/Chat/chat1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/Chat/chat1.jsp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +378,7 @@
       <workItem from="1573005377958" duration="150341000" />
       <workItem from="1573364337788" duration="36031000" />
       <workItem from="1573451061919" duration="179000" />
-      <workItem from="1573451370358" duration="251000" />
+      <workItem from="1573451370358" duration="3855000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1573451601582</created>
@@ -384,7 +387,28 @@
       <option name="project" value="LOCAL" />
       <updated>1573451601582</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new">
+      <created>1573451651937</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573451651937</updated>
+    </task>
+    <task id="LOCAL-00003" summary="new">
+      <created>1573451783988</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1573451783988</updated>
+    </task>
+    <task id="LOCAL-00004" summary="new">
+      <created>1573451897472</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573451897472</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

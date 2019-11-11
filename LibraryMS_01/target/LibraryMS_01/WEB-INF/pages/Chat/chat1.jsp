@@ -14,7 +14,6 @@
 <head>
     <base href="<%=basePath%>">
     <title>Title</title>
-    1111
     <!-- Bundle Styles -->
     <link rel="stylesheet" href="/css/bundle.css">
 
