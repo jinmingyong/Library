@@ -21,4 +21,6 @@ public interface PenaltyMapper  {
     int updateByPrimaryKeySelective(Penalty record);
 
     int updateByPrimaryKey(Penalty record);
+
+    List<Penalty> selectPenaltyByRid(String rid);
 }

@@ -8,47 +8,72 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service
+@Service("borrowService")
 public class BorrowServiceimpl implements IBorrowService {
+
     @Resource
-    private BorrowMapper borrowMapper;
+    private  BorrowMapper borrowMapper;
+
     @Override
+    //删除
     public int deleteByPrimaryKey(Long borId) {
-        return 0;
+        return borrowMapper.deleteByPrimaryKey(borId);
     }
 
     @Override
+    //插入
     public int insert(Borrow record) {
-        return 0;
+        return borrowMapper.insert(record);
     }
 
     @Override
+    //动态查询（目前不会弄）
     public int insertSelective(Borrow record) {
-        return 0;
+        return borrowMapper.insertSelective(record);
     }
 
     @Override
     public Borrow selectByPrimaryKey(Long borId) {
-        return null;
+        return borrowMapper.selectByPrimaryKey(borId);
     }
 
     @Override
     public List<Borrow> selectAllBorrow() {
-        return null;
+        return borrowMapper.selectAllBorrow();
+    }
+
+    @Override
+    public List<Borrow> selectByBorType() {
+        return borrowMapper.selectByBorType();
     }
 
     @Override
     public int updateByPrimaryKeySelective(Borrow record) {
-        return 0;
+        return borrowMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
     public int updateByPrimaryKey(Borrow record) {
-        return 0;
+        return borrowMapper.updateByPrimaryKey(record);
     }
 
     @Override
-    public List<Borrow> moreBorrow() {
-        return borrowMapper.moreBorrow();
+    public List<Borrow> selectByRid(Long rid) {
+        return borrowMapper.selectByRid(rid);
+    }
+
+    @Override
+    public List<Borrow> selectCheckTime() {
+        return borrowMapper.selectCheckTime();
+    }
+
+    @Override
+    public List<Borrow> selectByRidWithoutType1(Long rid) {
+        return borrowMapper.selectByRidWithoutType1(rid);
+    }
+
+    @Override
+    public List<Borrow> selectByRidWithType1(Long rid) {
+        return borrowMapper.selectByRidWithType1(rid);
     }
 }
