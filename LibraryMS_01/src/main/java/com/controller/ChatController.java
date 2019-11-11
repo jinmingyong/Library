@@ -29,7 +29,7 @@ public class ChatController {
     private IReaderService readerService;
 
 
-    @RequestMapping("chatjsp")
+    @RequestMapping("/chatjsp")
     public String chatjsp(){
         return "Chat/login";
     }

@@ -43,15 +43,6 @@
                     </div>
                 </div>
     </div>
-        <div class="col-md-6 col-lg-3 grid-item" >
-            <div class="box-masonry"> <a href="addComment.jsp" title="" class="box-masonry-image with-hover-overlay whiadd" style="text-align: center"><img src="img/icons8-plus-math-100.png" class="img-fluid"></a>
-                <div class="box-masonry-hover-text-header"> <a href="addComment.jsp" class="tile-link">  </a>
-                    <div class="box-masonry-desription" style="text-align: center;">
-                        <p style="margin-top: 50px;font-weight: bolder;font-size: larger">添加帖子</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
     <div class="col-lg-8" style="position: absolute;bottom: 0">
@@ -136,7 +127,7 @@ ${sessionScope.rid}
                 })
             }
         },
-        created:function () {
+        mounted:function () {
             this.pageHandler(1);
         },
     })
