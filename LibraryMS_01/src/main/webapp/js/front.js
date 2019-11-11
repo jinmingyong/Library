@@ -24,9 +24,16 @@ $(function () {
          $('[data-toggle="offcanvas"]').click(function () {
              $('.row-offcanvas').toggleClass('active')
          });
+         $('[data-toggle="offcanvas-right"]').click(function () {
+             $('.row-offcanvasright').toggleClass('active')
+         });
      });
 
 
+        $("#showbtn").click(function () {
+            $(this).toggleClass("j1")
+            $(this).toggleClass("j2")
+        })
 
     // ------------------------------------------------------ //
     // Main slider

@@ -41,7 +41,7 @@ public class CommentController {
         return "jsp/addComment";
     }
     @RequestMapping("/addComment")
-    public String addComment(Comment comment, String isbn, Long rid,@RequestParam(value ="upload" ,required = false) MultipartFile upload){
+    public String addComment(Model model,Comment comment, String isbn, Long rid,@RequestParam(value ="upload" ,required = false) MultipartFile upload){
         //定义上传服务器路径
         String path="http://localhost:9090/uploads/";
         File file=new File(path);
@@ -65,7 +65,8 @@ public class CommentController {
         comment.setRid(rid);
         comment.setImage(filename);
         commentService.insertSelective(comment);
-        return "redirect:http://localhost:8080/comment/showAllComments?isbn="+isbn;
+        model.addAttribute("isbn",isbn);
+        return "redirect:/comment/showAllComments";
     }
 
     @RequestMapping(value = "/showAllComments")
@@ -81,19 +82,26 @@ public class CommentController {
         return mv;
     }
 
-    @RequestMapping(value = "/showAllComments2")
+    @RequestMapping("/showAllComments2")
     public @ResponseBody PageInfo<Comment> showAllBooks(String isbn,Integer page){
         PageInfo<Comment> pageInfo=new PageInfo<Comment>(commentService.selectCommentByIsbn(isbn,page));
         return pageInfo;
     }
 
-    @RequestMapping(value = "/findCommentById")
+    @RequestMapping("/findCommentById")
     public ModelAndView findCommentById(Long comId){
         Comment comment=commentService.selectByPrimaryKey(comId);
         ModelAndView mv=new ModelAndView();
         mv.addObject("comment",JSON.toJSONString(comment));
+        System.out.println(comment);
         mv.setViewName("jsp/showAllRemark");
         return mv;
+    }
+
+    @RequestMapping ("/findCommentByTitle")
+    public @ResponseBody PageInfo<Comment> findCommentByTitle(String title,String isbn,Integer pageNum){
+        PageInfo<Comment> pageInfo=new PageInfo<Comment>(commentService.selectCommentByTitle(title,isbn,pageNum));
+        return pageInfo;
     }
 
 }

@@ -57,7 +57,8 @@ public class BookResController {
         return "BookRes/showAll";
     }
     @RequestMapping("/upload")
-    public  @ResponseBody String upload(@RequestBody@RequestParam(value = "UploadForm[image]") MultipartFile upload,@RequestBody@RequestParam(value = "bid")Integer bid){
+    @ResponseBody
+    public  String upload(@RequestBody@RequestParam(value = "UploadForm[image]") MultipartFile upload,@RequestBody@RequestParam(value = "bid")Integer bid){
         //定义上传服务器路径
         String path="http://localhost:9090/uploads/";
         File file=new File(path);
@@ -83,4 +84,6 @@ public class BookResController {
         bookResService.updateBookRes(bookRes);
         return "http://localhost:9090/uploads/"+filename;
     }
+
+
 }

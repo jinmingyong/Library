@@ -7,7 +7,9 @@
 	font-family: arial;
 	color: #48576a;
 }
-
+ul,li{
+	list-style: none;
+}
 .zpagenav ul {
 	display: inline-block;
 	margin: 20px 20px;

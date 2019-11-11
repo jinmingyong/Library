@@ -1,10 +1,12 @@
 package com.interceptor;
 
+import com.socket.WebSocketMapService;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 public class MyInterceptor implements HandlerInterceptor {
     /*
@@ -26,6 +28,7 @@ public class MyInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         System.out.println("拦截器运行了----后-----");
        // request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request,response);
+
     }
     /*
      * success.jsp后

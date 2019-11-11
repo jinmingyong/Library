@@ -22,6 +22,11 @@
   <select id="selectAllBorrow" resultMap="BaseResultMap">
     select * from borrow
   </select>
+
+  <select id="moreBorrow" resultMap="BaseResultMap">
+    SELECT isbn from borrow GROUP BY isbn ORDER BY count(isbn) DESC LIMIT 6
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from borrow
     where bor_id = #{borId,jdbcType=BIGINT}

@@ -44,6 +44,12 @@ public class CommentServiceimpl implements ICommentService {
     }
 
     @Override
+    public List<Comment> selectCommentByTitle(String title,String isbn ,Integer pageNum) {
+        PageHelper.startPage(pageNum,3);
+        return commentMapper.selectCommentByTitle("%"+title+"%",isbn);
+    }
+
+    @Override
     public List<Comment> selectCommentByIsbn(String isbn, Integer pageNum) {
         PageHelper.startPage(pageNum,2);
         return commentMapper.selectCommentByIsbn(isbn);

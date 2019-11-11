@@ -24,7 +24,7 @@ body{font-family: "Microsoft Yahei";}
 .comment-show{margin-top: 20px;}
 .comment-show-con {
     width: 100%;
-    border-top: 1px solid #EDEDED;
+/*    border-top: 1px solid #EDEDED;*/
     padding: 10px 0 0 0;
 }
 .comment-show-con-img {
@@ -85,9 +85,9 @@ body{font-family: "Microsoft Yahei";}
     display: block;
     opacity: 0;
 }
-.hf-con-block {
+/*.hf-con-block {
     display: block;
-}
+}*/
 .date-dz-pl, .date-dz-line, .date-dz-z {
     font-size: 12px;
     color: #8b8b8b;

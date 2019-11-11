@@ -1,5 +1,6 @@
 package com.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -17,7 +18,8 @@ public class Comment implements Serializable {
     private String isbn;
     private String title;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @JSONField(format = "yyyy-MM-dd")
     private Date comCreatetime;
     private String image;
     private String context;

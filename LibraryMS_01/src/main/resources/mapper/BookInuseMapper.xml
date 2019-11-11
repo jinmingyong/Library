@@ -18,8 +18,14 @@
     where inu_id = #{inuId,jdbcType=INTEGER}
   </select>
 
-  <select id="findAll" resultMap="BaseResultMap">
-    select * from book_inuse
+  <select id="findAll" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * FROM
+    libraryms.book_inuse
+    INNER JOIN libraryms.book_reserve
+        ON (book_inuse.isbn = book_reserve.isbn)
+        <if test="bname!=null">
+        WHERE book_reserve.bname like #{bname,jdbcType=VARCHAR}
+        </if>
   </select>
 
   <select id="selectByIsbn" resultMap="BaseResultMap" parameterType="java.lang.String" >

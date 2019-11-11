@@ -93,7 +93,7 @@ ${reader.readId}
 
 
 </body>
-
+<script src="/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
     document.onkeydown = function (e) { // 回车提交表单
 // 兼容FF和IE和Opera
@@ -129,7 +129,6 @@ ${reader.readId}
         console.log(msg);
         var str="";
         var Who=msg.rid;
-        console.log(msg)
         if(Who!=${reader.readId}){
             //如果Who.value为0n那么是 A说
             str = '<div class="atalk"><span>'+msg.reader.rname+' :' + msg.context +'</span></div>';

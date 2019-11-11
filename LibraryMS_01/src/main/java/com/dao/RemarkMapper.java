@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.entity.Remark;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public interface RemarkMapper {
     List<Remark> selectAllRemark();
 
     List<Remark> selectRemarkBycomId(Long comId);
+
+    List<Remark> selectRemarkBycomIdreply(@Param("comid")Long comid, @Param("fatherremid")Long fatherremid);
 
     int updateByPrimaryKeySelective(Remark record);
 

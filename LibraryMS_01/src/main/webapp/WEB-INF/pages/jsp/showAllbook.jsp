@@ -18,6 +18,20 @@
         <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
         <h1 class="small-navbar-heading"> <a href="index.jsp">Creative </a></h1>
     </div>
+    <section class="container" style="height: 100px">
+        <form onsubmit="submitFn(this, event);">
+            <div class="search-wrapper">
+                <div class="input-holder">
+                    <input type="text" class="search-input" v-model="input_value" placeholder="Type to search" />
+                    <button class="btn-info search-icon" onclick="searchToggle(this, event);"><span><i class="fa fa-search"></i></span></button>
+                </div>
+                <span class="close" onclick="searchToggle(this, event);"></span>
+                <div class="result-container">
+
+                </div>
+            </div>
+        </form>
+    </section>
     <div class="grid row" >
         <div v-if ="bookInuses!=null||bookInuses!='' " class="col-md-6 col-lg-3 grid-item" v-for="(bookInuse,index) in bookInuses">
                 <div class="box-masonry"> <a v-bind:href=url+bookInuse.bookRes.isbn title="" class="box-masonry-image with-hover-overlay"><img v-bind:src="path+bookInuse.bookRes.image" alt="" class="img-fluid"></a>
@@ -48,6 +62,45 @@
 ${sessionScope.rid}
 </body>
 <script>
+    function searchToggle(obj, evt){
+
+        var container = $(obj).closest('.search-wrapper');
+
+        if(!container.hasClass('active')){
+            /*          $('.row-offcanvasright').toggleClass('active')*/
+            container.addClass('active');
+            evt.preventDefault();
+        }
+        else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+            /* $('.row-offcanvasright').toggleClass('active')*/
+            container.removeClass('active');
+            // clear input
+            container.find('.search-input').val('');
+            // clear and hide result container when we press close
+            container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+        }
+    }
+    function submitFn(obj, evt){
+        value = $(obj).find('.search-input').val().trim();
+
+/*        _html = "Yup yup! Your search text sounds like this: ";
+        if(!value.length){
+            _html = "Yup yup! Add some text friend :D";
+        }
+        else{
+            _html += "<b>" + value + "</b>";
+        }
+
+        $(obj).find('.result-container').html('<span>' + _html + '</span>');
+        $(obj).find('.result-container').fadeIn(100);*/
+
+        window.location.href=
+
+        evt.preventDefault();
+    }
+</script>
+<script>
+
     var vue=new Vue({
         el:'#myVue',
         data:{
@@ -58,14 +111,27 @@ ${sessionScope.rid}
             pageSize:null, //每一页显示的数据条数
             total:null, //记录总数
             maxPage:null, //最大页数
+            input_value:null,
+        },
+        watch:{
+            input_value: function () {
+                this.debounce(this.pageHandler, 1000)
+            }
         },
         methods:{
+            debounce: function (fn, wait) {
+                if (this.fun !== null) {
+                    console.log("---------")
+                    clearTimeout(this.fun)
+                }
+                this.fun = setTimeout(fn, wait)
+            },
             pageHandler: function (page) {
                 this.page=page
                 var that=this;
                 $.ajax({
                     url: "${request.getContextPath()}bookInuse/showAllBooks",
-                    data: {page:page},
+                    data: {page:page,name:that.input_value==""?null:that.input_value},
                     dataType: "json",
                     type: "post",
                     success: function (res) {
@@ -73,17 +139,12 @@ ${sessionScope.rid}
                         that.total = res.total;
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
-                        that.$data.bookInuses="";
                         that.$data.bookInuses = res.list;
                         $('.img-fluid').imagesLoaded(function() {
-
                             $('.grid').masonry({
-
                                 itemSelector: '.grid-item',
                                 columnWidth: 50,
-
                             });
-
                         });
                     }
                 })

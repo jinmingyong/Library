@@ -2,6 +2,7 @@ package com.dao;
 
 import com.entity.BookBad;
 import com.entity.BookInuse;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public interface BookInuseMapper {
 
     BookInuse selectByIsbn(String isbn);
 
-    List<BookInuse> findAll();
+    List<BookInuse> findAll(@Param("bname") String bname);
 
     int updateByPrimaryKeySelective(BookInuse record);
 

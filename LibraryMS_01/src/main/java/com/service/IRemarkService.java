@@ -19,6 +19,8 @@ public interface IRemarkService {
 
     List<Remark> selectRemarkBycomId(Long comId,Integer pageNum);
 
+    List<Remark> selectRemarkBycomIdreply(Long comId,Long fatherremid,Integer pageNum);
+
     int updateByPrimaryKeySelective(Remark record);
 
     int updateByPrimaryKeyWithBLOBs(Remark record);

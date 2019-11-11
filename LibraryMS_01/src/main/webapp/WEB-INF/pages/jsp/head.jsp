@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/search-form.css">
     <!-- Custom stylesheet - for your changes-->
     <!-- Favicon-->
     <link rel="stylesheet" href="css/zpageNav.css">
@@ -35,7 +36,7 @@
     <link rel="stylesheet" href="css/shortcode-common.css">
     <link rel="stylesheet" href="css/testimonial.css">
     <link rel="stylesheet" href="css/custom.css">
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -45,15 +46,17 @@
     <script src="js/zpageNav.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/portamento-min.js"></script>
 <%--    <script src="js/front.js"></script>--%>
     <script src="js/main.js"></script>
 </head>
 <body>
 <div id="all">
     <div class="container-fluid">
+
         <div class="row row-offcanvas row-offcanvas-left">
             <!--   *** SIDEBAR ***-->
-            <div id="sidebar" class="col-md-4 col-lg-3 sidebar-offcanvas">
+            <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas">
                 <div class="sidebar-content">
                     <h1 class="sidebar-heading"> <a href="index.jsp">Creative</a></h1>
                     <p class="sidebar-p">I am a creative illustrator and graphic designer with more than 10 years of experience. </p>

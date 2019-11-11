@@ -9,7 +9,7 @@ public interface IBookInuseService {
     /*
     * 查询所有上架的书
     * */
-    List<BookInuse> findAll();
+    List<BookInuse> findAll(String bname);
 
-    PageInfo<BookInuse> findAllByPage(Integer pageNo);
+    PageInfo<BookInuse> findAllByPage(Integer pageNo,String bname);
 }

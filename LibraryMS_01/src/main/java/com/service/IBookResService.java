@@ -31,6 +31,8 @@ public interface IBookResService {
     List<BookRes> findAll();
     //分页
     List<BookRes> findAllByPage(Integer pageNo);
+
+
     /*
     * 图书上架
     * */

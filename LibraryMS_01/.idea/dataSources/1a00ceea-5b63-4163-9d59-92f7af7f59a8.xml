@@ -1372,14 +1372,24 @@ isbn</ColNames>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="252" name="createtime">
+    <column id="328" parent="252" name="fatherremid">
       <Position>5</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="329" parent="252" name="replyname">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="330" parent="252" name="createtime">
+      <Position>7</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="329" parent="252" name="PRIMARY">
+    <key id="331" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>rem_id</ColNames>
       <Primary>1</Primary>

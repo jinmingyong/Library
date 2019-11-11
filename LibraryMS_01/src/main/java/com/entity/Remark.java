@@ -14,6 +14,8 @@ public class Remark implements Serializable {
     private Long remId;
     private Long rid;
     private Long comid;
+    private Long fatherremid;
+    private String replyname;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createtime;

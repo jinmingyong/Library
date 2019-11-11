@@ -17,6 +17,8 @@ public interface ICommentService {
 
     List<Comment> selectCommentByIsbn(String isbn);
 
+    List<Comment> selectCommentByTitle(String title,String isbn,Integer pageNum);
+
     List<Comment> selectCommentByIsbn(String isbn,Integer pageNum);
 
     int updateByPrimaryKeySelective(Comment record);

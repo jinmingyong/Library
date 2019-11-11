@@ -1,8 +1,5 @@
 import com.dao.*;
-import com.entity.BookBad;
-import com.entity.BookInuse;
-import com.entity.BookRes;
-import com.entity.Comment;
+import com.entity.*;
 import com.service.IBookInuseService;
 import com.service.IBookResService;
 import com.service.ICommentService;
@@ -47,10 +44,9 @@ public class Test {
     ICommentService commentService;
   @org.junit.Test
     public void test(){
-      Comment comment=new Comment();
-      comment.setImage("11111111");
-      comment.setContext("2222222");
-      System.out.println(commentMapper.insertSelective(comment));
+      Chat chat=new Chat();
+      chat.setPid((long) 1);
+      System.out.println(chatMapper.insertSelective(chat));
 
     }
 }

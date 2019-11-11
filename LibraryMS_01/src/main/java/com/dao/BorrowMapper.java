@@ -23,4 +23,6 @@ public interface BorrowMapper{
     int updateByPrimaryKeySelective(Borrow record);
 
     int updateByPrimaryKey(Borrow record);
+
+    List<Borrow> moreBorrow();
 }

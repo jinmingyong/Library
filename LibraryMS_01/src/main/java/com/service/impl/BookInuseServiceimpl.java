@@ -15,14 +15,14 @@ public class BookInuseServiceimpl implements IBookInuseService {
     @Resource
     private BookInuseMapper bookInuseMapper;
     @Override
-    public List<BookInuse> findAll() {
-        return bookInuseMapper.findAll();
+    public List<BookInuse> findAll(String bname) {
+        return bookInuseMapper.findAll(bname);
     }
 
     @Override
-    public PageInfo<BookInuse> findAllByPage(Integer pageNo) {
+    public PageInfo<BookInuse> findAllByPage(Integer pageNo,String bname) {
         PageHelper.startPage(pageNo,2);
-        List<BookInuse> list=bookInuseMapper.findAll();
+        List<BookInuse> list=bookInuseMapper.findAll("%"+bname+"%");
         PageInfo<BookInuse> pageInfo=new PageInfo<BookInuse>(list);
         return pageInfo;
     }

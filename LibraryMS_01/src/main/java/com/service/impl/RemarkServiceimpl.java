@@ -49,6 +49,12 @@ public class RemarkServiceimpl implements IRemarkService {
     }
 
     @Override
+    public List<Remark> selectRemarkBycomIdreply(Long comId, Long fatherremid, Integer pageNum) {
+        PageHelper.startPage(pageNum,2);
+        return remarkMapper.selectRemarkBycomIdreply(comId,fatherremid);
+    }
+
+    @Override
     public int updateByPrimaryKeySelective(Remark record) {
         return remarkMapper.updateByPrimaryKeySelective(record);
     }

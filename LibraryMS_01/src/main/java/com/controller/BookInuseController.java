@@ -15,16 +15,16 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Controller
-@RequestMapping("bookInuse")
+@RequestMapping(path = "/bookInuse")
 public class BookInuseController {
     @Resource
     private IBookInuseService bookInuseService;
 
 
     @RequestMapping(value = "/showAllBooks",produces = {"application/json;chartset=UTF-8"})
-    public @ResponseBody PageInfo<BookInuse> showAllBooks(Integer page){
+    public @ResponseBody PageInfo<BookInuse> showAllBooks(Integer page,String name){
         if (page==null||page==0)page=1;
-        PageInfo<BookInuse> pageInfo=  bookInuseService.findAllByPage(page);
+        PageInfo<BookInuse> pageInfo=  bookInuseService.findAllByPage(page,name);
         return pageInfo;
     }
 }
