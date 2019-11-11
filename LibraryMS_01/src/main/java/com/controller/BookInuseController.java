@@ -20,6 +20,10 @@ public class BookInuseController {
     @Resource
     private IBookInuseService bookInuseService;
 
+    @RequestMapping("/showAllbookjsp")
+    public String showAllbookjsp(){
+        return "jsp/showAllbook";
+    }
 
     @RequestMapping(value = "/showAllBooks",produces = {"application/json;chartset=UTF-8"})
     public @ResponseBody PageInfo<BookInuse> showAllBooks(Integer page,String name){

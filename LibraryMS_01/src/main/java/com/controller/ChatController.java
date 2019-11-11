@@ -28,6 +28,11 @@ public class ChatController {
     @Resource(name = "readerService")
     private IReaderService readerService;
 
+
+    @RequestMapping("chatjsp")
+    public String chatjsp(){
+        return "Chat/login";
+    }
     @RequestMapping("/readerlogin")
     public String readerlogin(String rname, String rpwd, HttpServletRequest request){
         Reader reader=readerService.readerlogin(rname,rpwd);

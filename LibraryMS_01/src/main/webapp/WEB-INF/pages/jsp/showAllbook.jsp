@@ -16,7 +16,7 @@
 <div class="col-md-8 col-lg-9 content-column" id="myVue">
     <div class="small-navbar d-flex d-md-none">
         <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-        <h1 class="small-navbar-heading"> <a href="index.jsp">Creative </a></h1>
+        <h1 class="small-navbar-heading">
     </div>
     <section class="container" style="height: 100px">
         <form onsubmit="submitFn(this, event);">
@@ -54,7 +54,7 @@
         </div>
 
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-8" style="position: absolute;bottom: 0">
     <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
     </zpagenav>
 </div>
@@ -82,20 +82,6 @@ ${sessionScope.rid}
     }
     function submitFn(obj, evt){
         value = $(obj).find('.search-input').val().trim();
-
-/*        _html = "Yup yup! Your search text sounds like this: ";
-        if(!value.length){
-            _html = "Yup yup! Add some text friend :D";
-        }
-        else{
-            _html += "<b>" + value + "</b>";
-        }
-
-        $(obj).find('.result-container').html('<span>' + _html + '</span>');
-        $(obj).find('.result-container').fadeIn(100);*/
-
-        window.location.href=
-
         evt.preventDefault();
     }
 </script>
