@@ -19,6 +19,8 @@
     <base href="<%=basePath%>">
     <title>借阅信息栏</title>
 </head>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/bootstrap.min.js"></script>
 <script src="/js/jquery-3.3.1.min.js"></script>
 <%--<script src="js/jquery-1.12.4.js"></script>--%>
 <style type="text/css">
@@ -48,10 +50,11 @@
     System.out.println("----"+list1);
 %>
 <body>
+<div class="container">
 <div id="main">
     <div>
         <ul>
-            <li>  <a href="/borrowFindAll" > <button id="showAllInfor">借阅信息</button></a> </li>
+            <li> <a href="/borrowFindAll" > <button id="showAllInfor">借阅信息</button></a> </li>
             <li>    <button type="button" id="no_back" >未归还信息</button> </li>
             <li>    <button type="button" id="insert_val">插入信息</button></li>
             <li>    <form >
@@ -69,7 +72,7 @@
     </div>
     <div id="mainInfor">
         <div id="showAll">
-            <table border="1px">
+            <table border="1px" class="table table-condensed">
                 <thead>
                 <tr>
                     <td>id</td>
@@ -168,6 +171,13 @@
         </div>
     </div>
 </div>
+</div>
+
+
+
+
+
+
 <script>
    $(function () {
        $("#showLend").hide();
