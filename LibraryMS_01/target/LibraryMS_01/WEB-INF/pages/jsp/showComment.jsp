@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-lg-12">
+        <div class="col-md-8 col-lg-12" style="position: relative;bottom: 0">
             <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
             </zpagenav>
         </div>

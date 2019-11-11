@@ -34,6 +34,11 @@ public class CommentController {
     private IBookResService bookResService;
 
 
+    @RequestMapping("/showCommentjsp")
+    public String showCommentjsp(){
+        return "jsp/showComment";
+    }
+
     @RequestMapping("/addCommentjsp")
     public String addCommentjsp(Integer bid,Model model){
         BookRes bookRes=bookResService.findBookResById(bid);

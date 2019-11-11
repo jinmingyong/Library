@@ -83,9 +83,9 @@
                 <header>
                     <span>Chats</span>
                 </header>
-                <form>
+                <%--<form>
                     <input type="text" class="form-control" placeholder="Search chats">
-                </form>
+                </form>--%>
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush" id="readerlist">
                         <li class="list-group-item">
@@ -145,13 +145,12 @@
         <div class="chat">
             <div class="chat-header">
                 <div class="chat-header-user">
-                    <figure class="avatar">
+                   <%-- <figure class="avatar">
                         <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
-                    </figure>
+                    </figure>--%>
                     <div>
-                        <h5>Byrom Guittet</h5>
+                        <h5>开始群聊</h5>
                         <small class="text-success">
-                            <i>writing...</i>
                         </small>
                     </div>
                 </div>
@@ -171,63 +170,6 @@
                 </div>
                 -->
                 <div class="messages">
-                    <div class="message-item outgoing-message">
-                        <div class="message-avatar">
-                            <figure class="avatar">
-                                <img src="./dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div>
-                                <h5>Mirabelle Tow</h5>
-                                <div class="time">01:20 PM <i class="ti-double-check text-info"></i></div>
-                            </div>
-                        </div>
-                        <div class="message-content">
-                            Hello how are you?
-                        </div>
-                    </div>
-                    <div class="message-item">
-                        <div class="message-avatar">
-                            <figure class="avatar">
-                                <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div>
-                                <h5>Byrom Guittet</h5>
-                                <div class="time">01:35 PM</div>
-                            </div>
-                        </div>
-                        <div class="message-content">
-                            I'm fine, how are you 😃
-                        </div>
-                    </div>
-                    <div class="message-item outgoing-message">
-                        <div class="message-avatar">
-                            <figure class="avatar">
-                                <img src="./dist/media/img/women_avatar5.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div>
-                                <h5>Mirabelle Tow</h5>
-                                <div class="time">05:31 PM <i class="ti-double-check text-info"></i></div>
-                            </div>
-                        </div>
-                        <div class="message-content">
-                            I'm fine thank you. I expect you to send me some files.
-                        </div>
-                    </div>
-                    <div class="message-item">
-                        <div class="message-avatar">
-                            <figure class="avatar">
-                                <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div>
-                                <h5>Byrom Guittet</h5>
-                                <div class="time">10:12 PM</div>
-                            </div>
-                        </div>
-                        <div class="message-content">
-                            What files are you talking about? I'm sorry I can't remember right now.
-                        </div>
-                    </div>
-
                 </div>
             </div>
             <div class="chat-footer">
@@ -291,30 +233,9 @@
 <script src="js/enjoyhint.min.js"></script>
 <!-- App scripts -->
 <script src="js/app.min.js"></script>
-<script src="js/vue.js"></script>
 <script>
 </script>
 <script>
-    var readers=[];
-  /*  new Vue({
-        el:'#myVue',
-        data:{
-            readerArr:{}
-        },
-        watch:{
-            readerArr: function () {
-                this.updateReaders
-            }
-        },
-        methods:{
-            updateReaders:function () {
-                alert(this.readerArr)
-            }
-        },
-        created:function () {
-
-        },
-    })*/
     $(function () {
 
         var SohoExamle = {
@@ -351,13 +272,6 @@
                 }
             }
         };
-
-        setTimeout(function () {
-            // $('#disconnected').modal('show');
-            // $('#call').modal('show');
-            // $('#videoCall').modal('show');
-            $('#pageTour').modal('show');
-        }, 1000);
         document.onkeydown = function (e) { // 回车提交表单
 // 兼容FF和IE和Opera
             var theEvent = window.event || e;
@@ -415,23 +329,6 @@
                         $("#readerlist").html(result)
                     }
                 })
-          /*      $.each(msg, function (i, el) {
-                    console.log(i)
-                    result += "    <li class=\"list-group-item\">\n" +
-                        "                            <figure class=\"avatar avatar-state-success\">\n" +
-                        "                                <img src=\"http://localhost:9090/uploads/"+el.image+"\""+  " class=\"rounded-circle\" alt=\"image\">\n" +
-                        "                            </figure>\n" +
-                        "                            <div class=\"users-list-body\">\n" +
-                        "                                <div>\n" +
-                        "                                    <h5 class=\"text-primary\">"+el.rname+"</h5>\n" +
-                        "                                    <p>"+el.remail+"</p>\n" +
-                        "                                </div>\n" +
-                        "                                <div class=\"users-list-action\">\n" +
-                        "                                </div>\n" +
-                        "                            </div>\n" +
-                        "                        </li>"
-                })
-                $("#readerlist").html(result)*/
                 return
             }
             var Who=msg.rid;
@@ -441,9 +338,6 @@
             else{
                 SohoExamle.Message.add(msg,"outgoing-message")
             }
-
-
-
         }
 
         //连接关闭的回调方法
@@ -455,13 +349,6 @@
         window.onbeforeunload = function () {
             closeWebSocket();
         }
-
-   /*     //将消息显示在网页上
-        function setMessageInnerHTML(innerHTML) {
-/!*            var Words = document.getElementById("words");
-            Words.innerHTML = Words.innerHTML + innerHTML;*!/
-        }*/
-
         //关闭WebSocket连接
         function closeWebSocket() {
             websocket.close();

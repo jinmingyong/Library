@@ -152,6 +152,15 @@ public class MyWebSocketHandler implements WebSocketHandler {
             }
 
         }
+        ConcurrentMap<Long, WebSocketSession> webSocketSessionMap = WebSocketMapService.webSocketSessionMap;
+        Set<Long> readerIds=webSocketSessionMap.keySet();
+        for (Long rid:readerIds
+        ) {
+            WebSocketSession session = WebSocketMapService.get(rid);
+            session.sendMessage(new TextMessage(
+                    new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
+                            .create().toJson(readerIds)));
+        }
     }
 
     public boolean supportsPartialMessages() {
