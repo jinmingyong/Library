@@ -93,7 +93,7 @@
                         <td>${borrow.isbn}</td>
                         <td>${borrow.bookRes.bname}</td>
                         <td>${borrow.rid}</td>
-                        <td>${borrow.User.name}</td>
+                        <td>${borrow.reader.rname}</td>
                         <td>${borrow.borTime}</td>
                         <td>${borrow.retTime}</td>
                         <td>${borrow.realTime}</td>
