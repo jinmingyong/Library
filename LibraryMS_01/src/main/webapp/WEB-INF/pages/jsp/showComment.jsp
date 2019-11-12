@@ -24,7 +24,6 @@
 <div class="col-md-8 col-lg-10 content-column" id="myVue">
     <div class="small-navbar d-flex d-md-none">
         <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-        <h1 class="small-navbar-heading">
     </div>
     <div class="col-md-8 col-lg-8">
         <div class="content-column-content">
