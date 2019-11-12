@@ -2,6 +2,8 @@ package com.service.impl;
 
 import com.dao.PenaltyMapper;
 import com.entity.Penalty;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.service.IPenaltyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,12 @@ public class PenaltyServiceimpl implements IPenaltyService {
     }
 
     @Override
+    public List<Penalty> selectAllPenalty(Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
+        return penaltyMapper.selectAllPenalty();
+    }
+
+    @Override
     public int updateByPrimaryKeySelective(Penalty record) {
         return penaltyMapper.updateByPrimaryKeySelective(record);
     }
@@ -50,6 +58,12 @@ public class PenaltyServiceimpl implements IPenaltyService {
 
     @Override
     public List<Penalty> selectPenaltyByRid(String rid) {
+        return penaltyMapper.selectPenaltyByRid(rid);
+    }
+
+    @Override
+    public List<Penalty> selectPenaltyByRid(String rid, Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
         return penaltyMapper.selectPenaltyByRid(rid);
     }
 }

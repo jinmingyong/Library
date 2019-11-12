@@ -3,6 +3,7 @@ package com.controller;
 import com.entity.Borrow;
 import com.entity.Penalty;
 import com.entity.Reader;
+import com.github.pagehelper.PageInfo;
 import com.service.IBorrowService;
 import com.service.IPenaltyService;
 import com.service.IReaderService;
@@ -33,6 +34,26 @@ public class PenaltyController {
         model.addAttribute("pen",list);
         return "penatly";
     }
+
+    @RequestMapping("/findAllPenaltybyPage")
+    public String findAllPenalty(Model model,Integer pageNum){
+        PageInfo<Penalty> list=new PageInfo<Penalty>(iPenaltyService.selectAllPenalty(pageNum));
+        model.addAttribute("pen",list);
+        return "penatly";
+    }
+
+    @RequestMapping("/findPenaltyByRidbyPage")
+    @ResponseBody
+    public PageInfo<Penalty> findPenaltyByRid(@RequestParam String rid, Model model,Integer pageNum){
+        PageInfo<Penalty> list=new PageInfo<Penalty>(iPenaltyService.selectPenaltyByRid(rid,pageNum));
+        if (list.getList().size()>0){
+            return list;
+        }else {
+            System.out.println("没有");
+            return null;
+        }
+    }
+
     @RequestMapping("/findPenaltyByRid")
     @ResponseBody
     public List<Penalty> findPenaltyByRid(@RequestParam String rid, Model model){
@@ -44,6 +65,7 @@ public class PenaltyController {
             return null;
         }
     }
+
     @RequestMapping(value = "/inserPenatly")
     @ResponseBody
     public String InserPenatly(@RequestParam("id") Integer id, @RequestParam("isbn") String isbn, @RequestParam("rid") Integer rid, @RequestParam("penType") String penType) throws IOException {

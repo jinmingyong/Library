@@ -2,6 +2,7 @@ package com.service.impl;
 
 import com.dao.BorrowMapper;
 import com.entity.Borrow;
+import com.github.pagehelper.PageHelper;
 import com.service.IBorrowService;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +44,19 @@ public class BorrowServiceimpl implements IBorrowService {
     }
 
     @Override
+    public List<Borrow> selectAllBorrow(Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
+        return borrowMapper.selectAllBorrow();
+    }
+
+    @Override
     public List<Borrow> selectByBorType() {
+        return borrowMapper.selectByBorType();
+    }
+
+    @Override
+    public List<Borrow> selectByBorType(Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
         return borrowMapper.selectByBorType();
     }
 
@@ -63,7 +76,19 @@ public class BorrowServiceimpl implements IBorrowService {
     }
 
     @Override
+    public List<Borrow> selectByRid(Long rid, Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
+        return borrowMapper.selectByRid(rid);
+    }
+
+    @Override
     public List<Borrow> selectCheckTime() {
+        return borrowMapper.selectCheckTime();
+    }
+
+    @Override
+    public List<Borrow> selectCheckTime(Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
         return borrowMapper.selectCheckTime();
     }
 
@@ -73,7 +98,19 @@ public class BorrowServiceimpl implements IBorrowService {
     }
 
     @Override
+    public List<Borrow> selectByRidWithoutType1(Long rid, Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
+        return borrowMapper.selectByRidWithoutType1(rid);
+    }
+
+    @Override
     public List<Borrow> selectByRidWithType1(Long rid) {
+        return borrowMapper.selectByRidWithType1(rid);
+    }
+
+    @Override
+    public List<Borrow> selectByRidWithType1(Long rid, Integer pageNum) {
+        PageHelper.startPage(pageNum,5);
         return borrowMapper.selectByRidWithType1(rid);
     }
 

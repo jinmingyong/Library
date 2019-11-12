@@ -15,9 +15,13 @@ public interface IPenaltyService  {
 
     List<Penalty> selectAllPenalty();
 
+    List<Penalty> selectAllPenalty(Integer pageNum);
+
     int updateByPrimaryKeySelective(Penalty record);
 
     int updateByPrimaryKey(Penalty record);
 
     List<Penalty> selectPenaltyByRid(String rid);
+
+    List<Penalty> selectPenaltyByRid(String rid,Integer pageNum);
 }

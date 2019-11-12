@@ -126,7 +126,6 @@ public class BookInuseServiceimpl implements IBookInuseService {
     @Override
     public List<BookInuse> findAll(String bname) {
         return bookInuseMapper.findAll(bname);
-
     }
 
     @Override

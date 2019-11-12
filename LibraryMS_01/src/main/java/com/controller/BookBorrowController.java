@@ -2,6 +2,7 @@ package com.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.entity.Borrow;
+import com.github.pagehelper.PageInfo;
 import com.service.IBorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/bookBorrow")
 public class BookBorrowController {
-    @Resource
-    private IBorrowService borrowService;
 
     @Autowired
     private IBorrowService iBorrowService;
@@ -43,11 +42,33 @@ public class BookBorrowController {
         //session.setAttribute("list",list);
         return "borrow";
     }
+    @RequestMapping("/borrowFindAllbyPage")
+    public String borrowFindAll(HttpServletRequest request, Model model,Integer pageNum){
+        PageInfo<Borrow> list=new PageInfo<Borrow>(iBorrowService.selectAllBorrow(pageNum));
+        model.addAttribute("list",list);
+        //HttpSession session=request.getSession();
+        //session.setAttribute("list",list);
+        return "borrow";
+    }
     @RequestMapping("/borrowFindType")
     public @ResponseBody List<Borrow> borrowFindType(HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
         List<Borrow> list=iBorrowService.selectByBorType();
         HttpSession session=request.getSession();
         if (list.size()>0){
+            //model.addAttribute("type",list);
+            /*            session.setAttribute("type",list);*/
+            //request.getRequestDispatcher(request.getContextPath()+"../pages/borrow.jsp").forward(request,response);
+            return list;
+        }else {
+            return null;
+        }
+
+    }
+    @RequestMapping("/borrowFindTypebyPage")
+    public @ResponseBody PageInfo<Borrow> borrowFindType(HttpServletRequest request, HttpServletResponse response, Model model, Integer pageNum) throws ServletException, IOException {
+        PageInfo<Borrow> list=new PageInfo<Borrow>(iBorrowService.selectByBorType(pageNum));
+        HttpSession session=request.getSession();
+        if (list.getList().size()>0){
             //model.addAttribute("type",list);
             /*            session.setAttribute("type",list);*/
             //request.getRequestDispatcher(request.getContextPath()+"../pages/borrow.jsp").forward(request,response);
@@ -86,6 +107,7 @@ public class BookBorrowController {
             System.out.println("还书失败！");
         }
     }
+
     @RequestMapping("/findBookInuseByRid")
     public @ResponseBody List<Borrow> findBookInuseByRid(@RequestParam("rid") String rid,@RequestParam("type") String type,Model model){
         if (type.equals("1")){
@@ -105,6 +127,26 @@ public class BookBorrowController {
             return list;
         }
     }
+    @RequestMapping("/findBookInuseByRidbyPage")
+    public @ResponseBody PageInfo<Borrow> findBookInuseByRid(@RequestParam("rid") String rid,@RequestParam("type") String type,Model model,Integer pageNum){
+        if (type.equals("1")){
+            PageInfo<Borrow> list=new PageInfo<Borrow>(iBorrowService.selectByRid(Long.valueOf(rid),pageNum));
+            // model.addAttribute("list",list);
+            System.out.println("全部"+list);
+            return list;
+        }else if (type.equals("2")){
+            PageInfo<Borrow> list=new PageInfo<Borrow>(iBorrowService.selectByRidWithoutType1(Long.valueOf(rid),pageNum));
+            //model.addAttribute("type",list);
+            System.out.println("未还"+list);
+            return list;
+        }else {
+            PageInfo<Borrow> list=new PageInfo<Borrow>(iBorrowService.selectByRidWithType1(Long.valueOf(rid),pageNum));
+            //model.addAttribute("list",list);
+            System.out.println("已还"+list);
+            return list;
+        }
+    }
+
     @RequestMapping("/findBookInuseByOverdue")
     @ResponseBody
     public List<Borrow> findBookInuseByOverdue(HttpServletRequest request,Model model){
@@ -121,10 +163,26 @@ public class BookBorrowController {
 
     }
 
+    @RequestMapping("/findBookInuseByOverduebyPage")
+    @ResponseBody
+    public PageInfo<Borrow> findBookInuseByOverdue(HttpServletRequest request,Model model,Integer pageNum){
+        PageInfo<Borrow> list=new PageInfo<Borrow>(iBorrowService.selectCheckTime(pageNum));
+        //model.addAttribute("bor",list);
+//        HttpSession session=request.getSession();
+//        System.out.println("我是后台的："+list);
+        //session.setAttribute("bor",list);
+        if (list.getList().size()>0){
+            return list;
+        }else {
+            return null;
+        }
+
+    }
+
     @RequestMapping("/moreBorrow")
     public @ResponseBody String imagenames(){
         List<String> imageList=new ArrayList<String>();
-        List<Borrow> list=borrowService.moreBorrow();
+        List<Borrow> list=iBorrowService.moreBorrow();
         for (Borrow b:list
              ) {
             System.out.println(b.getBookRes().getImage());
