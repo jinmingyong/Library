@@ -8,12 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/JdbcConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JdbcConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/borrow.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/borrow.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/staffManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/staffManage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,28 +50,30 @@
     <session id="1574329094">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="12" />
-          <entry key="jsp" value="14" />
+          <entry key="java" value="16" />
+          <entry key="jsp" value="15" />
           <entry key="properties" value="2" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="12" />
-          <entry key="JSP" value="14" />
+          <entry key="JAVA" value="16" />
+          <entry key="JSP" value="15" />
           <entry key="Properties" value="2" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="76" />
+          <entry key="java" value="159" />
           <entry key="jsp" value="33" />
           <entry key="properties" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="76" />
+          <entry key="JAVA" value="159" />
           <entry key="JSP" value="33" />
           <entry key="Properties" value="4" />
         </counts>
@@ -98,10 +95,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="276" column="55" selection-start-line="276" selection-start-column="55" selection-end-line="276" selection-end-column="55" />
+            <state relative-caret-position="2507">
+              <caret line="129" column="26" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -136,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1518">
-              <caret line="127" column="48" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+            <state relative-caret-position="5574">
+              <caret line="254" column="29" selection-start-line="254" selection-start-column="29" selection-end-line="254" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,6 +150,33 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2040">
               <caret line="99" column="7" lean-forward="true" selection-start-line="25" selection-end-line="99" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="97" column="54" selection-start-line="97" selection-start-column="54" selection-end-line="97" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/Test.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="477">
+              <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="21" column="55" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -177,6 +201,7 @@
       <find>row</find>
       <find>redirect:</find>
       <find>insertAccount</find>
+      <find>上架</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/ChatController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/ReaderController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/chat1.jsp" />
@@ -199,6 +223,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java" />
       </list>
     </option>
   </component>
@@ -377,7 +402,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573570012995" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573571737681" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/twts_243_sb-admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -879,11 +904,25 @@
       <option name="project" value="LOCAL" />
       <updated>1573566573117</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="new">
+      <created>1573570008483</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1573570008483</updated>
+    </task>
+    <task id="LOCAL-00015" summary="new">
+      <created>1573570031257</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1573570031257</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5023000" />
+    <option name="totallyTimeSpent" value="6748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -900,7 +939,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34273317" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.2548807" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.010845987" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -975,13 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="129" column="26" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/service/IBorrowService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-805">
@@ -1021,13 +1053,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/head.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-925" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/service/AdminService.java">
@@ -1118,13 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/impl/BorrowServiceimpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1058">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/entity/Borrow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1143,20 +1161,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" selection-start-line="9" selection-end-line="16" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/Test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="73" column="31" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1007">
-          <caret line="131" column="7" selection-start-line="131" selection-start-column="7" selection-end-line="131" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1184,10 +1188,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/service/impl/BorrowServiceimpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="276" column="55" selection-start-line="276" selection-start-column="55" selection-end-line="276" selection-end-column="55" />
+        <state relative-caret-position="23">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2507">
+          <caret line="129" column="26" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="21" column="55" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1200,11 +1218,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1518">
-          <caret line="127" column="48" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
+        <state relative-caret-position="5574">
+          <caret line="254" column="29" selection-start-line="254" selection-start-column="29" selection-end-line="254" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1256">
+          <caret line="136" column="66" lean-forward="true" selection-start-line="136" selection-start-column="60" selection-end-line="136" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="131" column="7" selection-start-line="131" selection-start-column="7" selection-end-line="131" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/Test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookInuseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="97" column="54" selection-start-line="97" selection-start-column="54" selection-end-line="97" selection-end-column="54" />
         </state>
       </provider>
     </entry>

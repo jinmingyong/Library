@@ -89,12 +89,13 @@ public class BookInuseController {
 
     //maki:add
     @RequestMapping("/insertBookInuse")
-    public void insertBookInuse(@RequestParam String isbn,@RequestParam Integer account,HttpServletRequest request,HttpServletResponse response ) throws IOException {
+    public String insertBookInuse(@RequestParam String isbn,@RequestParam Integer account,HttpServletRequest request,HttpServletResponse response ) throws IOException {
         int i=iBookInuseService.insertInuseShelf(isbn,account);
         if (i>0){
-            response.sendRedirect(request.getContextPath()+"/findInuseAll");
+            return "redirect:/bookInuse/findInuseAll";
         }else {
-            response.sendRedirect("/Test.jsp");
+//           return "bookinuse";
+            return "redirect:/bookInuse/findInuseAll";
         }
     }
 
