@@ -17,6 +17,7 @@ public class BookBad implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date badtime;
     private Integer badnum;
+    private Integer btype;
     private BookRes bookRes;
     private static final long serialVersionUID = 1L;
 

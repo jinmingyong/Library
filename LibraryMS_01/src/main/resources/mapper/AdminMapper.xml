@@ -37,4 +37,9 @@
     <update id="updateByPhoneNum" parameterType="admin">
         update admin set a_password=#{a_password} where phoneNum=#{phoneNum}
     </update>
+
+    <!--何积鹏-->
+    <update id="updateAdminType" parameterType="admin">
+        update admin set type=#{type} where a_id=#{a_id}
+    </update>
 </mapper>

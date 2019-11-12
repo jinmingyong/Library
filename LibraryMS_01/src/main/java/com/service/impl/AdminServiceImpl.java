@@ -61,4 +61,9 @@ public class AdminServiceImpl implements AdminService
     {
         adminDao.updateByPhoneNum(admin);
     }
+
+    @Override
+    public int updateAdminType(Integer a_id, String type) {
+        return adminDao.updateAdminType(a_id,type);
+    }
 }

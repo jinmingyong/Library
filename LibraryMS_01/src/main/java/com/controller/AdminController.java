@@ -113,15 +113,15 @@ public class AdminController
             if (admin.getType().equals("1")){
                 for (Admin admin1:list)
                 {
-                    model.addAttribute("admin", admin1);
-
+                    //model.addAttribute("admin", admin1);
+                    request.getSession().setAttribute("admin",admin1);
                 }
-                return "list";
+                return "redirect:/attence.jsp";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list)
                 {
                     model.addAttribute("admin", admin1);
-
+                    request.getSession().setAttribute("admin",admin1);
                 }
                 return "list";
             }else {
@@ -139,13 +139,14 @@ public class AdminController
             if (admin.getType().equals("1")){
                 for (Admin admin1:list)
                 {
-                    model.addAttribute("admin", admin1);
+                    //model.addAttribute("admin", admin1);
+                    request.getSession().setAttribute("admin",admin1);
                 }
-                return "list";
+                return "redirect:/attence.jsp";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list){
-                    model.addAttribute("admin",admin1);
-
+                    //model.addAttribute("admin",admin1);
+                    request.getSession().setAttribute("admin",admin1);
                 }
                 return "list";
             }else {
@@ -163,14 +164,15 @@ public class AdminController
             if (admin.getType().equals("1")){
                 for (Admin admin1:list)
                 {
-                    model.addAttribute("admin", admin1);
-
+                    //model.addAttribute("admin", admin1);
+                    request.getSession().setAttribute("admin",admin1);
                 }
-                return "list";
+                return "redirect:/attence.jsp";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list)
                 {
-                    model.addAttribute("admin", admin1);
+                    //model.addAttribute("admin", admin1);
+                    request.getSession().setAttribute("admin",admin1);
                 }
                 return "list";
             }else {

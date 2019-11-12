@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.btn{
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 5%;
+}
+#staffTypeUpdate{
+    width: 500px;
+    margin: 10px auto;
+}
+#staffTypeUpdate li{
+    list-style: none;
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+}
+#staffTypeUpdate li:nth-of-type(3){
+    text-align: center;
+}
+.staffTypeUpdateInput{
+    width: 250px;
+    height: 30px;
+    font-size: 20px;
+}

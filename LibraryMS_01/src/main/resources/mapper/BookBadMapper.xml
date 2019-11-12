@@ -9,7 +9,7 @@
     <association property="bookRes" column="isbn" fetchType="lazy" javaType="com.entity.BookRes" select="com.dao.IBookResDao.findBookResByIsbn"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    bad_id, isbn, badtime, badnum
+    bad_id, isbn, badtime, badnum,btype
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
@@ -37,9 +37,9 @@
     <selectKey resultType="java.lang.Integer" keyProperty="badId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into book_bad (isbn, badtime, badnum
+    insert into book_bad (isbn, badtime, badnum,btype
       )
-    values (#{isbn,jdbcType=VARCHAR}, #{badtime,jdbcType=TIMESTAMP}, #{badnum,jdbcType=INTEGER}
+    values (#{isbn,jdbcType=VARCHAR}, #{badtime,jdbcType=TIMESTAMP}, #{badnum,jdbcType=INTEGER},#{btype,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.entity.BookBad" >
@@ -89,7 +89,8 @@
     update book_bad
     set isbn = #{isbn,jdbcType=VARCHAR},
       badtime = #{badtime,jdbcType=TIMESTAMP},
-      badnum = #{badnum,jdbcType=INTEGER}
+      badnum = #{badnum,jdbcType=INTEGER},
+      btype =  #{btype,jdbcType=INTEGER}
     where bad_id = #{badId,jdbcType=INTEGER}
   </update>
 </mapper>

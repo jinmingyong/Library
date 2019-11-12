@@ -1,10 +1,7 @@
 package com.dao;
 
 import com.entity.Admin;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,4 +24,6 @@ public interface AdminDao
     List<Admin> findByPhoneNum(String phoneNum);
 
     void updateByPhoneNum(Admin admin);
+
+    int updateAdminType(@Param("a_id") Integer a_id, @Param("type") String type);
 }

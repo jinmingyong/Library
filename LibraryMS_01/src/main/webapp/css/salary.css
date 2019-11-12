@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+    font-size: 22px;
+    height: 40px;
+    line-height: 40px;
+}
+#salary{
+    width: 340px;
+    margin: 0 auto;
+}
+#salary ul{
+    margin-top: 10px;
+}
+#salary_y{
+    width: 160px;
+    display: inline-block;
+    font-size: 22px;
+}
+#salary_m{
+    width: 160px;
+    display: inline-block;
+    font-size: 22px;
+}
+#salary_year{
+    width: 100px;
+    height: 30px;
+    font-size: 22px;
+    line-height: 30px;
+    border: 1px solid gray;
+}
+#salary_month{
+    width: 100px;
+    height: 30px;
+    font-size: 22px;
+    line-height: 30px;
+    border: 1px solid gray;
+}
+#salary_btn{
+    width: 310px;
+    height: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}

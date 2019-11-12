@@ -1,125 +1,132 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: King-小明
-  Date: 2019/10/26
-  Time: 13:49
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+    <title>图书管理系统</title>
 
-    <base href="<%=basePath%>">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-<%--    <script src="js/vue.js" type="text/javascript"></script>--%>
-</head>
-<body>
-<div id="myVue">
-<h2>创建模态框（Modal）</h2>
-<!-- 按钮触发模态框 -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加</button>
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" >
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
-            </div>
-            <div class="modal-body">
-                <form id="from1">
-                    bname:<input type="text" name="bname" v-model="bookres.bname">
-                    isbn:<input type="text" name="isbn"  v-model="bookres.isbn">
-                    btype:
-                    <section class="selectbox_section">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="selectStyle1">
-                                        <select name="btype" v-model="bookres.btype">
-                                            <option value="1" class="option">Choose an option</option>
-                                            <option value="2"  class="option">Car</option>
-                                            <option value="3"  class="option">Launch</option>
-                                            <option value="Bus"  class="option">Bus</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    author:<input type="text" name="author" v-model="bookres.author">
-                    publisher:<input type="text" name="publisher" v-model="bookres.publisher">
-                    <%--    import_time<input type="date" name="importTime">--%>
-                    amount:<input type="text" name="amount" v-model="bookres.amount">
-                    introduce:<input type="text" name="introduce" v-model="bookres.introduce">
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" @click="confim()" class="btn btn-primary">提交更改</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
-</div>
-<%
-    session.setAttribute("rid",1);
-%>
-<a href="bookres/findAllBookRes">查询所有</a>
-<a href="bookres/showallbook">showallBook</a>
-</body>
-<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/vue.js"></script>
-<script>
-   new Vue({
-        el:'#myVue',
-       data:{
-           bookres:{bname:'',bookres:'',btype:'1',author:'',publisher:'',amount:'',introduce:''},
-           bookResList:[],
-           ids:[],
-       },
-        methods:{
-            confim:function() {
-                var flag= confirm("是否继续")
-                if(flag==true){
-                    this.addlist();
-                    document.getElementById("from1").reset();//重置表单
-                }
-                else {
-                    this.addlist();
-                    console.log(this.bookResList);
-                    $.ajax({
-                        //编写json格式，设置属性和值
-                        url:"bookres/addBookRes",
-                        contentType:"application/json;charset=UTF-8",
-                        data:JSON.stringify(this.bookResList),
-                        dataType:"json",
-                        type:"post",
-                        success:function (data) {
-                            console.log(data);
-                             $("#myModal").trigger("click");
-                            window.location.href="bookres/findAllBookRes"
-                        }
-                    })
-                }
-                //$("#from1").submit();
-            },
-            addlist:function () {
-                this.bookResList.push(this.bookres);
-                console.log(this.bookResList);
-                this.bookres={bname:'',bookres:'',btype:'1',author:'',publisher:'',amount:'',introduce:''}
-            },
-            dele:function () {
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <script type="text/javascript" src="easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+    <link id="themeLink" rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
 
-            }
+    <style type="text/css">
+        ul{
+            line-height: 30px;
         }
-    })
+    </style>
+</head>
+
+<body class="easyui-layout">
+<!-- 顶部 -->
+<div data-options="region:'north',split:true" style="height:80px;">
+
+    <!-- logo -->
+    <div id="logo">
+        <img src="images/logo.jpg" width="1300" height="100">
+    </div>
+
+    <!-- 登录用户信息 -->
+    <div id="loginDiv" style="position: absolute;right: 20px;top: 20px;">
+        欢迎你[超级管理员]登录!
+    </div>
+
+    <div id="themesDiv" style="position: absolute;right: 20px;top:40px;">
+        <a href="javascript:void(0)" id="mb" class="easyui-menubutton"
+           data-options="menu:'#Themesmeus',iconCls:'icon-edit'">切换风格</a>
+        <div id="Themesmeus" style="width:150px;">
+            <div>default</div>
+            <div>gray</div>
+            <div>black</div>
+            <div>bootstrap</div>
+            <div>material</div>
+            <div>metro</div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div data-options="region:'south',split:true" style="height:30px;">
+    <div id="copyrightDiv" style="text-align: center;">
+        MrsLiu&copy;2018版权所有
+    </div>
+</div>
+
+<!-- 左边系统菜单 -->
+<div data-options="region:'west',title:'系统菜单',split:true" style="width:200px;">
+    <div id="aa" class="easyui-accordion" style="width:193px;" data-options="border:0,multiple:true" >
+        <div title="系统管理" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">
+            <ul>
+                <li><a href="javascript:void(0)" pageUrl="categroy.jsp">员工管理</a></li>
+            </ul>
+        </div>
+        <div title="商品管理" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
+            <ul>
+                <li><a href="javascript:void(0)" pageUrl="booking_manage.jsp">图书预订</a></li>
+                <li><a href="javascript:void(0)" pageUrl="linkman_manage.jsp">联系人管理管理</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 中间编辑区域 -->
+<div data-options="region:'center'" style="padding:5px;background:#eee;">
+    <div id="tt" class="easyui-tabs" style="width:500px;height:250px;" data-options="fit:true">
+        <div title="起始页" style="padding:20px;display:none;">
+            Welcome!
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function(){
+        //给a标签绑定时间
+        $("a[pageUrl]").click(function(){
+            //1.获取pageUrl属性值（需要跳转的页面地址）
+            var pageUrl = $(this).attr("pageUrl");
+            //获取a标签的内容，标题
+            var title = $(this).text();
+
+            //2.判断是否存在指定标题的选项卡
+            if( $("#tt").tabs("exists",title)  )  {
+                //3.如果存在，则选项该选项卡
+                $("#tt").tabs("select",title);
+            }else{
+                //4.如果不存在，则添加选项卡
+                $("#tt").tabs("add",{
+                    title:title,
+                    content:"<iframe src='"+pageUrl+"' width='100%' height='100%' frameborder='0'><iframe>",
+                    closable:true
+                });
+            }
+        });
+
+        //点击切换模块菜单的时候，进行切换模块
+        $("#Themesmeus").menu({
+            onClick:function(item){
+                //1.获取需要改变的模块名称
+                var themeName = item.text;
+
+                //2.获取link标签的href属性
+                var href= $("#themeLink").attr("href");
+
+                //3.更改href的属性值
+                // easyui/themes/default/easyui.css
+                href = href.substring(0,href.indexOf("themes"))+"themes/"+themeName+"/easyui.css";
+
+                //4.更新link的href属性
+                $("#themeLink").attr("href",href);
+            }
+        });
+    });
 
 </script>
+</body>
 </html>

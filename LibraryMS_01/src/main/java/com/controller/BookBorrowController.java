@@ -88,7 +88,7 @@ public class BookBorrowController {
         borrow.setRetTime(addDate(7));
         int i=iBorrowService.insert(borrow);
         if (i>0){
-            response.sendRedirect(request.getContextPath()+"/borrowFindAll");
+            response.sendRedirect(request.getContextPath()+"/bookBorrow/borrowFindAll");
         }else {
             System.out.println("存入失败！");
         }
@@ -102,7 +102,7 @@ public class BookBorrowController {
         borrow.setRealTime(new Date());
         int i=iBorrowService.updateByPrimaryKey(borrow);
         if (i>0){
-            response.sendRedirect(request.getContextPath()+"/borrowFindAll");
+            response.sendRedirect(request.getContextPath()+"/bookBorrow/borrowFindAll");
         }else {
             System.out.println("还书失败！");
         }
