@@ -54,7 +54,7 @@ public class BookInuseController {
     public void updateBookInuse(@RequestParam String isbn, @RequestParam Integer account, HttpServletResponse response, HttpServletRequest request) throws IOException {
         int i=iBookInuseService.updateInuseShelf(isbn,account);
         if (i>0){
-            response.sendRedirect(request.getContextPath()+"/findInuseAll");
+            response.sendRedirect(request.getContextPath()+"/bookInuse/findInuseAll");
         }else {
             System.out.println("插入失败！");
             response.sendRedirect("/Test.jsp");

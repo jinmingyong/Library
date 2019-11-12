@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.AdminDao">
+    <resultMap id="adminMap" type="admin">
+        <id property="id" column="id"/>
+        <result property="a_id" column="a_id"/>
+        <result property="a_name" column="a_name"/>
+        <result property="a_password" column="a_password"/>
+        <result property="a_email" column="a_email"/>
+        <result property="phoneNum" column="phoneNum"/>
+        <result property="type" column="type"/>
+        <result property="headImage" column="headImage"/>
+    </resultMap>
+    <select id="findAll" resultMap="adminMap" parameterType="admin">
+        select * from admin
+    </select>
+    <insert id="saveAdmin" parameterType="admin">
+        insert into admin(a_id,a_name,a_password,a_email,phoneNum,type,headImage) values(#{a_id},#{a_name},#{a_password},#{a_email},#{phoneNum},#{type},#{headImage})
+    </insert>
+    <update id="updateAdmin" parameterType="admin">
+        update admin set a_id=#{a_id},a_name=#{a_name},a_password=#{a_password},a_email=#{a_email},phoneNum=#{phoneNum},type=#{type},headImage=#{headImage} where id=#{id}
+    </update>
+    <delete id="deleteAdmin" parameterType="java.lang.Integer">
+       delete from admin where a_id=#{a_id}
+    </delete>
+    <select id="findById" resultMap="adminMap" parameterType="admin">
+        select * from admin where a_id=#{a_id}
+    </select>
+    <select id="findLogin" resultMap="adminMap" parameterType="admin">
+        select * from admin where (a_id=#{a_id} or a_email=#{a_email} or phoneNum=#{phoneNum}) and a_password=#{a_password}
+    </select>
+    <select id="findByPhoneNum" resultMap="adminMap" parameterType="admin">
+        select * from admin where phoneNum=#{phoneNum};
+    </select>
+    <update id="updateByPhoneNum" parameterType="admin">
+        update admin set a_password=#{a_password} where phoneNum=#{phoneNum}
+    </update>
+</mapper>

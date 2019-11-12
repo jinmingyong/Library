@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
+@RequestMapping("/reader")
 public class ReaderController
 {
     @Autowired
@@ -159,7 +160,7 @@ public class ReaderController
         }
         readerService.updateReader(user);
         model.addAttribute("user",user);
-        return "login";
+        return "redirect:/login.jsp";
     }
     @RequestMapping("/checkPhone")
     @ResponseBody
@@ -222,6 +223,6 @@ public class ReaderController
         user.setRpwd(pwd);
         user.setRphone(name);
         readerService.updateReaderPassword(user);
-        return "login";
+        return "redirect:/login.jsp";
     }
 }
