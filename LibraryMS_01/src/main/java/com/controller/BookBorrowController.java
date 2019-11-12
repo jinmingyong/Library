@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-/*@RequestMapping("/bookBorrow")*/
+@RequestMapping("/bookBorrow")
 public class BookBorrowController {
     @Resource
     private IBorrowService borrowService;

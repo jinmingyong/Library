@@ -51,7 +51,7 @@
 <!-- ./ page tour modal -->
 
 <!-- disconnected modal -->
-<div class="modal fade" id="disconnected" tabindex="-1" role="dialog" aria-hidden="true">
+<%--<div class="modal fade" id="disconnected" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-zoom" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -68,10 +68,10 @@
             </div>
         </div>
     </div>
-</div>
+</div>--%>
 <!-- ./ disconnected modal -->
 <!-- layout -->
-<div class="layout" id="myVue">
+<div class="layout">
     <!-- content -->
     <div class="content">
 
@@ -83,59 +83,8 @@
                 <header>
                     <span>Chats</span>
                 </header>
-                <%--<form>
-                    <input type="text" class="form-control" placeholder="Search chats">
-                </form>--%>
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush" id="readerlist">
-                        <li class="list-group-item">
-                            <figure class="avatar avatar-state-success">
-                                <img src="./dist/media/img/man_avatar1.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div class="users-list-body">
-                                <div>
-                                    <h5 class="text-primary">Townsend Seary</h5>
-                                    <p>What's up, how are you?</p>
-                                </div>
-                                <div class="users-list-action">
-                                    <div class="new-message-count">3</div>
-                                    <small class="text-primary">03:41 PM</small>
-                                </div>
-                            </div>
-                        </li>
-<%--                        <li class="list-group-item">
-                            <figure class="avatar avatar-state-warning">
-                                <img src="./dist/media/img/man_avatar4.jpg" class="rounded-circle" alt="image">
-                            </figure>
-                            <div class="users-list-body">
-                                <div>
-                                    <h5 class="text-primary">Forest Kroch</h5>
-                                    <p>
-                                        <i class="fa fa-camera mr-1"></i> Photo
-                                    </p>
-                                </div>
-                                <div class="users-list-action">
-                                    <div class="new-message-count">1</div>
-                                    <small class="text-primary">Yesterday</small>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item open-chat">
-                            <div>
-                                <figure class="avatar">
-                                    <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
-                                </figure>
-                            </div>
-                            <div class="users-list-body">
-                                <div>
-                                    <h5>Byrom Guittet</h5>
-                                    <p>I sent you all the files. Good luck with 😃</p>
-                                </div>
-                                <div class="users-list-action">
-                                    <small class="text-muted">11:05 AM</small>
-                                </div>
-                            </div>
-                        </li>--%>
                     </ul>
                 </div>
             </div>
@@ -145,9 +94,6 @@
         <div class="chat">
             <div class="chat-header">
                 <div class="chat-header-user">
-                   <%-- <figure class="avatar">
-                        <img src="./dist/media/img/man_avatar3.jpg" class="rounded-circle" alt="image">
-                    </figure>--%>
                     <div>
                         <h5>开始群聊</h5>
                         <small class="text-success">
@@ -158,34 +104,23 @@
 
                 </div>
             </div>
-            <div class="chat-body"> <!-- .no-message -->
-                <!--
-                <div class="no-message-container">
-                    <div class="row mb-5">
-                        <div class="col-md-4 offset-4">
-                            <img src="./dist/media/svg/undraw_empty_xct9.svg" class="img-fluid" alt="image">
-                        </div>
-                    </div>
-                    <p class="lead">Select a chat to read messages</p>
-                </div>
-                -->
+            <div class="chat-body">
                 <div class="messages">
                 </div>
             </div>
             <div class="chat-footer">
-                <form>
-                    <input type="text" id="context" class="form-control" placeholder="Write a message.">
-                    <div class="form-buttons">
-                        <button class="btn btn-primary" type="button" id="btn">
+                    <input type="text" id="context" class="form-control" placeholder="Write a message."  style="margin-bottom: 20px" maxlength="20">
+                    <div class="form-buttons" style="float: right" >
+                        <button class="btn btn-primary" type="button" id="btn" style="width: 100px;padding-left: 40px">
                             <i data-feather="send"></i>
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <!-- ./ chat -->
 
-        <div class="sidebar-group">
+<%--        <div class="sidebar-group">
             <div id="contact-information" class="sidebar">
                 <header>
                     <span>Profile</span>
@@ -220,7 +155,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
     </div>
     <!-- ./ content -->
@@ -272,14 +207,6 @@
                 }
             }
         };
-        document.onkeydown = function (e) { // 回车提交表单
-// 兼容FF和IE和Opera
-            var theEvent = window.event || e;
-            var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
-            if (code == 13) {
-                send();
-            }
-        }
         var websocket = null;
         //判断当前浏览器是否支持WebSocket
         if ('WebSocket' in window) {
@@ -302,7 +229,6 @@
         websocket.onmessage = function (event) {
             var msg=event.data;
             msg=JSON.parse(msg);
-            console.log("111111111111111111")
             if (msg instanceof Array){
                 console.log(msg)
                 var result='';
@@ -358,6 +284,10 @@
         function send() {
             var msg = input.val();
              msg = $.trim(msg);
+             if (msg==""){
+                 alert("不能为空")
+                 return
+             }
             var rid=${reader.readId}
             var pid=1;
             var data = {
@@ -365,8 +295,15 @@
                 "pid":1,
                 "context":msg
             };
-            console.log(data)
             websocket.send(JSON.stringify(data));
+        }
+        document.onkeydown = function (e) { // 回车提交表单
+// 兼容FF和IE和Opera
+            var theEvent = window.event || e;
+            var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+            if (code == 13) {
+                send()
+            }
         }
         $("#btn").click(function () {
             send();
