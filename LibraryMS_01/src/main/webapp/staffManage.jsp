@@ -35,15 +35,15 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="bookInuse/findInuseAll">
                     <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">Charts</span>
+                    <span class="nav-link-text">上架管理系统</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="penalty/findAllPenalty">
                     <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">Tables</span>
+                    <span class="nav-link-text">违规处罚系统</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">

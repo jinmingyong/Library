@@ -67,21 +67,27 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="borrow.jsp">
+                    <a class="nav-link" href="bookBorrow/borrowFindAll">
                         <i class="fa fa-fw fa-dashboard"></i>
                         <span class="nav-link-text">借阅管理系统</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href="bookInuse/findInuseAll">
                         <i class="fa fa-fw fa-area-chart"></i>
-                        <span class="nav-link-text">Charts</span>
+                        <span class="nav-link-text">上架管理系统</span>
                     </a>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                    <a class="nav-link" href="tables.html">
+                    <a class="nav-link" href="penalty/findAllPenalty">
                         <i class="fa fa-fw fa-table"></i>
-                        <span class="nav-link-text">Tables</span>
+                        <span class="nav-link-text">违规处罚系统</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                    <a class="nav-link" href="staffManage.jsp">
+                        <i class="fa fa-fw fa-table"></i>
+                        <span class="nav-link-text">管理员管理</span>
                     </a>
                 </li>
             </ul>
@@ -157,45 +163,46 @@
                                             </tbody>
 
                                         </table>
-                                    </div>
-                                    <%--分页--%>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            当前${pageInfo.pageNum }页，总共${pageInfo.pages }页，总共${pageInfo.total }条记录
-                                        </div>
-                                        <div class="col-md-6">
-                                            <nav aria-label="Page navigation">
-                                                <ul class="pagination">
-                                                    <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=1">首页</a></li>
-                                                    <c:if test="${pageInfo.hasPreviousPage }">
-                                                        <li>
-                                                            <a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pageNum-1}" aria-label="Previous">
-                                                                <span aria-hidden="true">&laquo;</span>
-                                                            </a>
-                                                        </li>
-                                                    </c:if>
-                                                    <c:forEach items="${pageInfo.navigatepageNums }" var="page">
-                                                        <c:if test="${page==pageInfo.pageNum }">
-                                                            <li class="active"><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${page}">${page}</a></li>
-                                                        </c:if>
-                                                        <c:if test="${page!=pageInfo.pageNum }">
-                                                            <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${page}">${page}</a></li>
-                                                        </c:if>
-                                                    </c:forEach>
-                                                    <c:if test="${pageInfo.hasNextPage }">
-                                                        <li>
-                                                            <a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pageNum+1 }" aria-label="Next">
-                                                                <span aria-hidden="true">&raquo;</span>
-                                                            </a>
-                                                        </li>
-                                                    </c:if>
+                                            <%--分页--%>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    当前${pageInfo.pageNum }页，总共${pageInfo.pages }页，总共${pageInfo.total }条记录
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <nav aria-label="Page navigation">
+                                                        <ul class="pagination">
+                                                            <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=1">首页</a></li>
+                                                            <c:if test="${pageInfo.hasPreviousPage }">
+                                                                <li>
+                                                                    <a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                                                                        <span aria-hidden="true">&laquo;</span>
+                                                                    </a>
+                                                                </li>
+                                                            </c:if>
+                                                            <c:forEach items="${pageInfo.navigatepageNums }" var="page">
+                                                                <c:if test="${page==pageInfo.pageNum }">
+                                                                    <li class="active"><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${page}">${page}</a></li>
+                                                                </c:if>
+                                                                <c:if test="${page!=pageInfo.pageNum }">
+                                                                    <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${page}">${page}</a></li>
+                                                                </c:if>
+                                                            </c:forEach>
+                                                            <c:if test="${pageInfo.hasNextPage }">
+                                                                <li>
+                                                                    <a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pageNum+1 }" aria-label="Next">
+                                                                        <span aria-hidden="true">&raquo;</span>
+                                                                    </a>
+                                                                </li>
+                                                            </c:if>
 
-                                                    <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pages}">末页</a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
+                                                            <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pages}">末页</a></li>
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                            <%--分页end--%>
                                     </div>
-                                    <%--分页end--%>
+
                                     <div id="showLend" >
                                         <table class="table table-bordered"  width="100%" cellspacing="0">
                                             <thead>

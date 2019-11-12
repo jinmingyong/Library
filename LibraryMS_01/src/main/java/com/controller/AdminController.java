@@ -116,7 +116,7 @@ public class AdminController
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "redirect:/attence.jsp";
+                return "borrow";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list)
                 {
@@ -142,7 +142,7 @@ public class AdminController
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "redirect:/attence.jsp";
+                return "borrow";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list){
                     //model.addAttribute("admin",admin1);
@@ -167,7 +167,7 @@ public class AdminController
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "redirect:/attence.jsp";
+                return "borrow";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list)
                 {

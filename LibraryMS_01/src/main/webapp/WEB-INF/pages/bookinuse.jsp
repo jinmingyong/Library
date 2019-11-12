@@ -33,21 +33,27 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="borrow.jsp">
+                <a class="nav-link" href="bookBorrow/borrowFindAll">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">借阅管理系统</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="bookInuse/findInuseAll">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">上架管理系统</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="penalty/findAllPenalty">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">违规处罚系统</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="staffManage.jsp">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">管理员管理</span>
                 </a>
             </li>
         </ul>
@@ -268,7 +274,7 @@
                 success:function (data) {
                     if (data=="success"){
                         alert("添加成功！");
-                        window.location.href="/findInuseAll";
+                        window.location.href="bookInuse/findInuseAll";
                     } else {
                         alert("添加失败！");
                     }
