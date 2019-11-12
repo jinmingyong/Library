@@ -99,7 +99,7 @@ public class ReaderController
         }
     }
     @RequestMapping("/findByReader")
-    public String findByReader(@RequestParam String name,@RequestParam String password,String inputCode,Model model){
+    public String findByReader(@RequestParam String name,@RequestParam String password,String inputCode,Model model,HttpServletRequest request){
         Reader user=new Reader();
         if (name.matches("^[1][3,4,5,7,8][0-9]{9}$")){
             System.out.println("手机");
@@ -107,25 +107,28 @@ public class ReaderController
             user.setRpwd(password);
             List<Reader> list=readerService.findLogin(user);
             for (Reader user1:list){
-                model.addAttribute("reader",user1);
+               /* model.addAttribute("reader",user1);*/
+                request.getSession().setAttribute("reader",user1);
             }
-            return "list";
+            return "jsp/showAllbook";
         }else if (name.matches("^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$")){
             user.setRpwd(password);
             user.setRemail(name);
             List<Reader> list=readerService.findLogin(user);
             for (Reader user1:list){
-                model.addAttribute("reader",user1);
+              /*  model.addAttribute("reader",user1);*/
+                request.getSession().setAttribute("reader",user1);
             }
-            return "list";
+            return "jsp/showAllbook";
         }else {
             user.setReadId(Long.valueOf(name));
             user.setRpwd(password);
             List<Reader> list=readerService.findLogin(user);
             for (Reader user1:list){
-                model.addAttribute("reader",user1);
+              /*  model.addAttribute("reader",user1);*/
+                request.getSession().setAttribute("reader",user1);
             }
-            return "list";
+            return "jsp/showAllbook";
 
         }
     }

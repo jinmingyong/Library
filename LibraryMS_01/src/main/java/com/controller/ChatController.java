@@ -31,9 +31,9 @@ public class ChatController {
 
     @RequestMapping("/chatjsp")
     public String chatjsp(){
-        return "Chat/login";
+        return "Chat/chat1";
     }
-    @RequestMapping("/readerlogin")
+    /*@RequestMapping("/readerlogin")
     public String readerlogin(String rname, String rpwd, HttpServletRequest request){
         Reader reader=readerService.readerlogin(rname,rpwd);
         request.getSession().setAttribute("reader",reader);
@@ -45,7 +45,7 @@ public class ChatController {
             return null;
         }
 
-    }
+    }*/
 /*    @RequestMapping("/findOnline")
     @ResponseBody
     public String findOnline(@RequestParam("ids") String ids){

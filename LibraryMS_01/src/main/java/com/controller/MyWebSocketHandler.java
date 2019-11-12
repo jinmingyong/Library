@@ -179,7 +179,9 @@ public class MyWebSocketHandler implements WebSocketHandler {
     public void sendMessageToUsers(Set<Long> readerIds, TextMessage message,Long id) {
         for(Long r: readerIds) {
             try {
-                if (r==id) continue;
+                if (r.equals(id)){
+                    continue;
+                }
                 this.sendMessageToUser(r,message);
             } catch (IOException e) {
                 e.printStackTrace();
