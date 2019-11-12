@@ -132,4 +132,8 @@
   <select id="selectByRidWithType1" resultMap="BaseResultMap" parameterType="java.lang.Long">
     SELECT * FROM borrow WHERE  bor_type=1 AND rid=#{rid};
   </select>
+
+  <select id="moreBorrow" resultMap="BaseResultMap">
+    SELECT isbn from borrow GROUP BY isbn ORDER BY count(isbn) DESC LIMIT 6
+  </select>
 </mapper>

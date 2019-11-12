@@ -8,10 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/BookBorrowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showComment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showComment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookBorrowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/com/controller/BookBorrowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showComment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/pages/jsp/showComment.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/chat1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/chat1.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/BorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/LibraryMS_01/WEB-INF/classes/mapper/BorrowMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BorrowMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BorrowMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -388,7 +387,7 @@
       <workItem from="1573364337788" duration="36031000" />
       <workItem from="1573451061919" duration="179000" />
       <workItem from="1573451370358" duration="7853000" />
-      <workItem from="1573465462729" duration="9908000" />
+      <workItem from="1573465462729" duration="12646000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1573451601582</created>
@@ -453,7 +452,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573482863982</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new">
+      <created>1573522431410</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1573522431410</updated>
+    </task>
+    <task id="LOCAL-00011" summary="new">
+      <created>1573522489986</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1573522489986</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

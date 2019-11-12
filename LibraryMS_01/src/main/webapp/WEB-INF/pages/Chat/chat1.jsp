@@ -109,14 +109,13 @@
                 </div>
             </div>
             <div class="chat-footer">
-                <form>
-                    <input type="text" id="context" class="form-control" placeholder="Write a message.">
-                    <div class="form-buttons">
-                        <button class="btn btn-primary" type="button" id="btn">
+                    <input type="text" id="context" class="form-control" placeholder="Write a message."  style="margin-bottom: 20px" maxlength="20">
+                    <div class="form-buttons" style="float: right" >
+                        <button class="btn btn-primary" type="button" id="btn" style="width: 100px;padding-left: 40px">
                             <i data-feather="send"></i>
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
         <!-- ./ chat -->
@@ -230,7 +229,6 @@
         websocket.onmessage = function (event) {
             var msg=event.data;
             msg=JSON.parse(msg);
-            console.log("111111111111111111")
             if (msg instanceof Array){
                 console.log(msg)
                 var result='';
@@ -286,6 +284,10 @@
         function send() {
             var msg = input.val();
              msg = $.trim(msg);
+             if (msg==""){
+                 alert("不能为空")
+                 return
+             }
             var rid=${reader.readId}
             var pid=1;
             var data = {
@@ -300,7 +302,7 @@
             var theEvent = window.event || e;
             var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
             if (code == 13) {
-
+                send()
             }
         }
         $("#btn").click(function () {
