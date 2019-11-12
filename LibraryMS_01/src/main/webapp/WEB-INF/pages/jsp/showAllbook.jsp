@@ -16,7 +16,6 @@
 <div class="col-md-8 col-lg-9 content-column" id="myVue">
     <div class="small-navbar d-flex d-md-none">
         <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-        <h1 class="small-navbar-heading">
     </div>
     <section class="container" style="height: 100px">
         <form onsubmit="submitFn(this, event);">
@@ -50,7 +49,6 @@
     </zpagenav>
 </div>
 </div>
-${sessionScope.rid}
 </body>
 <script>
     function searchToggle(obj, evt){
@@ -117,18 +115,13 @@ ${sessionScope.rid}
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
                         that.$data.bookInuses = res.list;
-                        $('.img-fluid').imagesLoaded(function() {
-                            $('.grid').masonry({
-                                itemSelector: '.grid-item',
-                                columnWidth: 50,
-                            });
-                        });
                     }
                 })
             }
         },
         mounted:function () {
             this.pageHandler(1);
+            $.getScript("js/front.js")
         },
     })
 

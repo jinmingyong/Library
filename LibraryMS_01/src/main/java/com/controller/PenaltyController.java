@@ -36,9 +36,9 @@ public class PenaltyController {
     }
 
     @RequestMapping("/findAllPenaltybyPage")
-    public String findAllPenalty(Model model,Integer pageNum){
+    public String findAllPenalty(Model model,@RequestParam(value = "pn",defaultValue = "1")Integer pageNum){
         PageInfo<Penalty> list=new PageInfo<Penalty>(iPenaltyService.selectAllPenalty(pageNum));
-        model.addAttribute("pen",list);
+        model.addAttribute("pageInfo",list);
         return "penatly";
     }
 

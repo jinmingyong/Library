@@ -134,6 +134,5 @@ public class BookInuseServiceimpl implements IBookInuseService {
         List<BookInuse> list=bookInuseMapper.findAll("%"+bname+"%");
         PageInfo<BookInuse> pageInfo=new PageInfo<BookInuse>(list);
         return pageInfo;
-
     }
 }

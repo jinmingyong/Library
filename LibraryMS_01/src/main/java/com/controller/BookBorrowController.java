@@ -43,9 +43,9 @@ public class BookBorrowController {
         return "borrow";
     }
     @RequestMapping("/borrowFindAllbyPage")
-    public String borrowFindAll(HttpServletRequest request, Model model,Integer pageNum){
+    public String borrowFindAll(HttpServletRequest request, Model model,@RequestParam(value = "pn",defaultValue = "1") Integer pageNum){
         PageInfo<Borrow> list=new PageInfo<Borrow>(iBorrowService.selectAllBorrow(pageNum));
-        model.addAttribute("list",list);
+        model.addAttribute("pageInfo",list);
         //HttpSession session=request.getSession();
         //session.setAttribute("list",list);
         return "borrow";

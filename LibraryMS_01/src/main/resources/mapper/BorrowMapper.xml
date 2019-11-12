@@ -118,7 +118,7 @@
     where bor_id = #{borId,jdbcType=BIGINT}
   </update>
   <select id="selectByBorType" resultMap="BaseResultMap" parameterType="com.entity.Borrow">
-    select * from borrow where bor_type!=1;
+    select * from borrow where bor_type!=1
   </select>
   <select id="selectByRid" resultMap="BaseResultMap" parameterType="java.lang.Long">
     select * from borrow where rid=#{rid}
@@ -127,10 +127,10 @@
     select * from borrow where ret_time &lt;=NOW() and bor_type =0
   </select>
   <select id="selectByRidWithoutType1" resultMap="BaseResultMap" parameterType="java.lang.Long">
-   SELECT * FROM borrow WHERE real_time is null AND rid=#{rid};
+   SELECT * FROM borrow WHERE real_time is null AND rid=#{rid}
   </select>
   <select id="selectByRidWithType1" resultMap="BaseResultMap" parameterType="java.lang.Long">
-    SELECT * FROM borrow WHERE  bor_type=1 AND rid=#{rid};
+    SELECT * FROM borrow WHERE  bor_type=1 AND rid=#{rid}
   </select>
 
   <select id="moreBorrow" resultMap="BaseResultMap">

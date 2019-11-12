@@ -53,10 +53,13 @@
 <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!-- Page level plugin CSS-->
 <link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/jquery.sPage.css">
 <!-- Custom styles for this template-->
 <link href="css/sb-admin.css" rel="stylesheet">
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.sPage.js"></script>
+
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -103,7 +106,7 @@
                             <div id="main">
                                 <div>
                                     <ul>
-                                        <li> <a href="bookBorrow/borrowFindAll" > <button id="showAllInfor">借阅信息</button></a> </li>
+                                        <li> <a href="bookBorrow/borrowFindAllbyPage" > <button id="showAllInfor">借阅信息</button></a> </li>
                                         <li>    <button type="button" id="no_back" >未归还信息</button> </li>
                                         <li>    <button type="button" id="insert_val">插入信息</button></li>
                                         <li>    <form >
@@ -138,7 +141,7 @@
                                             </thead>
 
                                             <tbody>
-                                            <c:forEach items="${list}" var="borrow">
+                                            <c:forEach items="${pageInfo.list}" var="borrow">
                                                 <tr>
                                                     <td>${borrow.borId}</td>
                                                     <td>${borrow.isbn}</td>
@@ -155,6 +158,44 @@
 
                                         </table>
                                     </div>
+                                    <%--分页--%>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            当前${pageInfo.pageNum }页，总共${pageInfo.pages }页，总共${pageInfo.total }条记录
+                                        </div>
+                                        <div class="col-md-6">
+                                            <nav aria-label="Page navigation">
+                                                <ul class="pagination">
+                                                    <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=1">首页</a></li>
+                                                    <c:if test="${pageInfo.hasPreviousPage }">
+                                                        <li>
+                                                            <a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                                                                <span aria-hidden="true">&laquo;</span>
+                                                            </a>
+                                                        </li>
+                                                    </c:if>
+                                                    <c:forEach items="${pageInfo.navigatepageNums }" var="page">
+                                                        <c:if test="${page==pageInfo.pageNum }">
+                                                            <li class="active"><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${page}">${page}</a></li>
+                                                        </c:if>
+                                                        <c:if test="${page!=pageInfo.pageNum }">
+                                                            <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${page}">${page}</a></li>
+                                                        </c:if>
+                                                    </c:forEach>
+                                                    <c:if test="${pageInfo.hasNextPage }">
+                                                        <li>
+                                                            <a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pageNum+1 }" aria-label="Next">
+                                                                <span aria-hidden="true">&raquo;</span>
+                                                            </a>
+                                                        </li>
+                                                    </c:if>
+
+                                                    <li><a href="${path }/bookBorrow/borrowFindAllbyPage?pn=${pageInfo.pages}">末页</a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <%--分页end--%>
                                     <div id="showLend" >
                                         <table class="table table-bordered"  width="100%" cellspacing="0">
                                             <thead>
@@ -172,9 +213,11 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-
                                             </tbody>
+
                                         </table>
+                                        <%--ajax的分页--%>
+                                        <div id="showLendpage"></div>
                                     </div>
                                     <div id="insert" >
                                         <form action="bookBorrow/insertBorrow" method="post">
@@ -213,7 +256,19 @@
         </div>
     </div>
     <script>
+
+
+
+
+
         $(function () {
+
+
+
+
+
+
+
             $("#showLend").hide();
             $("#insert").hide();
             $("#showAll").show();
@@ -243,12 +298,28 @@
                 $("#showYuqi").hide();
                 // window.location.href="";
                 $.ajax({
-                    url:"bookBorrow/borrowFindType",
+                    url:"bookBorrow/borrowFindTypebyPage",
                     dataType:'json',
+                    data:{pageNum:1},
                     success:function (data) {
                         var result=''
-                        console.log(data)
-                        $.each(data, function (i, el) {
+                        total=data.total;
+                        page=data.pageNum;
+                        console.log(data);
+                        $.each(data.list, function (i, el) {
+                            $("#showLendpage").sPage({
+                                page:page,//当前页码，必填
+                                total:total,//数据总条数，必填
+                                pageSize:5,//每页显示多少条数据，默认10条
+                                totalTxt:"共{total}条",//数据总条数文字描述，{total}为占位符，默认"共{total}条"
+                                showTotal:true,//是否显示总条数，默认关闭：false
+                                showSkip:true,//是否显示跳页，默认关闭：false
+                                showPN:true,//是否显示上下翻页，默认开启：true
+                                prevPage:"上一页",//上翻页文字描述，默认“上一页”
+                                nextPage:"下一页",//下翻页文字描述，默认“下一页”
+                                backFun:function(page){
+                                    page1(page)
+                                }});
                             console.log(i);
                             console.log(el);
                             result += "<tr>"
@@ -268,6 +339,37 @@
                     }
                 })
             });
+            function page1(index){
+                var that=this
+                $.ajax({
+                    url:"bookBorrow/borrowFindTypebyPage",
+                    dataType:'json',
+                    data:{pageNum:index},
+                    success:function (data) {
+                        var result=''
+                        console.log(data);
+                        $.each(data.list, function (i, el) {
+                            console.log(i);
+                            console.log(el);
+                            result += "<tr>"
+                            result += "<td>" + el.borId + "</td>"
+                            result += "<td>" + el.isbn + "</td>"
+                            result += "<td>" + el.bookRes.bname + "</td>"
+                            result += "<td>" + el.rid + "</td>"
+                            result += "<td>" + el.reader.rname + "</td>"
+                            result += "<td>" + el.borTime + "</td>"
+                            result += "<td>" + el.retTime + "</td>"
+                            result += "<td>" + el.realTime + "</td>"
+                            result +="<td>"  + el.borType +"</td>"
+                            result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
+                            result += "</tr>"
+                        });
+                        $("#showLend").children().children("tbody").html(result)
+                    }
+                })
+            }
+
+
 
             $("#insert_val").click(function () {
                 $("#showLend").hide();
@@ -464,6 +566,56 @@
                     alert("检查您的学号信息!");
                 }
             })
+
+
+
+
+
+
+
+
+      /*      $("#showLendpage").sPage({
+                page:1,//当前页码，必填
+                total:,//数据总条数，必填
+                pageSize:5,//每页显示多少条数据，默认10条
+                totalTxt:"共{total}条",//数据总条数文字描述，{total}为占位符，默认"共{total}条"
+                showTotal:true,//是否显示总条数，默认关闭：false
+                showSkip:true,//是否显示跳页，默认关闭：false
+                showPN:true,//是否显示上下翻页，默认开启：true
+                prevPage:"上一页",//上翻页文字描述，默认“上一页”
+                nextPage:"下一页",//下翻页文字描述，默认“下一页”
+                backFun:function(page){
+             /!*       $.ajax({
+                        url:"bookBorrow/borrowFindTypebyPage",
+                        data:{pageNum:page},
+                        dataType:'json',
+                        success:function (data) {
+                            var result=''
+                            console.log(data)
+                            this.page=data.pageNum;
+                            this.total=data.total
+                            $.each(data.list, function (i, el) {
+                                console.log(i);
+                                console.log(el);
+                                result += "<tr>"
+                                result += "<td>" + el.borId + "</td>"
+                                result += "<td>" + el.isbn + "</td>"
+                                result += "<td>" + el.bookRes.bname + "</td>"
+                                result += "<td>" + el.rid + "</td>"
+                                result += "<td>" + el.reader.rname + "</td>"
+                                result += "<td>" + el.borTime + "</td>"
+                                result += "<td>" + el.retTime + "</td>"
+                                result += "<td>" + el.realTime + "</td>"
+                                result +="<td>"  + el.borType +"</td>"
+                                result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
+                                result += "</tr>"
+                            });
+                            $("#showLend").children().children("tbody").html(result)
+                        }
+                    })*!/
+                    console.log(page);
+                }
+            });*/
 
         });
     </script>

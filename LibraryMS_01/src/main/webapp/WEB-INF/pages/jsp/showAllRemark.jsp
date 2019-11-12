@@ -15,7 +15,6 @@
 <div class="col-md-8 col-lg-9 content-column" id="myVue">
     <div class="small-navbar d-flex d-md-none">
         <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-        <h1 class="small-navbar-heading">
     </div>
     <div class="col-lg-8">
         <div class="content-column-content">
@@ -82,7 +81,7 @@
             <div class="date-dz">
                 <span class="date-dz-left pull-left comment-time">{{sonreply.createtime}}</span>
                 <div class="date-dz-right pull-right comment-pl-block" style="padding-top: 12px">
-                    <button style="font-size:5px"  @click="deleRemark(sonreply.remId)" v-if="${rid}==sonreply.rid" class="btn btn-sm btn-link"> 删除</button>
+                    <button style="font-size:5px"  @click="deleRemark(sonreply.remId)" v-if="${reader.readId}==sonreply.rid" class="btn btn-sm btn-link"> 删除</button>
                     <button style="font-size:5px"  @click="flag=!flag" class=" btn btn-sm btn-link hf-con-block pl-hf">回复</button>
                 </div>
                 <reply v-show="flag" :r="sonreply"></reply>
@@ -109,7 +108,7 @@
             <div class="date-dz">
                 <span class="date-dz-left pull-left comment-time">{{item.createtime}}</span>
                 <div class="date-dz-right pull-right comment-pl-block" style="padding-top: 12px">
-                    <button style="font-size:5px"  @click="deleRemark(item.remId)" v-if="${rid}==item.rid" class="btn btn-sm btn-link"> 删除</button>
+                    <button style="font-size:5px"  @click="deleRemark(item.remId)" v-if="${reader.readId}==item.rid" class="btn btn-sm btn-link"> 删除</button>
                     <button style="font-size:5px"  @click="flag=!flag" class=" btn btn-sm btn-link hf-con-block pl-hf">回复</button>
                 </div>
                 <reply v-show="flag" :r="item"></reply>
@@ -122,6 +121,7 @@
 
         </div>   <hr style="margin:0;clear: both">
     </li>
+
 </template>
 </body>
 <script src="/js/jquery-3.3.1.min.js"></script>
@@ -145,7 +145,7 @@
                 var rcontext=this.rcontext.substring(this.rcontext.indexOf(":")+1);
                 $.ajax({
                     url: "remark/addRemark",
-                    data: {comid:that.r.comid,rcontext:rcontext,rid:${rid},replyname:that.r.reader.rname,fatherremid:that.r.fatherremid==null?that.r.remId:that.r.fatherremid},
+                    data: {comid:that.r.comid,rcontext:rcontext,rid:${reader.readId},replyname:that.r.reader.rname,fatherremid:that.r.fatherremid==null?that.r.remId:that.r.fatherremid},
                     /* dataType: "json",*/
                     type: "post",
                     success: function (res) {
@@ -267,7 +267,7 @@
                     var that=this;
                     $.ajax({
                         url: "remark/addRemark",
-                        data: {comid:that.comment.comId,rcontext:that.rcontext,rid:${rid}},
+                        data: {comid:that.comment.comId,rcontext:that.rcontext,rid:${reader.readId}},
                         /* dataType: "json",*/
                         type: "post",
                         success: function (res) {
