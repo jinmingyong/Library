@@ -12,7 +12,7 @@
     <result column="image" property="image" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    read_id, rname, rpwd, rsex, remail, rphone, raddress,image
+    read_id, rname, rpwd, rsex, remail, rphone, raddress,image,credit
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -137,4 +137,32 @@
       image = #{image,jdbcType=VARCHAR}
     where read_id = #{readId,jdbcType=BIGINT}
   </update>
+
+
+<!--吴原荣-->
+  <select id="findReaderAll" resultMap="BaseResultMap" parameterType="reader">
+        select * from reader
+    </select>
+  <!--value后面对应的是实体类-->
+  <insert id="saveReader" parameterType="reader">
+        insert into reader( rname, rpwd, rsex, remail, rphone,raddress,image,credit) values(#{rname},#{rpwd},#{rsex},#{remail},#{rphone},#{raddress},#{image},#{credit})
+    </insert>
+  <update id="updateReader" parameterType="reader">
+        update reader set  rname=#{rname},rpwd=#{rpwd},rsex=#{rsex},remail=#{remail},rphone=#{rphone},raddress=#{raddress},image=#{image},credit=#{credit} where read_id=#{readId}
+    </update>
+  <delete id="deleteReader" parameterType="java.lang.Integer">
+        delete from reader where read_id=#{readId}
+    </delete>
+  <select id="findByName" resultMap="BaseResultMap" parameterType="reader">
+        select * from reader where rname=#{rname}
+    </select>
+  <select id="findLogin" resultMap="BaseResultMap" parameterType="reader">
+        select * from reader where (read_id =#{readId} or rphone=#{rphone} or remail=#{remail}) and rpwd=#{rpwd}
+    </select>
+  <update id="updateReaderPassword" parameterType="reader">
+        update reader set rpwd=#{rpwd} where rphone=#{rphone}
+    </update>
+  <select id="findByPhoneNum" resultMap="BaseResultMap" parameterType="reader">
+        select * from reader where  rphone=#{rphone}
+    </select>
 </mapper>

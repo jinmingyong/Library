@@ -51,4 +51,55 @@ public class ReaderServiceimpl implements IReaderService {
     public int updateByPrimaryKey(Reader record) {
         return 0;
     }
+
+    //吴原荣
+    @Override
+    public List<Reader> findReaderAll()
+    {
+        List<Reader> list=readerMapper.findReaderAll();
+        return list;
+    }
+
+    @Override
+    public void saveReader(Reader student)
+    {
+        readerMapper.saveReader(student);
+    }
+
+    @Override
+    public void updateReader(Reader student)
+    {
+        readerMapper.updateReader(student);
+    }
+
+    @Override
+    public void deleteReader(Integer id)
+    {
+        readerMapper.deleteReader(id);
+    }
+
+    @Override
+    public List<Reader> findByName(String name)
+    {
+        List<Reader> list=readerMapper.findByName(name);
+        return list;
+    }
+
+    @Override
+    public List<Reader> findLogin(Reader user)
+    {
+        return readerMapper.findLogin(user);
+    }
+
+    @Override
+    public void updateReaderPassword(Reader user)
+    {
+        readerMapper.updateReaderPassword(user);
+    }
+
+    @Override
+    public List<Reader> findByPhoneNum(String phoneNum)
+    {
+        return readerMapper.findByPhoneNum(phoneNum);
+    }
 }

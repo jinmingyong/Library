@@ -17,9 +17,9 @@
             <ul>
                 <li><a href="/findAllPenalty"><button type="button">显示处罚信息</button></a>  </li>
                 <li>
-                    <form action="/findPenaltyByRid" method="post">
-                        <input type="text" name="rid" placeholder="学生id">
-                        <input id="selByRid" type="submit" value="查询">
+                    <form >
+                        <input type="text" name="rid" id="rid" placeholder="学生id">
+                        <input id="selByRid" type="button" value="查询">
                     </form>
                 </li>
             </ul>
@@ -38,7 +38,7 @@
                 </thead>
 
                 <tbody>
-                <c:forEach items="${pen}" var="penalty">
+    <c:forEach items="${pen}" var="penalty">
                 <tr>
                     <td>${penalty.penId}</td>
                     <td>${penalty.isbn}</td>
@@ -47,8 +47,9 @@
                     <td>${penalty.repay}</td>
                     <td>${penalty.penTime}</td>
                 </tr>
-                    </c:forEach>
+    </c:forEach>
                 </tbody>
+
             </table>
         </div>
         <%--<div id="showByRid">--%>
@@ -70,32 +71,36 @@
     </div>
 </body>
 <script src="/js/jquery-3.3.1.min.js"></script>
-<%--<script>--%>
-    <%--$(function () {--%>
-        <%--$("#showInfor").show();--%>
-        <%--$("#selByRid").click(function () {--%>
-            <%--var rid=$("#rid").val();--%>
-            <%--$.ajax({--%>
-                <%--url:"findPenaltyByRid",--%>
-                <%--data:{rid:rid},--%>
-                <%--dateType:'json',--%>
-                <%--type:"post",--%>
-                <%--success:function (data) {--%>
-                    <%--var result='';--%>
-                    <%--$.each(data, function (i, el) {--%>
-                        <%--result += "<tr>"--%>
-                        <%--result += "<td >" + el.penId + "</td>"--%>
-                        <%--result += "<td>" + el.isbn + "</td>"--%>
-                        <%--result += "<td>" + el.rid + "</td>"--%>
-                        <%--result += "<td>" + el.penType + "</td>"--%>
-                        <%--result += "<td>" + el.repay + "</td>"--%>
-                        <%--result += "<td>" + el.penTime + "</td>"--%>
-                        <%--result += "</tr>"--%>
-                    <%--});--%>
-                    <%--$("#showInfor").children().children("tbody").append(result);--%>
-                <%--}--%>
-            <%--})--%>
-        <%--});--%>
-    <%--})--%>
-<%--</script>--%>
+<script>
+    $(function () {
+        $("#selByRid").click(function () {
+            var rid=$("#rid").val();
+            console.log(rid)
+            $.ajax({
+                url:"findPenaltyByRid",
+                data:{rid:rid},
+                dateType:'json',
+                type:"post",
+                success:function (data) {
+                    if (data!=""){
+                        var result='';
+                            $.each(data, function (i, el) {
+                                result += "<tr>"
+                                result += "<td >" + el.penId + "</td>"
+                                result += "<td>" + el.isbn + "</td>"
+                                result += "<td>" + el.rid + "</td>"
+                                result += "<td>" + el.penType + "</td>"
+                                result += "<td>" + el.repay + "</td>"
+                                result += "<td>" + el.penTime + "</td>"
+                                result += "</tr>"
+                        });
+                        $("#showInfor").children().children("tbody").html(result);
+                    } else {
+                        alert("您查询的信息不存在！");
+                    }
+                }
+            })
+        });
+    })
+</script>
 </html>

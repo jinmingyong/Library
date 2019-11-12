@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/bookInuse")
+//@RequestMapping(path = "/bookInuse")
 public class BookInuseController {
     //maki:add
     @Autowired
