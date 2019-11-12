@@ -50,6 +50,7 @@
 </div>
 </div>
 </body>
+<script src="/js/jquery.infinitescroll.js"></script>
 <script>
     function searchToggle(obj, evt){
 
@@ -73,6 +74,12 @@
         value = $(obj).find('.search-input').val().trim();
         evt.preventDefault();
     }
+    $(function () {
+        $('.grid').imagesLoaded( function() {
+            new Masonry( document.getElementById('.grid'),{itemSelector:'.grid-item'} );
+        });
+    })
+
 </script>
 <script>
 
@@ -91,7 +98,7 @@
         watch:{
             input_value: function () {
                 this.debounce(this.pageHandler, 1000)
-            }
+            },
         },
         methods:{
             debounce: function (fn, wait) {
@@ -115,15 +122,21 @@
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
                         that.$data.bookInuses = res.list;
+                        $('.grid').append(  $('.grid') ).masonry("appended",  $('.grid'), true);
+                        $('.img-fluid').imagesLoaded(function() {
+                            $('.grid').masonry({
+                                itemSelector: '.grid-item',
+                                columnWidth: 50,
+                                /*            isResizableL:false*/
+                            });
+                        });
                     }
                 })
-            }
+            },
         },
         mounted:function () {
             this.pageHandler(1);
-            $.getScript("js/front.js")
         },
     })
-
 </script>
 </html>
