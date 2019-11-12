@@ -7,6 +7,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<html>
+<head>
+
+    <base href="<%=basePath%>">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template-->
@@ -17,6 +25,7 @@
 <link href="css/sb-admin.css" rel="stylesheet">
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+</head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -63,7 +72,7 @@
                         <div id="main">
                             <div>
                                 <ul>
-                                    <li><a href="/findInuseAll"><button id="btn1">查看inuse信息 </button></a></li>
+                                    <li><a href="bookInuse/findInuseAll"><button id="btn1">查看inuse信息 </button></a></li>
                                     <li>
                                         <form >
                                             <input type="text" id="isbn" placeholder="输入isbn">
@@ -112,14 +121,14 @@
                                 </div>
 
                                 <div id="updateISBN">
-                                    <form action="/updateBookInuse" method="post">
+                                    <form action="bookInuse/updateBookInuse" method="post">
                                         ISBN:<input type="text" name="isbn" placeholder="上货的ISBN"><br>
                                         上架数量：<input type="text" name="account"><br>
                                         <input type="submit" value="提交">
                                     </form>
                                 </div>
                                 <div id="insertInuse">
-                                    <form action="/insertBookInuse" method="post">
+                                    <form action="bookInuse/insertBookInuse" method="post">
                                         ISBN:<input type="text" name="isbn" placeholder="上架的ISBN"><br>
                                         上架数量：<input type="text" name="account"><br>
                                         <input type="submit" value="提交">
@@ -151,6 +160,8 @@
         </div>
     </div>
 </div>
+
+</body>
 <script>
     $(function () {
         $("#updateISBN").hide();
@@ -166,7 +177,7 @@
             $("#showAll").hide();
             var isbn=$("#isbn").val();
             $.ajax({
-                url:"FindByIsbn",
+                url:"bookInuse/FindByIsbn",
                 data:{isbn:isbn},
                 dateType:'json',
                 type:"post",
@@ -205,7 +216,7 @@
             $("#showAll").hide();
             var account=$("#account").val();
             $.ajax({
-                url:"selectByAccount",
+                url:"bookInuse/selectByAccount",
                 data:{account:account},
                 dateType:'json',
                 type:"post",
@@ -232,7 +243,7 @@
         $("tbody").on("click","#del",function () {
             var id=$(this).parents("tr").find("#delId").text();
             $.ajax({
-                url:"deleteBookInuse",
+                url:"bookInuse/deleteBookInuse",
                 data:{id:id},
                 dateType:'json',
                 type:"post",
@@ -250,7 +261,7 @@
             var isbn=$(this).parents("tr").find("#elIsbn").text();
             var account="10";
             $.ajax({
-                url:"updateBookInuseMoren",
+                url:"bookInuse/updateBookInuseMoren",
                 data:{isbn:isbn,account:account},
                 dateType:'json',
                 type:"post",
@@ -266,13 +277,4 @@
         })
     })
 </script>
-</body>
-<html>
-
-<body>
-    <div>
-
-
-    </div>
-</body>
 </html>

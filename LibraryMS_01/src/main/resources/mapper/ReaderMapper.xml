@@ -10,6 +10,7 @@
     <result column="rphone" property="rphone" jdbcType="VARCHAR" />
     <result column="raddress" property="raddress" jdbcType="VARCHAR" />
     <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="credit" property="credit" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     read_id, rname, rpwd, rsex, remail, rphone, raddress,image,credit
@@ -41,10 +42,10 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into reader (rname, rpwd, rsex, 
-      remail, rphone, raddress,image
+      remail, rphone, raddress,image,credit
       )
     values (#{rname,jdbcType=VARCHAR}, #{rpwd,jdbcType=VARCHAR}, #{rsex,jdbcType=VARCHAR}, 
-      #{remail,jdbcType=VARCHAR}, #{rphone,jdbcType=VARCHAR}, #{raddress,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR}
+      #{remail,jdbcType=VARCHAR}, #{rphone,jdbcType=VARCHAR}, #{raddress,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR},#{credit,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.entity.Reader" >
@@ -74,6 +75,9 @@
       <if test="image != null" >
         image
       </if>
+      <if test="credit != null" >
+        credit
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="rname != null" >
@@ -96,6 +100,9 @@
       </if>
       <if test="image != null" >
         #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="credit != null" >
+        #{credit,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -123,6 +130,9 @@
       <if test="image != null" >
         raddress = #{image,jdbcType=VARCHAR},
       </if>
+      <if test="credit != null" >
+        #{credit,jdbcType=INTEGER},
+      </if>
     </set>
     where read_id = #{readId,jdbcType=BIGINT}
   </update>
@@ -134,7 +144,8 @@
       remail = #{remail,jdbcType=VARCHAR},
       rphone = #{rphone,jdbcType=VARCHAR},
       raddress = #{raddress,jdbcType=VARCHAR},
-      image = #{image,jdbcType=VARCHAR}
+      image = #{image,jdbcType=VARCHAR},
+       credit =  #{credit,jdbcType=INTEGER}
     where read_id = #{readId,jdbcType=BIGINT}
   </update>
 

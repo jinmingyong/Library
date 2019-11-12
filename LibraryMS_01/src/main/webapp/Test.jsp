@@ -7,12 +7,18 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <html>
 <head>
+
+    <base href="<%=basePath%>">
     <title>Title</title>
 </head>
 <body>
-    <button><a href="/borrowFindAll">显示borrow信息</a> </button><br>
+    <button><a href="bookBorrow/borrowFindAll">显示borrow信息</a> </button><br>
     <%--<button><a href="/borrowFindType">显示borrow没有归还的信息</a> </button><br>--%>
     <%--<p>测试borrow的信息添加</p>--%>
     <%--<form action="/insertBorrow" method="post">--%>
@@ -34,7 +40,7 @@
     <%--</form>--%>
 <h3></h3>
 <%--<h3>测试inuse</h3>--%>
-    <button><a href="/findInuseAll">查看inuse信息</a> </button><br>
+    <button><a href="bookInuse/findInuseAll">查看inuse信息</a> </button><br>
 <%--<h3>测试ISBN查询</h3>--%>
     <%--<form action="/FindByIsbn" method="post">--%>
         <%--isbn:<input type="text" name="isbn">--%>
@@ -65,7 +71,7 @@
 <%--</form><br>--%>
     <h3></h3>
 <%--<h3>处罚表信息</h3>--%>
-<a href="/findAllPenalty"><button type="button">查看处罚信息</button></a>
+<a href="penalty/findAllPenalty"><button type="button">查看处罚信息</button></a>
 <br>
 <%--<h3>根据rid查询处罚表信息</h3>--%>
 <%--<form action="/findPenaltyByRid" method="post">--%>

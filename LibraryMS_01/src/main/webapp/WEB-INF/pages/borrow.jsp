@@ -9,7 +9,44 @@
 <%@ page import="com.entity.Borrow" %>
 <%@ page import="java.util.Map" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<html>
+<head>
+    <base href="<%=basePath%>">
+    <title>borrow</title>
+</head>
+
+<%--<script src="js/jquery-1.12.4.js"></script>--%>
+<style type="text/css">
+    #showAll{
+        width: 1200px;
+        height: auto;
+    }
+    #insert{
+        width: 1200px;
+        height: auto;
+    }
+    #showLend{
+        width: 1200px;
+        height: auto;
+    }
+    #showYuqi{
+        width: 1200px;
+        height: auto;
+    }
+
+</style>
+<%
+    List<Borrow> list= (List<Borrow>) request.getSession().getAttribute("type");
+    //<String,Object> map=request.getSession().getAttribute()
+    List<Borrow> list1= (List<Borrow>) request.getSession().getAttribute("bor");
+    System.out.println("----"+list);
+    System.out.println("----"+list1);
+%>
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template-->
@@ -66,7 +103,7 @@
                             <div id="main">
                                 <div>
                                     <ul>
-                                        <li> <a href="/borrowFindAll" > <button id="showAllInfor">借阅信息</button></a> </li>
+                                        <li> <a href="bookBorrow/borrowFindAll" > <button id="showAllInfor">借阅信息</button></a> </li>
                                         <li>    <button type="button" id="no_back" >未归还信息</button> </li>
                                         <li>    <button type="button" id="insert_val">插入信息</button></li>
                                         <li>    <form >
@@ -140,7 +177,7 @@
                                         </table>
                                     </div>
                                     <div id="insert" >
-                                        <form action="/insertBorrow" method="post">
+                                        <form action="bookBorrow/insertBorrow" method="post">
                                             图书编号：<input type="text" name="isbn"><br>
                                             学生学号：<input type="text" name="stuId"><br>
                                             <input type="submit" value="提交">
@@ -206,7 +243,7 @@
                 $("#showYuqi").hide();
                 // window.location.href="";
                 $.ajax({
-                    url:"borrowFindType",
+                    url:"bookBorrow/borrowFindType",
                     dataType:'json',
                     success:function (data) {
                         var result=''
@@ -224,7 +261,7 @@
                             result += "<td>" + el.retTime + "</td>"
                             result += "<td>" + el.realTime + "</td>"
                             result +="<td>"  + el.borType +"</td>"
-                            result +="<td><a href='/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
+                            result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
                             result += "</tr>"
                         });
                         $("#showLend").children().children("tbody").html(result)
@@ -246,7 +283,7 @@
                 $("#showAll").hide();
                 $("#showYuqi").show();
                 $.ajax({
-                    url:"findBookInuseByOverdue",
+                    url:"bookBorrow/findBookInuseByOverdue",
                     dataType:'json',
                     success:function (data) {
                         var result=''
@@ -282,7 +319,7 @@
                 console.log(id);
                 var penType = "2";
                 $.ajax({
-                    url: "inserPenatly",
+                    url: "penalty/inserPenatly",
                     data: {id:id,isbn: isbn,rid: rid, penType: penType},
                     type: "post",
                     dataType: "text",
@@ -301,7 +338,7 @@
                 var rid=$(this).parents("tr").find("#td2").text();
                 var penType="3";
                 $.ajax({
-                    url:"inserPenatly",
+                    url:"penalty/inserPenatly",
                     data:{id:id,isbn:isbn,rid:rid,penType:penType},
                     type:"post",
                     dataType: "text",
@@ -325,7 +362,7 @@
                     $("#showYuqi").hide();
                     var rid=$("#rid").val();
                     $.ajax({
-                        url:"findBookInuseByRid",
+                        url:"bookBorrow/findBookInuseByRid",
                         data:{type:selectForm,rid:rid},
                         type:"post",
                         dataType: "json",
@@ -360,7 +397,7 @@
                     $("#showYuqi").hide();
                     var rid=$("#rid").val();
                     $.ajax({
-                        url: "findBookInuseByRid",
+                        url: "bookBorrow/findBookInuseByRid",
                         data: {type: selectForm, rid: rid},
                         type:"post",
                         dataType: "json",
@@ -381,7 +418,7 @@
                                     result += "<td>" + el.retTime + "</td>"
                                     result += "<td>" + el.realTime + "</td>"
                                     result +="<td>"  + el.borType +"</td>"
-                                    result +="<td><a href='/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
+                                    result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
                                     result += "</tr>"
                                 });
                                 $("#showLend").children().children("tbody").html(result);
@@ -395,7 +432,7 @@
                     $("#showYuqi").hide();
                     var rid=$("#rid").val();
                     $.ajax({
-                        url:"findBookInuseByRid",
+                        url:"bookBorrow/findBookInuseByRid",
                         data:{type:selectForm,rid:rid},
                         type:"post",
                         dataType: "json",
@@ -431,41 +468,4 @@
         });
     </script>
 </body>
-<html>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
-<head>
-    <base href="<%=basePath%>">
-    <title>borrow</title>
-</head>
-
-<%--<script src="js/jquery-1.12.4.js"></script>--%>
-<style type="text/css">
-    #showAll{
-        width: 1200px;
-        height: auto;
-     }
-    #insert{
-        width: 1200px;
-        height: auto;
-    }
-    #showLend{
-        width: 1200px;
-        height: auto;
-    }
-    #showYuqi{
-        width: 1200px;
-        height: auto;
-    }
-
-</style>
-<%
-    List<Borrow> list= (List<Borrow>) request.getSession().getAttribute("type");
-    //<String,Object> map=request.getSession().getAttribute()
-    List<Borrow> list1= (List<Borrow>) request.getSession().getAttribute("bor");
-    System.out.println("----"+list);
-    System.out.println("----"+list1);
-%>
 </html>

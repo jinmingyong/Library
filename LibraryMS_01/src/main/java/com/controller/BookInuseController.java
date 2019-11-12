@@ -20,14 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-//@RequestMapping(path = "/bookInuse")
+@RequestMapping(path = "/bookInuse")
 public class BookInuseController {
     //maki:add
     @Autowired
     private IBookInuseService iBookInuseService;
 
-    @Resource
-    private IBookInuseService bookInuseService;
 
     //maki:add
     @RequestMapping("/findInuseAll")
@@ -120,7 +118,7 @@ public class BookInuseController {
     @RequestMapping(value = "/showAllBooks",produces = {"application/json;chartset=UTF-8"})
     public @ResponseBody PageInfo<BookInuse> showAllBooks(Integer page,String name){
         if (page==null||page==0)page=1;
-        PageInfo<BookInuse> pageInfo=  bookInuseService.findAllByPage(page,name);
+        PageInfo<BookInuse> pageInfo=  iBookInuseService.findAllByPage(page,name);
         return pageInfo;
     }
 }

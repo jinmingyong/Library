@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
+@RequestMapping("/penalty")
 public class PenaltyController {
     @Autowired
     private IPenaltyService iPenaltyService;

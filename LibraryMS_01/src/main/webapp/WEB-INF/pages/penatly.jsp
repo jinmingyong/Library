@@ -6,16 +6,23 @@
   Time: 1:31
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <html>
 <head>
-    <title>Title</title>
+
+    <base href="<%=basePath%>">
+
+
 </head>
 <body>
     <div>
         <div>
             <ul>
-                <li><a href="/findAllPenalty"><button type="button">显示处罚信息</button></a>  </li>
+                <li><a href="penalty/findAllPenalty"><button type="button">显示处罚信息</button></a>  </li>
                 <li>
                     <form >
                         <input type="text" name="rid" id="rid" placeholder="学生id">
@@ -77,7 +84,7 @@
             var rid=$("#rid").val();
             console.log(rid)
             $.ajax({
-                url:"findPenaltyByRid",
+                url:"penalty/findPenaltyByRid",
                 data:{rid:rid},
                 dateType:'json',
                 type:"post",
