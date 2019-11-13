@@ -8,8 +8,11 @@
 html,
 body {
   overflow-x: hidden;
+  height: 100%;
 }
-
+#all{
+  height: 100%;
+}
 strong {
   font-weight: 700;
 }
@@ -373,6 +376,7 @@ OFF-CANVAS SIDEBAR BEHAVIOUR
     right: 0;
   }
   .row-offcanvas-left {
+    height: 100%;
     left: 0;
   }
   .row-offcanvas-right .sidebar-offcanvas {
@@ -380,6 +384,7 @@ OFF-CANVAS SIDEBAR BEHAVIOUR
     /* 6 columns */
   }
   .row-offcanvas-left .sidebar-offcanvas {
+    height: 100%;
     left: -48%;
     /* 6 columns */
   }
@@ -388,6 +393,7 @@ OFF-CANVAS SIDEBAR BEHAVIOUR
     /* 6 columns */
   }
   .row-offcanvas-left.active {
+    height: 100%;
     left: 50%;
     /* 6 columns */
   }

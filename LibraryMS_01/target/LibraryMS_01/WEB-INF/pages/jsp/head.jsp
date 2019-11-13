@@ -36,6 +36,11 @@
     <link rel="stylesheet" href="css/shortcode-common.css">
     <link rel="stylesheet" href="css/testimonial.css">
     <link rel="stylesheet" href="css/custom.css">
+
+
+
+
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -43,20 +48,22 @@
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
     <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
+<%--    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>--%>
     <script src="js/zpageNav.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/portamento-min.js"></script>
-<%--    <script src="js/front.js"></script>--%>
     <script src="js/main.js"></script>
+<%--    <script src="js/front.js"></script>--%>
+
 </head>
 <body>
 <div id="all">
     <div class="container-fluid">
 
-        <div class="row row-offcanvas row-offcanvas-left">
+        <div class="row row-offcanvas row-offcanvas-left" style="height: 100%">
             <!--   *** SIDEBAR ***-->
-            <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas">
+            <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas" style="background-color: #ffdff5">
                 <div class="sidebar-content">
                     <h1 class="sidebar-heading">评论及聊天</h1>
                     <ul class="sidebar-menu">
@@ -65,6 +72,7 @@
                         <!-- Link-->
                         <!-- Link-->
                         <li class="sidebar-item"><a href="chat/chatjsp" class="sidebar-link">开始聊天</a></li>
+                        <li class="sidebar-item"><a href="r_booking.jsp" class="sidebar-link">开始聊天</a></li>
                     </ul>
                     <p class="social"><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="external instagram"><i class="fa fa-instagram"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
                 </div>

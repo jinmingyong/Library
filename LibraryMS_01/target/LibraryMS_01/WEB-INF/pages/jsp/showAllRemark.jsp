@@ -66,8 +66,6 @@
                 <!--回复区域 begin-->
                 <!--评论区域 begin-->
                 <!--回复区域 end-->
-            <h4>You can find me also on:</h4>
-            <p class="social social--big"><a href="#" title="" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" title="" class="twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="gplus"><i class="fa fa-google-plus"></i></a><a href="#" title="" class="instagram"><i class="fa fa-instagram"></i></a><a href="#" title="" class="email"><i class="fa fa-envelope"></i></a></p>
             </div>
         </div>
 
@@ -124,7 +122,6 @@
 
 </template>
 </body>
-<script src="/js/jquery-3.3.1.min.js"></script>
 <script src="js/jquery.flexText.js"></script>
 <script>
 

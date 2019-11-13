@@ -128,10 +128,10 @@
         raddress = #{raddress,jdbcType=VARCHAR},
       </if>
       <if test="image != null" >
-        raddress = #{image,jdbcType=VARCHAR},
+        image = #{image,jdbcType=VARCHAR},
       </if>
       <if test="credit != null" >
-        #{credit,jdbcType=INTEGER},
+        credit=#{credit,jdbcType=INTEGER},
       </if>
     </set>
     where read_id = #{readId,jdbcType=BIGINT}

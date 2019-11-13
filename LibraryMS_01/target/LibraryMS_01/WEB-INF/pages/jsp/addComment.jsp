@@ -10,10 +10,6 @@
         <!--   *** SIDEBAR END ***  -->
         <!--   *** DETAIL ***-->
         <div class="col-md-8 col-lg-9 content-column white-background">
-          <div class="small-navbar d-flex d-md-none">
-            <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-            <h1 class="small-navbar-heading">
-          </div>
           <div class="row" id="mvVue">
             <div class="col-lg-8">
               <div class="content-column-content">
@@ -28,7 +24,7 @@
                         <p>${bookRes.introduce}</p>
                       </div>
                     </div></div></div>
-                <form id="contact-form" method="post" action="comment/addComment?isbn=${bookRes.isbn}&rid=${rid}" class="contact-form form" enctype="multipart/form-data">
+                <form id="contact-form" method="post" action="comment/addComment?isbn=${bookRes.isbn}&rid=${reader.readId}" class="contact-form form" enctype="multipart/form-data">
                   <div class="controls">
                         <div class="form-group">
                           <label for="title">Title</label>

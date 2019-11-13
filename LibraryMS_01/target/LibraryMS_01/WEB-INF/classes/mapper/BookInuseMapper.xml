@@ -23,6 +23,16 @@
     select * from book_inuse
   </select>
 
+  <select id="findAllByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * FROM
+    libraryms.book_inuse
+    INNER JOIN libraryms.book_reserve
+    ON (book_inuse.isbn = book_reserve.isbn)
+    <if test="bname!=null">
+      WHERE book_reserve.bname like #{bname,jdbcType=VARCHAR}
+    </if>
+  </select>
+
   <select id="selectByIsbn" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
