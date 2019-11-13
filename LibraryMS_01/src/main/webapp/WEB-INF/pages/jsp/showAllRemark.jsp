@@ -25,12 +25,12 @@
                         <div class="card-header">
                             <div class="card-body" style="padding: 10px 0 0 20px"><h3 style="margin: 0">标题：{{comment.title}}</h3></div>
                             <div class="comment-show-con clearfix">
-                                <div class="comment-show-con-img pull-left"><img :src="path+comment.reader.image" alt=""></div>
+                                <div class="comment-show-con-img pull-left"><img :src="path+comment.reader.image" alt="" class="rounded-circle img-fluid"></div>
                                 <div class="comment-show-con-list pull-left clearfix">
                                     <div class="pl-text clearfix">
                                         <a class="comment-size-name" style="font-size: 15px">{{comment.reader.rname}}:</a>
                                         <span class="my-pl-con" style="font-size: 18px">&nbsp;{{comment.context}}<div style="display: inline-block; width: 200px">
-                                <img v-if="comment.image!=null" :src="'http://localhost:9090/uploads/'+comment.image" alt="" class="img-fluid" style="height: 300px;width: 200px">
+                                <img v-if="comment.image!=null" :src="'http://localhost:9090/uploads/'+comment.image" alt="" class="rounded-circle img-fluid" style="height: 300px;width: 200px">
                                             </div></span>
                                     </div>
                                     <div class="date-dz">
@@ -97,7 +97,7 @@
 </template>
 <template id="comments" >
     <li class="comment-show-con clearfix">
-        <div class="comment-show-con-img pull-left"><img :src="'http://localhost:9090/uploads/'+item.reader.image" alt=""></div>
+        <div class="comment-show-con-img pull-left"><img :src="'http://localhost:9090/uploads/'+item.reader.image" alt="" class="rounded-circle img-fluid"></div>
         <div class="comment-show-con-list pull-left clearfix" style="margin-bottom: 20px">
             <div class="pl-text clearfix">
                 <a href="#" class="comment-size-name">{{item.reader.rname}}:</a>
