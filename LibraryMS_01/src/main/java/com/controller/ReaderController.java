@@ -140,13 +140,10 @@ public class ReaderController
     public String readerRegiser(@RequestParam("fileUp") MultipartFile pic,@RequestParam String name,@RequestParam String email,@RequestParam String sex,@RequestParam String phone,@RequestParam String address, HttpServletRequest request, Model model) throws IOException
     {
         HttpSession session=request.getSession();
-        System.out.println("------"+pic.getName());
-        System.out.println(phone);
         String password= (String) session.getAttribute(phone);
-        System.out.println(password);
         //准备使用fileupload组件完成上传
         //上传的位置
-        String path=request.getSession(true).getServletContext().getRealPath("/images/");
+        String path="http://localhost:9090/uploads/";
         //判断该路劲是否存在
         File file=new File(path);
         if (!file.exists()){
@@ -159,7 +156,17 @@ public class ReaderController
         String uuid=UUID.randomUUID().toString().replace("-","");
         filename=uuid+"_"+filename;
         //完成文件上传
-        pic.transferTo(new File(path,filename));
+        //pic.transferTo(new File(path,filename));
+        Client client=Client.create();
+        client.setConnectTimeout(3000);
+        //和图片服务器连接
+        WebResource webResource = client.resource(path + filename);/*注意“/”*/
+        //上传文件
+        try {
+            webResource.put(pic.getBytes());
+        } catch (IOException e) {
+            new Exception("文件上传失败！");
+        }
         Reader user=new Reader(name,password,sex,email,phone,address,filename,30);
         List<Reader> list=readerService.findLogin(user);
         for (Reader user2:list){
@@ -208,18 +215,22 @@ public class ReaderController
         String code= (String) session.getAttribute(name);
         if (code.equals(inputCode)){
             List<Reader> list=readerService.findByPhoneNum(name);
-            for (Reader u:list){
-                user.setRpwd(u.getRpwd());
-            }
-            if (user.getRpwd().equals(password)){
-                return "update";
+            if (list.size()>0){
+                for (Reader u:list){
+                    user.setRpwd(u.getRpwd());
+                }
+                if (user.getRpwd().equals(password)){
+                    return "update";
+                }else {
+                    HttpSession session1=request.getSession();
+                    session1.setAttribute(name,password);
+                    return "list";
+                }
             }else {
-                HttpSession session1=request.getSession();
-                session1.setAttribute(name,password);
-                return "list";
+                return "err";
             }
         }else {
-            return "err";
+            return "err1";
         }
     }
     @RequestMapping("/updateReaderPassword")

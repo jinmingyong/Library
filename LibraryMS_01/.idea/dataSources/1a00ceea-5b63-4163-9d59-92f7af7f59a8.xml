@@ -953,199 +953,391 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="243" parent="8" name="book_bad"/>
-    <table id="244" parent="8" name="book_inuse"/>
-    <table id="245" parent="8" name="book_reserve"/>
-    <table id="246" parent="8" name="borrow"/>
-    <table id="247" parent="8" name="btype"/>
-    <table id="248" parent="8" name="chat"/>
-    <table id="249" parent="8" name="comment"/>
-    <table id="250" parent="8" name="penalty"/>
-    <table id="251" parent="8" name="reader"/>
-    <table id="252" parent="8" name="remark"/>
-    <column id="253" parent="243" name="bad_id">
+    <table id="243" parent="8" name="admin"/>
+    <table id="244" parent="8" name="apply_book"/>
+    <table id="245" parent="8" name="attence"/>
+    <table id="246" parent="8" name="book_bad"/>
+    <table id="247" parent="8" name="book_book"/>
+    <table id="248" parent="8" name="book_inuse"/>
+    <table id="249" parent="8" name="book_reserve"/>
+    <table id="250" parent="8" name="borrow"/>
+    <table id="251" parent="8" name="btype"/>
+    <table id="252" parent="8" name="chat"/>
+    <table id="253" parent="8" name="comment"/>
+    <table id="254" parent="8" name="penalty"/>
+    <table id="255" parent="8" name="reader"/>
+    <table id="256" parent="8" name="remark"/>
+    <routine id="257" parent="8" name="delete_book_status">
+      <SourceTextLength>316</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <scheduled-event id="258" parent="8" name="event_book_status">
+      <SourceTextLength>38</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <Interval>&apos;1&apos; SECOND</Interval>
+      <Starts>&apos;2019-11-09 13:45:20&apos;</Starts>
+      <Preserve>1</Preserve>
+      <Status>enabled</Status>
+      <LastExecuted>2019-11-13.21:34:16</LastExecuted>
+    </scheduled-event>
+    <column id="259" parent="243" name="id">
+      <Position>1</Position>
+      <Comment> 管理员序号</Comment>
+      <DataType>int(25)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="260" parent="243" name="a_id">
+      <Position>2</Position>
+      <Comment> 管理编号</Comment>
+      <DataType>int(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="261" parent="243" name="a_name">
+      <Position>3</Position>
+      <Comment>管理员姓名</Comment>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="262" parent="243" name="a_password">
+      <Position>4</Position>
+      <Comment> 管理员密码</Comment>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="263" parent="243" name="a_email">
+      <Position>5</Position>
+      <Comment> 管理员密码</Comment>
+      <DataType>varchar(25)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="264" parent="243" name="phoneNum">
+      <Position>6</Position>
+      <Comment> 管理员手机号</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="243" name="type">
+      <Position>7</Position>
+      <Comment> 管理员类型（1、普通管理员 2、高级管理员）</Comment>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="266" parent="243" name="headImage">
+      <Position>8</Position>
+      <Comment> 管理员头像</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="267" parent="243" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="268" parent="244" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="243" name="isbn">
+    <column id="269" parent="244" name="isbn">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="243" name="badtime">
+    <column id="270" parent="244" name="bname">
+      <Position>3</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="271" parent="244" name="adminid">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="272" parent="244" name="applytime">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="244" name="btype">
+      <Position>6</Position>
+      <DataType>int(5)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="274" parent="244" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="275" parent="245" name="a_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="276" parent="245" name="s_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="277" parent="245" name="attencetime">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="278" parent="245" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>a_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="279" parent="246" name="bad_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="280" parent="246" name="isbn">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="281" parent="246" name="badtime">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="243" name="badnum">
+    <column id="282" parent="246" name="badnum">
       <Position>4</Position>
       <DataType>int(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="243" name="btype">
+    <column id="283" parent="246" name="btype">
       <Position>5</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="258" parent="243" name="book_bad_isbn_uindex">
+    <index id="284" parent="246" name="book_bad_isbn_uindex">
       <ColNames>isbn</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="259" parent="243" name="PRIMARY">
+    <key id="285" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>bad_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="260" parent="243" name="book_bad_isbn_uindex">
+    <key id="286" parent="246" name="book_bad_isbn_uindex">
       <ColNames>isbn</ColNames>
       <UnderlyingIndexName>book_bad_isbn_uindex</UnderlyingIndexName>
     </key>
-    <column id="261" parent="244" name="inu_id">
+    <column id="287" parent="247" name="id">
+      <Position>1</Position>
+      <Comment>序号</Comment>
+      <DataType>bigint(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="247" name="bid">
+      <Position>2</Position>
+      <Comment>图书编号</Comment>
+      <DataType>bigint(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="289" parent="247" name="rid">
+      <Position>3</Position>
+      <Comment>读者编号</Comment>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="290" parent="247" name="BookingTime">
+      <Position>4</Position>
+      <Comment>预订时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="291" parent="247" name="bid">
+      <ColNames>bid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="292" parent="247" name="rid">
+      <ColNames>rid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="293" parent="247" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="294" parent="247" name="book_book_ibfk_1">
+      <ColNames>bid</ColNames>
+      <RefTableName>book_reserve</RefTableName>
+      <RefColNames>bid</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="295" parent="247" name="book_book_ibfk_2">
+      <ColNames>rid</ColNames>
+      <RefTableName>reader</RefTableName>
+      <RefColNames>read_id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="296" parent="248" name="inu_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="244" name="isbn">
+    <column id="297" parent="248" name="isbn">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="244" name="inusetime">
+    <column id="298" parent="248" name="inusetime">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="244" name="amount">
+    <column id="299" parent="248" name="amount">
       <Position>4</Position>
       <DataType>int(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="265" parent="244" name="book_inuse_isbn_uindex">
+    <index id="300" parent="248" name="book_inuse_isbn_uindex">
       <ColNames>isbn</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="266" parent="244" name="PRIMARY">
+    <key id="301" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>inu_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="267" parent="244" name="book_inuse_isbn_uindex">
+    <key id="302" parent="248" name="book_inuse_isbn_uindex">
       <ColNames>isbn</ColNames>
       <UnderlyingIndexName>book_inuse_isbn_uindex</UnderlyingIndexName>
     </key>
-    <column id="268" parent="245" name="bid">
+    <column id="303" parent="249" name="bid">
       <Position>1</Position>
       <DataType>bigint(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="245" name="isbn">
+    <column id="304" parent="249" name="isbn">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="245" name="bname">
+    <column id="305" parent="249" name="bname">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="245" name="btype">
+    <column id="306" parent="249" name="btype">
       <Position>4</Position>
       <DataType>int(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="245" name="author">
+    <column id="307" parent="249" name="author">
       <Position>5</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="245" name="publisher">
+    <column id="308" parent="249" name="publisher">
       <Position>6</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="245" name="import_time">
+    <column id="309" parent="249" name="import_time">
       <Position>7</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="245" name="amount">
+    <column id="310" parent="249" name="amount">
       <Position>8</Position>
       <DataType>int(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="245" name="image">
+    <column id="311" parent="249" name="image">
       <Position>9</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="245" name="introduce">
+    <column id="312" parent="249" name="introduce">
       <Position>10</Position>
       <DataType>varchar(150)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="245" name="mark1">
+    <column id="313" parent="249" name="mark1">
       <Position>11</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="245" name="mark2">
+    <column id="314" parent="249" name="mark2">
       <Position>12</Position>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="280" parent="245" name="book_reserve__isbn">
+    <index id="315" parent="249" name="book_reserve__isbn">
       <ColNames>isbn</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="281" parent="245" name="book_reserve_btype_id_fk">
+    <index id="316" parent="249" name="book_reserve_btype_id_fk">
       <ColNames>btype</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="282" parent="245" name="PRIMARY">
+    <key id="317" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>bid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="283" parent="245" name="book_reserve__isbn">
+    <key id="318" parent="249" name="book_reserve__isbn">
       <ColNames>isbn</ColNames>
       <UnderlyingIndexName>book_reserve__isbn</UnderlyingIndexName>
     </key>
-    <column id="284" parent="246" name="bor_id">
+    <column id="319" parent="250" name="bor_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="246" name="isbn">
+    <column id="320" parent="250" name="isbn">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="246" name="rid">
+    <column id="321" parent="250" name="rid">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="246" name="bor_time">
+    <column id="322" parent="250" name="bor_time">
       <Position>4</Position>
       <Comment>借出时间</Comment>
       <DataType>datetime|0s</DataType>
@@ -1153,266 +1345,266 @@
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="246" name="ret_time">
+    <column id="323" parent="250" name="ret_time">
       <Position>5</Position>
       <Comment>应归还时间</Comment>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="246" name="real_time">
+    <column id="324" parent="250" name="real_time">
       <Position>6</Position>
       <Comment> 归还时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="246" name="bor_type">
+    <column id="325" parent="250" name="bor_type">
       <Position>7</Position>
       <Comment>0 借出 1 归还 2 续借  3 超时</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="291" parent="246" name="PRIMARY">
+    <key id="326" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>bor_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="292" parent="247" name="id">
+    <column id="327" parent="251" name="id">
       <Position>1</Position>
       <DataType>int(5)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="247" name="typename">
+    <column id="328" parent="251" name="typename">
       <Position>2</Position>
       <DataType>varchar(15)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="294" parent="247" name="PRIMARY">
+    <key id="329" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="295" parent="248" name="chat_id">
+    <column id="330" parent="252" name="chat_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="248" name="rid">
+    <column id="331" parent="252" name="rid">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="248" name="pid">
+    <column id="332" parent="252" name="pid">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="248" name="context">
+    <column id="333" parent="252" name="context">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="248" name="chat_creatime">
+    <column id="334" parent="252" name="chat_creatime">
       <Position>5</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="300" parent="248" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>chat_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="301" parent="249" name="com_id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="302" parent="249" name="rid">
-      <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="303" parent="249" name="isbn">
-      <Position>3</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="304" parent="249" name="title">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="305" parent="249" name="context">
-      <Position>5</Position>
-      <DataType>text|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="306" parent="249" name="com_createtime">
-      <Position>6</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="307" parent="249" name="image">
-      <Position>7</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="308" parent="249" name="comment_com_id_index">
-      <ColNames>com_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="309" parent="249" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>com_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="310" parent="250" name="pen_id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="311" parent="250" name="isbn">
-      <Position>2</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="312" parent="250" name="rid">
-      <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="313" parent="250" name="pen_type">
-      <Position>4</Position>
-      <DataType>varchar(10)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="314" parent="250" name="repay">
-      <Position>5</Position>
-      <DataType>double|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="315" parent="250" name="pen_time">
-      <Position>6</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="316" parent="250" name="penalty_pen_id_rid_isbn_index">
-      <ColNames>pen_id
-rid
-isbn</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="317" parent="250" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>pen_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="318" parent="251" name="read_id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="319" parent="251" name="rname">
-      <Position>2</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="320" parent="251" name="rpwd">
-      <Position>3</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="321" parent="251" name="rsex">
-      <Position>4</Position>
-      <DataType>varchar(5)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="322" parent="251" name="remail">
-      <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="323" parent="251" name="rphone">
-      <Position>6</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="324" parent="251" name="raddress">
-      <Position>7</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="325" parent="251" name="image">
-      <Position>8</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="326" parent="251" name="credit">
-      <Position>9</Position>
-      <DataType>int(30)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="327" parent="251" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>read_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="328" parent="252" name="rem_id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="329" parent="252" name="rid">
-      <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="330" parent="252" name="rcontext">
-      <Position>3</Position>
-      <DataType>text|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="331" parent="252" name="comid">
-      <Position>4</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="332" parent="252" name="fatherremid">
-      <Position>5</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="333" parent="252" name="replyname">
-      <Position>6</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="334" parent="252" name="createtime">
-      <Position>7</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="335" parent="252" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>chat_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="336" parent="253" name="com_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="337" parent="253" name="rid">
+      <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="338" parent="253" name="isbn">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="339" parent="253" name="title">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="340" parent="253" name="context">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="341" parent="253" name="com_createtime">
+      <Position>6</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="342" parent="253" name="image">
+      <Position>7</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="343" parent="253" name="comment_com_id_index">
+      <ColNames>com_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="344" parent="253" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>com_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="345" parent="254" name="pen_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="346" parent="254" name="isbn">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="347" parent="254" name="rid">
+      <Position>3</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="348" parent="254" name="pen_type">
+      <Position>4</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="349" parent="254" name="repay">
+      <Position>5</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="350" parent="254" name="pen_time">
+      <Position>6</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="351" parent="254" name="penalty_pen_id_rid_isbn_index">
+      <ColNames>pen_id
+rid
+isbn</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="352" parent="254" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>pen_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="353" parent="255" name="read_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="354" parent="255" name="rname">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="355" parent="255" name="rpwd">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="356" parent="255" name="rsex">
+      <Position>4</Position>
+      <DataType>varchar(5)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="357" parent="255" name="remail">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="358" parent="255" name="rphone">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="359" parent="255" name="raddress">
+      <Position>7</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="360" parent="255" name="image">
+      <Position>8</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="361" parent="255" name="credit">
+      <Position>9</Position>
+      <DataType>int(30)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="362" parent="255" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>read_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="363" parent="256" name="rem_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="364" parent="256" name="rid">
+      <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="365" parent="256" name="rcontext">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="366" parent="256" name="comid">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="367" parent="256" name="fatherremid">
+      <Position>5</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="368" parent="256" name="replyname">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="369" parent="256" name="createtime">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="370" parent="256" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>rem_id</ColNames>
       <Primary>1</Primary>

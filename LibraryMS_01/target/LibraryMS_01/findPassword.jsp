@@ -15,8 +15,8 @@
 <body>
 <div id="taskList">
     <ul id="ul">
-        <li>学生找回</li>
-        <li>管理员找回</li>
+        <li id="l1">学生找回</li>
+        <li id="l2">管理员找回</li>
     </ul>
     <div id="show">
         <form id="form">
@@ -45,36 +45,45 @@
         $("#ul li:first").bind("click",bg1=function(){
             $("#form").show();
             $("#form1").hide();
+            $("#l1").height("45");
+            $("#l2").height("40");
         });
         $("#ul li:last").bind("click",bg2=function(){
             $("#form").hide();
             $("#form1").show();
+            $("#l1").height("40");
+            $("#l2").height("45");
         });
         $("#btn").click(function () {
-            var phone1;
             var code;
-            phone1 = $("#phone").val();
+            var phone1 = $("#phone").val();
             console.log("手机号：" + phone1);
-            $.ajax({
-                url: "messageUtils/message",
-                data: {name: phone1},
-                contentType: "application/json;charset=UTF-8",
-                type: "get",
-                dataType: "text",
-                success: function (data) {
-                    console.log(data);
-                    if (data!="success"){
-                        alert("消息发送失败！");
+            if (phone1!=""){
+                $.ajax({
+                    url: "messageUtils/message",
+                    data: {name: phone1},
+                    contentType: "application/json;charset=UTF-8",
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+                        console.log(data);
+                        if (data!="success"){
+                            alert("消息发送失败！");
+                        }else {
+                            alert("发送成功!");
+                        }
                     }
-                }
-            });
+                });
+            }else {
+                alert("手机号不能为空！");
+            }
     });
        $("#btn2").click(function () {
            var phone12=$("#phone").val();
            var pw1=$("#pw1").val();
            var pw2=$("#pw2").val();
            var inputCode=$("#inputCode").val();
-           if (phone12!=null&&pw1!=null&&pw2!=null&&inputCode!=null) {
+           if (phone12!=""&&pw1!=""&&pw2!=""&&inputCode!="") {
            if (pw1==pw2){
                $.ajax({
                    url:"reader/findReaderPassword",
@@ -88,8 +97,11 @@
                            window.location.href="reader/updateReaderPassword?name="+phone12;
                        }else if (data=="update"){
                            alert("不能与上次密码一致！");
-                       } else {
+                       } else if (data=="err1"){
                            alert("两次密码不一致！");
+                       }else if (data=="err"){
+                           alert("没有此手机号，请先注册！");
+                           window.location.reload();
                        }
                    }
                })
@@ -101,48 +113,60 @@
            }
        });
         $("#btn1").click(function () {
-            var phone11;
-            phone11 = $("#phone1").val();
+            var phone11 = $("#phone1").val();
             console.log("手机号：" + phone11);
-            $.ajax({
-                url: "messageUtils/message",
-                data: {name: phone11},
-                contentType: "application/json;charset=UTF-8",
-                type: "get",
-                dataType: "text",
-                success: function (data) {
-                    console.log(data);
-                    if (data!="success"){
-                        alert("消息发送失败！");
+            if (phone11!=""){
+                $.ajax({
+                    url: "messageUtils/message",
+                    data: {name: phone11},
+                    contentType: "application/json;charset=UTF-8",
+                    type: "get",
+                    dataType: "text",
+                    success: function (data) {
+                        console.log(data);
+                        if (data!="success"){
+                            alert("消息发送失败！");
+                        }else {
+                            alert("发送成功!");
+                        }
                     }
-                }
-            });
+                });
+            }else {
+                alert("手机号不能为空！");
+            }
     });
         $("#btn22").click(function () {
             var phone123=$("#phone1").val();
             var pw11=$("#pw11").val();
             var pw22=$("#pw22").val();
             var inputCode1=$("#inputCode1").val();
-            if (pw11==pw22){
-                $.ajax({
-                    url:"admin/findAdminPassword",
-                    data:{name:phone123,password:pw11,inputCode:inputCode1},
-                    contentType: "application/json;charset=UTF-8",
-                    type: "get",
-                    dataType: "text",
-                    success: function (data) {
-                        if(data=="list"){
-                            alert("修改成功！");
-                            window.location.href="admin/updateAdminPassword?name="+phone123;
-                        }else if (data=="update"){
-                            alert("不能与上次密码一致！");
-                        } else {
-                            alert("两次密码不一致！");
+            if (phone123!=""&&pw11!=""&&pw22!=""){
+                if (pw11==pw22){
+                    $.ajax({
+                        url:"admin/findAdminPassword",
+                        data:{name:phone123,password:pw11,inputCode:inputCode1},
+                        contentType: "application/json;charset=UTF-8",
+                        type: "get",
+                        dataType: "text",
+                        success: function (data) {
+                            if(data=="list"){
+                                alert("修改成功！");
+                                window.location.href="admin/updateAdminPassword?name="+phone123;
+                            }else if (data=="update"){
+                                alert("不能与上次密码一致！");
+                            } else if (data=="err1"){
+                                alert("两次密码不一致！");
+                            }else if (data=="err"){
+                                alert("没有此手机号，请先注册!");
+                                window.location.reload();
+                            }
                         }
-                    }
-                })
-            } else {
-                alert("您的两次密码不一致！");
+                    })
+                } else {
+                    alert("您的两次密码不一致！");
+                }
+            }else {
+                alert("此处为必填项！");
             }
         });
     });

@@ -2,6 +2,8 @@ package com.controller;
 
 import com.entity.Admin;
 import com.service.AdminService;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -215,31 +217,34 @@ public class AdminController
         return "adminInfor";
     }
     @RequestMapping("/adminRegiser")
-    public String adminRegiser(@RequestParam String stuId, @RequestParam String name, @RequestParam String email, @RequestParam String type, @RequestParam("fileUp") MultipartFile file, @RequestParam String phone, HttpServletRequest request, Model model) throws IOException
+    public String adminRegiser(@RequestParam String stuId, @RequestParam String name, @RequestParam String email, @RequestParam String type, @RequestParam("fileUp") MultipartFile pic, @RequestParam String phone, HttpServletRequest request, Model model) throws IOException
     {
         HttpSession session=request.getSession();
         String password= (String) session.getAttribute(phone);
-        System.out.println(password);
-        //准备使用fileupload组件完成上传
-        //上传的位置
-
-        String path=request.getSession(true).getServletContext().getRealPath("/images/");
+        String path="http://localhost:9090/uploads/";
         //判断该路劲是否存在
-
-        File file1=new File(path);
-        if (!file1.exists()){
-            file1.mkdirs();
+        File file=new File(path);
+        if (!file.exists()){
+            file.mkdirs();
         }
-
         //说明上传文件项
         //获取上传文件的名称
-        String filename=file.getOriginalFilename();
+        String filename=pic.getOriginalFilename();
         //文件的名称设置为唯一值
-
-        String uuid= UUID.randomUUID().toString().replace("-","");
+        String uuid=UUID.randomUUID().toString().replace("-","");
         filename=uuid+"_"+filename;
         //完成文件上传
-        file.transferTo(new File(path,filename));
+        //pic.transferTo(new File(path,filename));
+        Client client=Client.create();
+        client.setConnectTimeout(3000);
+        //和图片服务器连接
+        WebResource webResource = client.resource(path + filename);/*注意“/”*/
+        //上传文件
+        try {
+            webResource.put(pic.getBytes());
+        } catch (IOException e) {
+            new Exception("文件上传失败！");
+        }
         Admin admin=new Admin(Integer.parseInt(stuId),name,password,email,phone,type,filename);
         List<Admin> list=adminService.findLogin(admin);
         for (Admin admin1:list){
@@ -263,17 +268,21 @@ public class AdminController
        if (code.equals(inputCode)){
            Admin admin=new Admin();
            List<Admin> list=adminService.findByPhoneNum(name);
-           for (Admin a:list){
-               admin.setA_password(a.getA_password());
-           }
-           if (admin.getA_password().equals(password)){
-               return "update";
+           if (list.size()>0){
+               for (Admin a:list){
+                   admin.setA_password(a.getA_password());
+               }
+               if (admin.getA_password().equals(password)){
+                   return "update";
+               }else {
+                   session.setAttribute(name,password);
+                   return "list";
+               }
            }else {
-               session.setAttribute(name,password);
-               return "list";
+               return "err";
            }
        }else {
-           return "err";
+           return "err1";
        }
     }
     @RequestMapping("/updateAdminPassword")

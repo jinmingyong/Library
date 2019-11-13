@@ -89,7 +89,7 @@
                             验证码：<input type='text' name='inputCode' id="inputCode" /><img id="image" src="verifyCodeServlet/VerifyCodeServlet"><input type="button"  value="看不清楚？换一张" id="btn"> <br/>
                             <a href="findPassword.jsp">忘记密码？</a><br>
                             <button id="btnLogin" type="button">登录</button><br>
-                            <button id="b1"><a href="register.jsp">注册</a> </button>
+                            <button id="b1"><a href="register.jsp">注册</a></button>
                         </form>
                         <form id="form2" class="registration-form">
                             用户名：<input type="text" id="name1"  placeholder="管理员号/手机号/邮箱"><br>
@@ -97,7 +97,7 @@
                             验证码：<input type="text" id="inputCode1" ><img id="image1" src="verifyCodeServlet/VerifyCodeServlet"><input type="button" value="看不清楚？换一张" id="btn1"> <br/>
                             <a href="findPassword.jsp">忘记密码？</a><br>
                             <input id="btnLogin1" type="button" value="登录"><br>
-                            <button id="b2"><a href="register.jsp">注册</a> </button>
+                            <button id="b2"><a href="register.jsp">注册</a></button>
                         </form>
                     </div>
                 </div>

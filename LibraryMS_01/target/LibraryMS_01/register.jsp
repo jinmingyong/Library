@@ -56,18 +56,21 @@
         var code;
         $("#btn").click(function () {
             phone=$("#phone").val();
-            console.log("手机号："+phone);
-            $.ajax({
-                url:"messageUtils/message",
-                data:{name:phone},
-                contentType:"application/json;charset=UTF-8",
-                type:"get",
-                dataType: "text",
-                success:function (data) {
-                    console.log(data);
-                    code=data;
-                }
-            });
+            if (phone!=""){
+                $.ajax({
+                    url:"messageUtils/message",
+                    data:{name:phone},
+                    contentType:"application/json;charset=UTF-8",
+                    type:"get",
+                    dataType: "text",
+                    success:function (data) {
+                        code=data;
+                        alert("发送成功！");
+                    }
+                });
+            }else {
+                alert("手机号不能为空！");
+            }
         });
         $("#btn1").click(function () {
             //var phone=$("#phone").val();
@@ -89,6 +92,7 @@
                                     alert("验证码不正确，亲！")
                                 } else if (data == "err1") {
                                     alert("该号码已经注册！亲");
+                                    window.location.reload();
                                 } else if (data == "list") {
                                     window.location.href = "admin/saveAdminRigester?name=" + phone;
                                 }
@@ -106,6 +110,7 @@
                                     alert("验证码不正确，亲！")
                                 } else if (data == "err1") {
                                     alert("该号码已经注册！亲");
+                                    window.location.reload();
                                 } else if (data == "list") {
                                     window.location.href = "reader/saveRegister?name=" + phone;
                                 }
