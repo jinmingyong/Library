@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.AttenceMapper" >
+    <resultMap id="BaseResultMap" type="com.entity.Attence" >
+        <id column="a_id" property="aId" jdbcType="INTEGER" />
+        <result column="s_id" property="sId" jdbcType="INTEGER" />
+        <result column="attencetime" property="attenceTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.entity.Attence">
+        insert into attence(s_id,attencetime)
+        value (#{sId,jdbcType=INTEGER},#{attenceTime,jdbcType=TIMESTAMP})
+    </insert>
+    <select id="selectAttenceCount" resultType="java.lang.Integer">
+        select count(*) from attence
+        where s_id=#{sId,jdbcType=INTEGER}
+        <if test="attenceTime!=null and attenceTime2!=null">
+            and attencetime between #{attenceTime,jdbcType=TIMESTAMP} and #{attenceTime2,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+    <select id="selectAttence" resultType="com.entity.Attence">
+        select * from attence
+        where s_id=#{sId,jdbcType=INTEGER}
+        <if test="attenceTime!=null and attenceTime2!=null">
+            and attencetime between #{attenceTime,jdbcType=TIMESTAMP} and #{attenceTime2,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+</mapper>

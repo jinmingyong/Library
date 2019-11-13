@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.entity.BookBooking;
+import com.entity.Borrow;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.service.IBookBookingService;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
+import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -23,8 +25,9 @@ import java.util.Map;
 public class BookBookingController {
 @Resource(name = "bookBookingService")
 private IBookBookingService iBookBookingService;
-
-
+BookBooking bookBooking=new BookBooking();
+Borrow borrow =new Borrow();
+BookBorrowController bookBorrowController =new BookBorrowController();
 
 
     @RequestMapping("/list")
@@ -100,6 +103,7 @@ private IBookBookingService iBookBookingService;
     @ResponseBody
     public Map<String,Object> delete(Integer[] id){
         try {
+
             iBookBookingService.delete(id);
             result.put("success", true);
         } catch (Exception e) {
@@ -110,6 +114,31 @@ private IBookBookingService iBookBookingService;
         return result;
     }
 
+    @RequestMapping("/deleteForm")
+    @ResponseBody
+    public Map<String,Object> deleteForm(Integer[] id){
+        try {
+            for (int i=0;i<id.length;i++)
+            {   Date date = new Date();
+               bookBooking= iBookBookingService.findBookBookingbyid(id[i]);
+               String isbn=iBookBookingService.getIsbn(bookBooking.getBid());
+                borrow.setIsbn(isbn);
+                borrow.setRid(bookBooking.getRid().longValue());
+                borrow.setBorTime(date);
+                borrow.setBorType("0");
+                iBookBookingService.insertSelective(borrow);
+
+            }
+
+            iBookBookingService.delete(id);
+            result.put("success", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("success", false);
+            result.put("msg", e.getMessage());
+        }
+        return result;
+    }
 //    @RequestMapping("/listByRid")
 //    public @ResponseBody List<BookBooking> listByRid(Integer rid){
 //        //设置分页参数

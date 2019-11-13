@@ -3,6 +3,7 @@ package com.service.impl;
 
 import com.dao.BookBookingMapper;
 import com.entity.BookBooking;
+import com.entity.Borrow;
 import com.github.pagehelper.PageHelper;
 import com.service.IBookBookingService;
 
@@ -43,7 +44,10 @@ public class BookBookingServiceimpl implements IBookBookingService {
         bookBookingMapper.delete(id);
     }
 
-
+    @Override
+    public BookBooking findBookBookingbyid(Integer id) {
+        return bookBookingMapper.findBookBookingbyid(id);
+    }
 
 
     @Override
@@ -74,5 +78,12 @@ public class BookBookingServiceimpl implements IBookBookingService {
 
     }
 
+    @Override
+    public String getIsbn(Integer bid) {
+        return bookBookingMapper.getIsbn(bid);
+    }
 
+    public int insertSelective(Borrow record) {
+        return bookBookingMapper.insertSelective(record);
+    }
 }

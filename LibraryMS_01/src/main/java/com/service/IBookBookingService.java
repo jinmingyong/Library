@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.BookBooking;
+import com.entity.Borrow;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,8 @@ public interface IBookBookingService {
     //删除
     public void delete(Integer[] id);
 
+    //按id查询
+    BookBooking findBookBookingbyid(Integer id);
     //按读者编号查询
     List<BookBooking> findBookBookingbyrid(Integer rid);
     //按图书编号查询
@@ -29,4 +32,7 @@ public interface IBookBookingService {
     //查询图书预约数量
     int BookingNum(Integer bid);
 
+    String getIsbn(Integer bid);
+
+    int insertSelective(Borrow record);
 }

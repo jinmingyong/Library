@@ -34,4 +34,7 @@ public interface IBookResDao  {
     BookRes findBookResByIsbn(String isbn);
 
     List<BookRes> findBookResByType(Integer btype);
+
+    int addNewBookResList(BookRes bookResList);
+
 }
