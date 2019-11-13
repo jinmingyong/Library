@@ -6,8 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+    //${pageContext.request.contextPath}
+%>
 <html>
 <head>
+
+    <base href="<%=basePath%>">
     <title>新书入库</title>
 </head>
 <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -64,7 +71,7 @@
                 <h4 class="modal-title" id="myModalLabel">添加新书</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
-            <form action="${pageContext.request.contextPath}/bookres/addNewBookRes" onsubmit="return check()">
+            <form action="bookres/addNewBookRes" onsubmit="return check()">
             <div class="card-body">
 
                 <table  class="table table-hover table-bordered">

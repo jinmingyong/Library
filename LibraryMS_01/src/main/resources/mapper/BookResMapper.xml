@@ -111,4 +111,11 @@
     <select id="findBookResByName" parameterType="String" resultMap="BooKResMap">
         select * from book_reserve where bname like #{bname}
     </select>
+    <insert id="addNewBookResList" parameterType="com.entity.BookRes">
+        insert into book_reserve (isbn,bname,btype,author,publisher,import_time,amount,image,introduce)
+         values
+            (#{isbn},#{bname},#{btype},#{author},#{publisher},#{importTime},#{amount},#{image},#{introduce})
+
+    </insert>
+
 </mapper>

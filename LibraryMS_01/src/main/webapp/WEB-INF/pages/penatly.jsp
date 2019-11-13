@@ -83,7 +83,7 @@
                                         <li><a href="penalty/findAllPenalty"><button type="button">显示处罚信息</button></a>  </li>
                                         <li>
                                             <form >
-                                                <input type="text" name="rid" id="rid" placeholder="学生id">
+                                                <input type="text" name="rid" id="rid" placeholder="读者id">
                                                 <input id="selByRid" type="button" value="查询">
                                             </form>
                                         </li>

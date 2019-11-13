@@ -90,11 +90,10 @@
                         <span class="nav-link-text">管理员管理</span>
                     </a>
                 </li>
-            </ul>
-            <ul class="navbar-nav sidenav-toggler">
-                <li class="nav-item">
-                    <a class="nav-link text-center" id="sidenavToggler">
-                        <i class="fa fa-fw fa-angle-left"></i>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                    <a class="nav-link" href="test1.jsp">
+                        <i class="fa fa-fw fa-table"></i>
+                        <span class="nav-link-text">报废管理</span>
                     </a>
                 </li>
             </ul>
@@ -228,8 +227,8 @@
                                     </div>
                                     <div id="insert" >
                                         <form action="bookBorrow/insertBorrow" method="post">
-                                            图书编号：<input type="text" name="isbn"><br>
-                                            学生学号：<input type="text" name="stuId"><br>
+                                            ISBN：<input type="text" name="isbn"><br>
+                                            读者id：<input type="text" name="stuId"><br>
                                             <input type="submit" value="提交">
                                             <input type="reset" value="重置">
                                         </form>

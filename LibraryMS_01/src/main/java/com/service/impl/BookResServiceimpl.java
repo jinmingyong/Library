@@ -118,6 +118,10 @@ public class BookResServiceimpl implements IBookResService {
         bookBadMapper.updateByPrimaryKeySelective(bookBad);
         return 1;
     }
+    @Override
+    public int addNewBookResList(BookRes bookResList) {
+        return bookResDao.addNewBookResList(bookResList);
+    }
 
 
 }

@@ -123,7 +123,7 @@ public class AdminController
                     model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "list";
+                return "redirect:/test4.jsp";
             }else {
                 model.addAttribute("msg","没有您的用户类型，请重新输入！");
                 return "loginErr";
@@ -148,7 +148,7 @@ public class AdminController
                     //model.addAttribute("admin",admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "list";
+                return "redirect:/test4.jsp";
             }else {
                 model.addAttribute("msg","没有您的用户类型，请重新输入！");
                 return "loginErr";
@@ -174,7 +174,7 @@ public class AdminController
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "list";
+                return "redirect:/test4.jsp";
             }else {
                 model.addAttribute("msg","没有您的用户类型，请重新输入！");
                 return "loginErr";

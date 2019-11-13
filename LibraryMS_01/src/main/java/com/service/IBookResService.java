@@ -43,6 +43,6 @@ public interface IBookResService {
     * */
     int bookdamage(Integer bid,int num);
 
-
+    int addNewBookResList(BookRes bookResList);
 
 }

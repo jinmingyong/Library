@@ -20,6 +20,7 @@
 <link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
 <!-- Custom styles for this template-->
 <link href="css/sb-admin.css" rel="stylesheet">
+
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 
@@ -52,13 +53,25 @@
                     <span class="nav-link-text">管理员管理</span>
                 </a>
             </li>
-        </ul>
-        <ul class="navbar-nav sidenav-toggler">
-            <li class="nav-item">
-                <a class="nav-link text-center" id="sidenavToggler">
-                    <i class="fa fa-fw fa-angle-left"></i>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="test1.jsp">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">报废管理</span>
                 </a>
             </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="test2.jsp">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">申请购买新书</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="test3.jsp">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">新书入库确认</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>

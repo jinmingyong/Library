@@ -3,6 +3,7 @@ package com.controller;
 import com.entity.BookRes;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
+import com.service.IApplyBookService;
 import com.service.IBookResService;
 import com.service.impl.BookResServiceimpl;
 import com.sun.jersey.api.client.Client;
@@ -30,6 +31,8 @@ public class BookResController {
     //maki:same
     @Resource(name = "bookResService")
     private IBookResService bookResService;
+    @Resource(name = "applyBookService")
+    private IApplyBookService iApplyBookService;
     //maki:none
     @RequestMapping("/showallbook")
     public String showallbook(){
@@ -88,6 +91,17 @@ public class BookResController {
         bookResService.updateBookRes(bookRes);
         return "http://localhost:9090/uploads/"+filename;
     }
+    @RequestMapping("/addNewBookRes")
+    public String addNewBookRes(BookRes bookRes){
+        bookRes.setImportTime(new Date());
 
+        bookResService.addNewBookResList(bookRes);
+        int id= iApplyBookService.selectByIsbn(bookRes.getIsbn()).getId();
+        System.out.println("----------------");
+        System.out.println(id);
+        iApplyBookService.deleteByPrimaryKey(id);
+        return "redirect:/test3.jsp";
+
+    }
 
 }
