@@ -6,10 +6,21 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<<<<<<< HEAD
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+=======
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <base href="<%=basePath%>">
+>>>>>>> origin/master
     <title>我的预订</title>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
@@ -17,6 +28,7 @@
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
     <!-- 导入easyui的资源文件 -->
+<<<<<<< HEAD
     <script type="text/javascript" src="easyui/jquery.min.js"></script>
     <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
@@ -25,10 +37,22 @@
 </head>
 
 <body>
+=======
+</head>
+
+<body>
+<jsp:include page="WEB-INF/pages/jsp/head.jsp"></jsp:include>
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<link id="themeLink" rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+>>>>>>> origin/master
 <table id="list"></table>
 
 <!-- 工具条 -->
 <div id="tb">
+<<<<<<< HEAD
     <a id="addBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
     <%--<a id="editBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">修改</a>--%>
     <a id="deleteBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
@@ -36,6 +60,15 @@
 
 <!-- 编辑窗口 -->
 <div id="win" class="easyui-window" title="客户数据编辑" style="width:500px;height:300px"
+=======
+    <a id="addBtn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
+    <%--<a id="editBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">修改</a>--%>
+    <a id="deleteBtn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
+</div>
+
+<!-- 编辑窗口 -->
+<div id="win" class="easyui-window" title="增加预定" style="width:500px;height:300px"
+>>>>>>> origin/master
      data-options="iconCls:'icon-save',modal:true,closed:true">
     <form id="editForm" method="post">
         <%--&lt;%&ndash;提供id隐藏域 &ndash;%&gt;--%>
@@ -44,15 +77,29 @@
         <%--客户编号：<input type="text" name="rid" class="easyui-numberbox" data-options="required:true"/><br/>--%>
         图书编号：<input type="text" name="bid" class="easyui-numberbox" data-options="required:true"/><br/>
         <%--<input type="hidden" name="bookingTime" class="easyui-datetimebox"/><br/>--%>
+<<<<<<< HEAD
         <a id="saveBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+=======
+        <a id="saveBtn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+>>>>>>> origin/master
     </form>
 </div>
 
 <script type="text/javascript">
     $(function(){
+<<<<<<< HEAD
         $("#list").datagrid({
             //url:后台数据查询的地址
             url:"/bookBooking/listByRid?rid="+${read.readid},
+=======
+
+        var rid=${reader.readId};
+        var u="/bookBooking/listByRid?rid="+rid;
+        $("#list").datagrid({
+            //url:后台数据查询的地址
+
+            url:u,
+>>>>>>> origin/master
             //columns：填充的列数据
             //field:后台对象的属性
             //tille:列标题
@@ -97,7 +144,11 @@
         $("#saveBtn").click(function(){
             $("#editForm").form("submit",{
                 //url: 提交到后台的地址
+<<<<<<< HEAD
                 url:"/bookBooking/insert?rid="+${read.readid},
+=======
+                url:"/bookBooking/insert?rid="+rid,
+>>>>>>> origin/master
                 //onSubmit: 表单提交前的回调函数，true：提交表单   false：不提交表单
                 onSubmit:function(){
                     //判断表单的验证是否都通过了

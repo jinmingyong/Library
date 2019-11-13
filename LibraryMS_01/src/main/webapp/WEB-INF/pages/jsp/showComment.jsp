@@ -22,9 +22,6 @@
 <body>
 <jsp:include page="head.jsp"></jsp:include>
 <div class="col-md-8 col-lg-10 content-column" id="myVue">
-    <div class="small-navbar d-flex d-md-none">
-        <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-    </div>
     <div class="col-md-8 col-lg-8">
         <div class="content-column-content">
             <div class=" flick_button_style style2 pb_50 col-lg-12" style="position: relative">
@@ -198,7 +195,6 @@
                 })
             },
             pageHandler:function(page){
-                this.page=page;
                 var that=this;
                 $.ajax({
                     url: "comment/findCommentByTitle",
@@ -206,7 +202,7 @@
                     dataType: "json",
                     type: "post",
                     success: function (res) {
-                        this.page=page;
+                        that.page=page;
                         that.total = res.total;
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
@@ -215,12 +211,21 @@
                 })
         },
         },
-        created:function () {
-        },
+      /*  created:function () {
+            var $grid = $('.grid').imagesLoaded( function() {
+                // init Masonry after all images have loaded
+                $grid.masonry({
+                    itemSelector: '.grid-item',
+                    // use element for option
+                });
+            });
+        /!*    $grid.progress( function() {
+                $grid.masonry('layout');
+            });*!/
+        },*/
         mounted:function () {
             this.pageHandler(1);
             this.showMoreBorrow();
-
         }
     });
 </script>

@@ -68,5 +68,6 @@ public interface BookInuseMapper {
      */
     List<BookInuse> selectByAccount(Integer account);
 
-    List<BookInuse> findAll(@Param("bname") String bname);
+    List<BookInuse> findAllByName(@Param("bname") String bname);
+
 }

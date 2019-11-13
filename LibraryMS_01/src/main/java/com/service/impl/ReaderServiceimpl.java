@@ -44,7 +44,7 @@ public class ReaderServiceimpl implements IReaderService {
 
     @Override
     public int updateByPrimaryKeySelective(Reader record) {
-        return 0;
+        return readerMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override

@@ -22,9 +22,9 @@
 
 <!-- 工具条 -->
 <div id="tb">
-    <a id="addBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">读者搜索</a>
+    <a id="addBtn" href="javascrip" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">读者搜索</a>
     <a id="editBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">图书搜索</a>
-    <a id="deleteBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">转为借阅</a>
+    <a id="deleteBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
 </div>
 
 <!-- 编辑窗口 -->

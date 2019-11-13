@@ -14,9 +14,6 @@
 <body>
 <jsp:include page="head.jsp"></jsp:include>
 <div class="col-md-8 col-lg-9 content-column" id="myVue">
-    <div class="small-navbar d-flex d-md-none">
-        <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-    </div>
     <section class="container" style="height: 100px">
         <form onsubmit="submitFn(this, event);">
             <div class="search-wrapper">
@@ -31,8 +28,9 @@
             </div>
         </form>
     </section>
+
     <div class="grid row" >
-        <div v-if ="bookInuses!=null||bookInuses!='' " class="col-md-6 col-lg-3 grid-item" v-for="(bookInuse,index) in bookInuses">
+        <div class="col-md-6 col-lg-3 grid-item" v-for="(bookInuse,index) in bookInuses">
                 <div class="box-masonry"> <a v-bind:href=url+bookInuse.bookRes.isbn title="" class="box-masonry-image with-hover-overlay"><img v-bind:src="path+bookInuse.bookRes.image" alt="" class="img-fluid"></a>
                     <div class="box-masonry-hover-text-header"> <a v-bind:href=url+bookInuse.bookRes.isbn class="tile-link">  </a>
                         <h4>{{bookInuse.bookRes.bname}}</h4>
@@ -42,7 +40,6 @@
                     </div>
                 </div>
     </div>
-
     </div>
     <div class="col-lg-8" style="position: absolute;bottom: 0">
     <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
@@ -73,13 +70,13 @@
         value = $(obj).find('.search-input').val().trim();
         evt.preventDefault();
     }
+
 </script>
 <script>
-
     var vue=new Vue({
         el:'#myVue',
         data:{
-            bookInuses:"",
+            bookInuses:{},
             path:'http://localhost:9090/uploads/',
             url:"${request.getContextPath()}/comment/showAllComments?isbn=",
             page:1,  //显示的是哪一页
@@ -91,7 +88,7 @@
         watch:{
             input_value: function () {
                 this.debounce(this.pageHandler, 1000)
-            }
+            },
         },
         methods:{
             debounce: function (fn, wait) {
@@ -102,7 +99,6 @@
                 this.fun = setTimeout(fn, wait)
             },
             pageHandler: function (page) {
-                this.page=page
                 var that=this;
                 $.ajax({
                     url: "${request.getContextPath()}bookInuse/showAllBooks",
@@ -111,19 +107,36 @@
                     type: "post",
                     success: function (res) {
                         console.log(res);
+                        that.page=page;
                         that.total = res.total;
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
-                        that.$data.bookInuses = res.list;
+                        that.bookInuses=res.list;
+                        var $grid = $('.grid').imagesLoaded().progress( function() {
+                            // init Masonry after all images have loaded
+                            $grid.masonry({
+                                itemSelector: '.grid-item',
+                            });
+                        });
+                $grid.masonry().masonry("destroy")
+                        /*$grid.progress( function() {
+                            var $items = $('.grid-item');
+                            $grid.masonry().append( $items )
+                                .masonry( 'appended', $items )
+                                // layout
+                                .masonry();
+                        });*/
                     }
                 })
-            }
+            },
+        },
+
+        created:function(){
+            this.pageHandler(1);
         },
         mounted:function () {
             this.pageHandler(1);
-            $.getScript("js/front.js")
         },
     })
-
 </script>
 </html>
