@@ -48,6 +48,7 @@
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/portamento-min.js"></script>
     <script src="js/main.js"></script>
+<%--    <script src="js/front.js"></script>--%>
 
 </head>
 <body>
@@ -65,9 +66,9 @@
                         <!-- Link-->
                         <!-- Link-->
                         <li class="sidebar-item"><a href="chat/chatjsp" class="sidebar-link">开始聊天</a></li>
+                        <li class="sidebar-item"><a href="r_booking.jsp" class="sidebar-link">开始聊天</a></li>
                     </ul>
                     <p class="social"><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="external instagram"><i class="fa fa-instagram"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
                 </div>
             </div>
-            <a href="/bookres/findAllBookRes">aaaa</a>
 

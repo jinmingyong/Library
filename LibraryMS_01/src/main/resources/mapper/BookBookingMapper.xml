@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.BookBookingMapper">
+    <resultMap id="BooKBookingMap" type="com.entity.BookBooking">
+        <id property="id" column="id"/>
+        <result property="bid" column="bid"/>
+        <result property="rid" column="rid"/>
+        <result property="bookingTime" column="bookingTime"/>
+    </resultMap>
+    <sql id="bookBooking">
+        bid,rid,bookingTime
+    </sql>
+
+    <insert id="insert" parameterType="com.entity.BookBooking">
+        insert into book_book(<include refid="bookBooking"/>)values (#{bid},#{rid},#{bookingTime})
+    </insert>
+
+    <!--<insert id="insertList" parameterType="list">-->
+        <!--insert into book_book (<include refid="bookBooking"/>) values-->
+        <!--<foreach collection="list" item="bookBooking" separator=",">-->
+            <!--(#{bid},#{rid},#{bookingTime})-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <select id="findAllBookBooking" resultMap="BooKBookingMap">
+        select * from book_book
+    </select>
+
+
+
+
+    <delete id="delete" parameterType="Integer[]">
+        delete  from  book_book <where>
+        id
+        <foreach collection="array" item="id" open="in (" close=")" separator=",">
+            #{id}
+        </foreach>
+    </where>
+
+    </delete>
+
+
+
+    <select id="findBookBookingbybid" parameterType="int" resultMap="BooKBookingMap">
+         select * from book_book where bid=#{bid}
+    </select>
+
+    <select id="findBookBookingbyrid" parameterType="int" resultMap="BooKBookingMap">
+         select * from book_book where rid=#{rid}
+    </select>
+
+    <select id="BookingNum" parameterType="int" resultType="int">
+       select count(1) from book_book where bid=#{bid}
+    </select>
+
+
+</mapper>

@@ -111,7 +111,6 @@
                     success: function (res) {
                         console.log(res);
                         that.total = res.total;
-                        that.page=res.page;
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
                         that.bookInuses=res.list;
@@ -135,7 +134,7 @@
         },
         mounted:function () {
 
-            this.pageHandler(5);
+            this.pageHandler(1);
         },
     })
 </script>
