@@ -101,7 +101,6 @@
                 this.fun = setTimeout(fn, wait)
             },
             pageHandler: function (page) {
-                this.page=page
                 var that=this;
                 $.ajax({
                     url: "${request.getContextPath()}bookInuse/showAllBooks",
@@ -110,6 +109,7 @@
                     type: "post",
                     success: function (res) {
                         console.log(res);
+                        that.page=page;
                         that.total = res.total;
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;

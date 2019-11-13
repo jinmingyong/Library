@@ -202,6 +202,7 @@
                     dataType: "json",
                     type: "post",
                     success: function (res) {
+                        that.page=page;
                         that.total = res.total;
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;

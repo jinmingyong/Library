@@ -28,7 +28,7 @@
                         <p>${bookRes.introduce}</p>
                       </div>
                     </div></div></div>
-                <form id="contact-form" method="post" action="comment/addComment?isbn=${bookRes.isbn}&rid=${rid}" class="contact-form form" enctype="multipart/form-data">
+                <form id="contact-form" method="post" action="comment/addComment?isbn=${bookRes.isbn}&rid=${reader.readId}" class="contact-form form" enctype="multipart/form-data">
                   <div class="controls">
                         <div class="form-group">
                           <label for="title">Title</label>

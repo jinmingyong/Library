@@ -47,8 +47,8 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-<%--    <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>--%>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
+<%--    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>--%>
     <script src="js/zpageNav.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
