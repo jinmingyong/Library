@@ -6,18 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/chat1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/Chat/chat1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/addComment.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/addComment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllbook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/jsp/showAllbook.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/search-form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/search-form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/shortcode-common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/shortcode-common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.violet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.violet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/r_booking.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/r_booking.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,10 +66,14 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="PUSH_TAGS">
-      <GitPushTagMode />
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -406,7 +399,7 @@
       <workItem from="1573465462729" duration="12646000" />
       <workItem from="1573577422920" duration="27642000" />
       <workItem from="1573624138517" duration="4221000" />
-      <workItem from="1573628401282" duration="16978000" />
+      <workItem from="1573628401282" duration="17340000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1573451601582</created>
@@ -541,7 +534,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573642742900</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="new">
+      <created>1573647078579</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1573647078579</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
