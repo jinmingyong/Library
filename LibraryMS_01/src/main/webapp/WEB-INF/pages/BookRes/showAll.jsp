@@ -28,12 +28,6 @@
         .speed {
             float: left;
         }
-        .imgdiv{
-            position: absolute;
-            left: 100px;
-            display: none;
-            z-index: 5;
-        }
     </style>
 </head>
 <body>

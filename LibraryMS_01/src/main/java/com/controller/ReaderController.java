@@ -1,11 +1,15 @@
 package com.controller;
 
 
+import com.entity.BookRes;
 import com.entity.Reader;
 import com.service.IReaderService;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -227,5 +231,41 @@ public class ReaderController
         user.setRphone(name);
         readerService.updateReaderPassword(user);
         return "redirect:/login.jsp";
+    }
+
+    @RequestMapping("/upload")
+    @ResponseBody
+    public  String upload( @RequestParam(value = "UploadForm[image]") MultipartFile upload,Long readId){
+        //定义上传服务器路径
+        String path="http://localhost:9090/uploads/";
+        File file=new File(path);
+        if (!file.exists()){
+            file.mkdirs();
+        }
+        String filename = upload.getOriginalFilename();//获得名字
+        filename= UUID.randomUUID().toString().replace("-","")+"_"+filename;
+        //完成上传，跨服务器
+        //创建客户端对象
+        Client client=Client.create();
+        client.setConnectTimeout(3000);
+        //和图片服务器连接
+        WebResource webResource = client.resource(path + filename);/*注意“/”*/
+        //上传文件
+        try {
+            webResource.put(upload.getBytes());
+        } catch (IOException e) {
+        }
+        Reader reader=new Reader();
+        reader.setReadId(readId);
+        reader.setImage(filename);
+        readerService.updateByPrimaryKeySelective(reader);
+        return "http://localhost:9090/uploads/"+filename;
+    }
+    @RequestMapping("/updateReaderinfo")
+    public @ResponseBody Reader updateReader(HttpServletRequest request,Reader reader){
+        readerService.updateByPrimaryKeySelective(reader);
+        Reader r=readerService.selectByPrimaryKey(reader.getReadId());
+        request.getSession().setAttribute("reader",r);
+        return reader;
     }
 }

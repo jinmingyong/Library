@@ -33,7 +33,7 @@
 <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
 <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
 <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
-<script src="js/front.js"></script>
+<script src="js/vueWaterfallEasy.js"></script>
 <script src="js/test3.js"></script>
 <body>
 <div id="tables" class="card mb-4">
