@@ -6,40 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/controller/BookBookingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/b-borrow_manage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/bookInUse.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/borrow.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/penatly.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/logo02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/logo03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/r_booking.jsp" afterDir="false" />
+    <list default="true" id="31b07088-2ff4-43e3-80e5-e11e12b05b63" name="Default Changelist" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/StaffInfoUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/StaffInfoUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/bookinuse.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/borrow.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/borrow.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/penatly.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/addStaff.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addStaff.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/booking_manage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/booking_manage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/addStaff.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/addStaff.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/attence.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/attence.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/salary.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/salary.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/staffInfoUpdate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/staffInfoUpdate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/staffTypeManage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/staffTypeManage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/salary.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/salary.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/staffManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/staffManage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/staffTypeManage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/staffTypeManage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test2.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test2.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test3.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/test4.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/test4.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,8 +108,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookBookingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="128" column="60" selection-start-line="128" selection-start-column="60" selection-end-line="128" selection-end-column="60" />
+            <state relative-caret-position="414">
+              <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -471,7 +439,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573644724608" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573646818012" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/twts_243_sb-admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -756,7 +724,7 @@
       <workItem from="1573451370358" duration="7853000" />
       <workItem from="1573465462729" duration="12646000" />
       <workItem from="1573607108051" duration="24996000" />
-      <workItem from="1573632757451" duration="8470000" />
+      <workItem from="1573632757451" duration="9236000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1573451601582</created>
@@ -877,17 +845,23 @@
       <option name="project" value="LOCAL" />
       <updated>1573612872710</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="new">
+      <created>1573644775681</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1573644775681</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44579000" />
+    <option name="totallyTimeSpent" value="45345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49857953" visible="true" weight="0.24840085" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49857953" visible="true" weight="0.24840085" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -897,7 +871,7 @@
       <window_info id="Web" order="7" sideWeight="0.50142044" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34273317" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.34273317" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.11822126" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -906,7 +880,7 @@
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Sequence" order="10" weight="0.1735358" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" weight="0.34273317" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.121475056" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
@@ -1327,8 +1301,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/controller/BookBookingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="128" column="60" selection-start-line="128" selection-start-column="60" selection-end-line="128" selection-end-column="60" />
+        <state relative-caret-position="414">
+          <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
         </state>
       </provider>
     </entry>
