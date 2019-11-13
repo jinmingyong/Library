@@ -76,7 +76,7 @@ public class BookResServiceimpl implements IBookResService {
 
     @Override
     public List<BookRes> findAllByPage(Integer pageNo) {
-        PageHelper.startPage(pageNo,5);
+       /* PageHelper.startPage(pageNo,5);*/
         List<BookRes> list=bookResDao.findAllBookRes();
         return list;
     }

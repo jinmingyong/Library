@@ -63,7 +63,7 @@
 
         <div class="row row-offcanvas row-offcanvas-left" style="height: 100%">
             <!--   *** SIDEBAR ***-->
-            <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas" style="background-color: #ffdff5">
+            <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas" style="background-color: #e2e6d5">
                 <div class="sidebar-content">
                     <h1 class="sidebar-heading">评论及聊天</h1>
                     <ul class="sidebar-menu">

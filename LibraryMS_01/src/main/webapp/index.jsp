@@ -20,6 +20,18 @@
         ul{
             line-height: 30px;
         }
+        .func{
+            list-style: none;
+        }
+
+        .func li a{
+            color: black;
+            text-decoration: none;
+        }
+        .func li a:hover{
+
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -29,7 +41,7 @@
 
     <!-- logo -->
     <div id="logo">
-        <img src="images/logo.jpg" width="1300" height="100">
+        <img src="images/logo.jpg" width="1920">
     </div>
 
     <!-- 登录用户信息 -->
@@ -38,7 +50,7 @@
     </div>
 
     <div id="themesDiv" style="position: absolute;right: 20px;top:40px;">
-        <a href="javascript:void(0)" id="mb" class="easyui-menubutton"
+        <a href="javascript:void(4)" id="mb" class="easyui-menubutton"
            data-options="menu:'#Themesmeus',iconCls:'icon-edit'">切换风格</a>
         <div id="Themesmeus" style="width:150px;">
             <div>default</div>
@@ -61,15 +73,40 @@
 <!-- 左边系统菜单 -->
 <div data-options="region:'west',title:'系统菜单',split:true" style="width:200px;">
     <div id="aa" class="easyui-accordion" style="width:193px;" data-options="border:0,multiple:true" >
-        <div title="系统管理" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">
-            <ul>
-                <li><a href="javascript:void(0)" pageUrl="categroy.jsp">员工管理</a></li>
+        <%--<div title="系统管理" data-options="iconCls:'icon-save'" style="overflow:auto;padding:10px;">   --%>
+        <%--<ul>--%>
+        <%--<li><a href="javascript:void(0)" pageUrl="categroy.jsp">员工管理</a></li>--%>
+        <%--</ul>--%>
+        <%--</div>   --%>
+        <div title="预订管理" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
+            <ul class="func">
+                <li><a href="javascript:void(0)" pageUrl="booking_manage.jsp"><strong>图书预订</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="b-borrow_manage.jsp"><strong>预订转借阅</strong></a></li>
             </ul>
         </div>
-        <div title="商品管理" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
-            <ul>
-                <li><a href="javascript:void(0)" pageUrl="booking_manage.jsp">图书预订</a></li>
-                <li><a href="javascript:void(0)" pageUrl="linkman_manage.jsp">联系人管理管理</a></li>
+
+        <div title="综合管理" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
+            <ul class="func">
+                <li><a href="javascript:void(0)" pageUrl="attence.jsp"><strong>打卡</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="salary.jsp"><strong>工资查询</strong></a></li>
+
+            </ul>
+        </div>
+
+        <div title="借阅室管理" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
+            <ul class="func">
+                <li><a href="javascript:void(0)" pageUrl="bookBorrow/borrowFindAllbyPage"><strong>借阅管理</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="bookInuse/findInuseAll"><strong>上架管理</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="penalty/findAllPenalty"><strong>违规处罚</strong></a></li>
+            </ul>
+        </div>
+
+        <div title="图书库房管理" data-options="iconCls:'icon-reload',selected:true" style="padding:10px;">
+            <ul class="func">
+                <li><a href="javascript:void(0)" pageUrl="test1.jsp"><strong>报废管理</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="test2.jsp"><strong>申请购买新书</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="test3.jsp"><strong>新书入库确认</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="bookres/findAllBookRes"><strong>库存图书显示</strong></a></li>
             </ul>
         </div>
     </div>
@@ -79,7 +116,7 @@
 <div data-options="region:'center'" style="padding:5px;background:#eee;">
     <div id="tt" class="easyui-tabs" style="width:500px;height:250px;" data-options="fit:true">
         <div title="起始页" style="padding:20px;display:none;">
-            Welcome!
+            欢迎来到祖安！
         </div>
     </div>
 </div>
