@@ -24,6 +24,7 @@
             <input type="radio" name="position" value="1">普通管理员</li>
         <li><button type="button" class="btn" id="staffTypeUpdate_btn">职位更改</button></li>
     </ul>
+    <a id="staffResult" href="staffManage.jsp">返回</a>
 </div>
 
 <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>

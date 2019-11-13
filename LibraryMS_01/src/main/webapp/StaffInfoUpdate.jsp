@@ -29,6 +29,7 @@
         <li>请输入员工电话：<input id="phoneNum_input" class="staffInfoUpdateInput" type="text" name="phoneNum" value="<%=phoneN%>"></li>
         <li><button class="btn" type="button" id="updatebtn">更改员工信息</button></li>
     </ul>
+    <a id="staffResult" href="staffManage.jsp">返回</a>
 </div>
 <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="js/staffInfoUpdate.js" type="text/javascript"></script>

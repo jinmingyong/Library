@@ -25,6 +25,8 @@ body{
   text-align: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   color: #ffffff;
   font-size: 16px;
   cursor: pointer;
@@ -33,9 +35,11 @@ body{
   margin-left: 10px;
   margin-right: 1px;
   background: #26a6e3;
+  height: 40px;
 }
 #taskList>ul li:last-of-type{
   background: #ff9400;
+  height: 40px;
 }
 #show{
   clear: both;

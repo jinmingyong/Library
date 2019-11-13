@@ -14,7 +14,7 @@
 <body>
 
 <div id="salary">
-    <div id="salary_aid">
+    <div id="salary_aid" style="display: none">
         <%
             Admin admin= (Admin) session.getAttribute("admin");
             System.out.println(admin);

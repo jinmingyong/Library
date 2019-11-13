@@ -24,58 +24,9 @@
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">图书馆管理后台系统</a>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="bookBorrow/borrowFindAll">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">借阅管理系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="bookInuse/findInuseAll">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">上架管理系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="penalty/findAllPenalty">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">违规处罚系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="staffManage.jsp">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">管理员管理</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="test1.jsp">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">报废管理</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="test2.jsp">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">申请购买新书</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="test3.jsp">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">新书入库确认</span>
-                </a>
-            </li>
+<body >
 
-        </ul>
-    </div>
-</nav>
-<div class="content-wrapper">
+<div>
     <div class="container-fluid">
         <div class="card mb-3">
             <div class="card-header">

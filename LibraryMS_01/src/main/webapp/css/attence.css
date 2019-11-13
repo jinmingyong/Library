@@ -33,9 +33,9 @@
 #clock_in{
     width: 100px;
     height: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    background: rgb(12,184,246);
+    /*font-size: 18px;*/
+    /*font-weight: bold;*/
+    /*background: rgb(12,184,246);*/
     margin: 10px auto;
     /*position: relative;*/
     /*top: 10px;*/

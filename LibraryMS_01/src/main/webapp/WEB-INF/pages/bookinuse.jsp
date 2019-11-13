@@ -21,52 +21,17 @@
 <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!-- Page level plugin CSS-->
 <link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/bookInUse.css">
 <!-- Custom styles for this template-->
 <link href="css/sb-admin.css" rel="stylesheet">
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">图书管理系统</a>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="bookBorrow/borrowFindAll">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">借阅管理系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="bookInuse/findInuseAll">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">上架管理系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="penalty/findAllPenalty">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">违规处罚系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="staffManage.jsp">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">管理员管理</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav sidenav-toggler">
-            <li class="nav-item">
-                <a class="nav-link text-center" id="sidenavToggler">
-                    <i class="fa fa-fw fa-angle-left"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="content-wrapper">
+<body>
+
+<div>
     <div class="container-fluid">
         <div class="card mb-3">
             <div class="card-header">
@@ -78,19 +43,32 @@
                         <div id="main">
                             <div>
                                 <ul>
-                                    <li><a href="bookInuse/findInuseAll"><button id="btn1">查看inuse信息 </button></a></li>
-                                    <li>
-                                        <form >
-                                            <input type="text" id="isbn" placeholder="输入isbn">
-                                            <input id="btn2" type="button" value="isbn查询">
+                                    <li class="bookInUseLiCss"><a href="bookInuse/findInuseAll">
+                                        <button id="btn1" class="btn btn-primary btn-lg" type="button">查看inuse信息 </button></a></li>
+                                    <li class="bookInUseLiCss"><button id="btn3" class="btn btn-primary btn-lg" type="button">上架图书</button></li>
+                                    <li class="bookInUseLiCss"><button id="btn4" class="btn btn-primary btn-lg" type="button">图书补货</button></li>
+                                    <hr>
+                                    <li class="bookInUseLiCss">
+
+                                        <form class="form-inline" role="form">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="isbn">ISBN</label>
+                                                <input type="text" class="form-control" id="isbn" name="isbn"
+                                                       placeholder="请输入ISBN">
+                                            </div>
+                                            <input type="button" class="btn btn-default" id="btn2" value="ISBN查询">
                                         </form>
                                     </li>
-                                    <li><button id="btn3">上架图书</button></li>
-                                    <li><button id="btn4">图书补货</button></li>
-                                    <li>
-                                        <form >
-                                            <input type="text" id="account" placeholder="输入指定数目查询">
-                                            <input id="btn5" type="button" value="指定数目查询">
+                                    <hr>
+                                    <li class="bookInUseLiCss">
+
+                                        <form class="form-inline" role="form">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="account">ISBN</label>
+                                                <input type="text" class="form-control" id="account" name="account"
+                                                       placeholder="输入指定数目查询">
+                                            </div>
+                                            <input type="button" class="btn btn-default" id="btn5" value="指定数目查询">
                                         </form>
                                     </li>
                                 </ul>
@@ -127,18 +105,56 @@
                                 </div>
 
                                 <div id="updateISBN">
-                                    <form action="bookInuse/updateBookInuse" method="post">
-                                        ISBN:<input type="text" name="isbn" placeholder="上货的ISBN"><br>
-                                        上架数量：<input type="text" name="account"><br>
-                                        <input type="submit" value="提交">
+
+                                    <form class="form-horizontal" role="form" action="bookInuse/updateBookInuse" method="post">
+                                        <div class="form-group">
+                                            <label for="findISBN" class="col-sm-2 control-label">ISBN</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="findISBN" name="isbn"
+                                                       placeholder="请输入ISBN">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="updateCounnt" class="col-sm-2 control-label">补货数量</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="updateCounnt" name="account"
+                                                       placeholder="请输入补货数量">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <input type="submit" value="提交" class="btn btn-success">
+                                            </div>
+                                        </div>
+
                                     </form>
+
                                 </div>
                                 <div id="insertInuse">
-                                    <form action="bookInuse/insertBookInuse" method="post">
-                                        ISBN:<input type="text" name="isbn" placeholder="上架的ISBN"><br>
-                                        上架数量：<input type="text" name="account"><br>
-                                        <input type="submit" value="提交">
+
+                                    <form class="form-horizontal" role="form" action="bookInuse/insertBookInuse" method="post">
+                                        <div class="form-group">
+                                            <label for="reFindISBN" class="col-sm-2 control-label">ISBN</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="reFindISBN" name="isbn"
+                                                       placeholder="请输入欲上架的ISBN">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="reUpdateCounnt" class="col-sm-2 control-label">上架数量</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="reUpdateCounnt" name="account"
+                                                       placeholder="请输入上架数量">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <input type="submit" value="提交" class="btn btn-success">
+                                            </div>
+                                        </div>
+
                                     </form>
+
                                 </div>
 
 
@@ -236,7 +252,7 @@
                             result += "<td>" + el.bookRes.bname + "</td>"
                             result += "<td>" + el.inusetime + "</td>"
                             result += "<td>" + el.amount + "</td>"
-                            result +="<td> <button id='insertAccount'>增加数量</button></td>"
+                            result +="<td> <button id='insertAccount' type=\"button\" class=\"btn btn-success\">增加数量</button></td>"
                             result += "</tr>"
                         });
                         $("#showInfor").children().children("tbody").html(result);

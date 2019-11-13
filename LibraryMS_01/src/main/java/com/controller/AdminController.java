@@ -116,14 +116,14 @@ public class AdminController
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "borrow";
+                return "redirect:/index.jsp";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list)
                 {
                     model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "redirect:/test4.jsp";
+                return "redirect:/index_good.jsp";
             }else {
                 model.addAttribute("msg","没有您的用户类型，请重新输入！");
                 return "loginErr";
@@ -142,13 +142,13 @@ public class AdminController
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "borrow";
+                return "redirect:/index.jsp";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list){
                     //model.addAttribute("admin",admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "redirect:/test4.jsp";
+                return "redirect:/index_good.jsp";
             }else {
                 model.addAttribute("msg","没有您的用户类型，请重新输入！");
                 return "loginErr";
@@ -167,14 +167,14 @@ public class AdminController
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "borrow";
+                return "redirect:/index.jsp";
             }else if (admin.getType().equals("2")){
                 for (Admin admin1:list)
                 {
                     //model.addAttribute("admin", admin1);
                     request.getSession().setAttribute("admin",admin1);
                 }
-                return "redirect:/test4.jsp";
+                return "redirect:/index_good.jsp";
             }else {
                 model.addAttribute("msg","没有您的用户类型，请重新输入！");
                 return "loginErr";

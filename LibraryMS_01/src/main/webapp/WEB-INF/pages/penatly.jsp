@@ -23,50 +23,15 @@
 <!-- Page level plugin CSS-->
 <link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
 <!-- Custom styles for this template-->
+<link rel="stylesheet" href="css/penatly.css">
+
 <link href="css/sb-admin.css" rel="stylesheet">
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">图书馆管理后台系统</a>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="bookBorrow/borrowFindAll">
-                    <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">借阅管理系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="bookInuse/findInuseAll">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">上架管理系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="penalty/findAllPenalty">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">违规处罚系统</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="staffManage.jsp">
-                    <i class="fa fa-fw fa-table"></i>
-                    <span class="nav-link-text">管理员管理</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav sidenav-toggler">
-            <li class="nav-item">
-                <a class="nav-link text-center" id="sidenavToggler">
-                    <i class="fa fa-fw fa-angle-left"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="content-wrapper">
+<body>
+
+<div >
     <div class="container-fluid">
         <div class="card mb-3">
             <div class="card-header">
@@ -80,12 +45,24 @@
                             <div>
                                 <div>
                                     <ul>
-                                        <li><a href="penalty/findAllPenalty"><button type="button">显示处罚信息</button></a>  </li>
-                                        <li>
-                                            <form >
-                                                <input type="text" name="rid" id="rid" placeholder="读者id">
-                                                <input id="selByRid" type="button" value="查询">
+                                        <li class="penatlyLiCss"><a href="penalty/findAllPenalty"><button type="button" class="btn btn-primary btn-lg" type="button">显示处罚信息</button></a>  </li>
+                                        <hr>
+                                        <li class="penatlyLiCss">
+
+                                            <form class="form-inline" role="form">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="rid">读者id</label>
+                                                    <input type="text" class="form-control" id="rid" name="rid"
+                                                           placeholder="请输入ISBN">
+                                                </div>
+                                                <input type="button" class="btn btn-default" id="selByRid" value="读者查询">
                                             </form>
+
+
+                                            <%--<form >--%>
+                                                <%--<input type="text" name="rid" id="rid" placeholder="读者id">--%>
+                                                <%--<input id="selByRid" type="button" value="查询">--%>
+                                            <%--</form>--%>
                                         </li>
                                     </ul>
                                 </div>

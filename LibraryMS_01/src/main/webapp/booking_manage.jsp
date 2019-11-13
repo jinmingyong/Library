@@ -112,7 +112,11 @@
   							
   							$.messager.alert("提示","保存成功","info");
   						}else{
-  							$.messager.alert("提示","保存失败："+data.msg,"error");
+  						    if (data.msg!=undefined) {
+                                $.messager.alert("提示", "保存失败：" + data.msg, "error");
+                            }else {
+                                $.messager.alert("提示", "保存失败：" + data.message, "error");
+                            }
   						}
    					}
   				});
@@ -152,6 +156,7 @@
   						});
   						idStr = idStr.substring(0,idStr.length-1);
 						
+
   						//传递到后台
   						$.post("/bookBooking/delete",idStr,function(data){
   							if(data.success){

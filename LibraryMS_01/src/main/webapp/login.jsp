@@ -51,7 +51,7 @@
                     <div class="description">
                         <p>
                             我们欢迎每位学子能够在本图书管理系统的帮助下学到更多。
-                            <a href="#"><strong>好好学习，天天向上</strong></a>
+                            <strong>好好学习，天天向上</strong>
                         </p>
                     </div>
                     <div class="top-big-link">
@@ -69,11 +69,11 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span><span class="sr-only">close</span>
-                </button>
-                <h3 class="modal-title" id="modal-register-label">登录</h3>
-                <p>进入系统进行你的书海畅游吧！</p>
+                <%--<button type="button" class="close" data-dismiss="modal">--%>
+                    <%--<span aria-hidden="true">&times;</span><span class="sr-only">close</span>--%>
+                <%--</button>--%>
+                <h3 class="modal-title" id="modal-register-label" style="margin: 0 auto">登录</h3>
+                <%--<p>进入系统进行你的书海畅游吧！</p>--%>
             </div>
 
             <div class="modal-body">
@@ -135,26 +135,14 @@
         $("#ul li:first").bind("click",bg1=function(){
             $("#form1").show();
             $("#form2").hide();
-            var index=$("#ul").find('l1');
-            if (index.index()!=0){
-                index.prev().before(index);
-            }
-            var index1=$("#ul").find('l2');
-            if (index1.index()!=0){
-                index.next().after(index);
-            }
+            $("#l1").height("45");
+            $("#l2").height("40");
         });
         $("#ul li:last").bind("click",bg2=function(){
             $("#form1").hide();
             $("#form2").show();
-            var index=$("#ul").find('l2');
-            if (index.index()!=0){
-                index.prev().before(index);
-            }
-            var index1=$("#ul").find('l1');
-            if (index1.index()!=0){
-                index.next().after(index);
-            }
+            $("#l1").height("40");
+            $("#l2").height("45");
         });
         $("#btnLogin").click(function () {
             var name=$("#name").val();

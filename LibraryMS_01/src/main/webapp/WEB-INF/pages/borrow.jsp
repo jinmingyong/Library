@@ -54,6 +54,9 @@
 <!-- Page level plugin CSS-->
 <link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/jquery.sPage.css">
+
+<link rel="stylesheet" href="css/borrow.css">
+
 <!-- Custom styles for this template-->
 <link href="css/sb-admin.css" rel="stylesheet">
 <script src="/js/jquery-3.3.1.min.js"></script>
@@ -61,45 +64,9 @@
 <script src="/js/jquery.sPage.js"></script>
 
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <a class="navbar-brand" href="index.html">图书管理系统</a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="bookBorrow/borrowFindAll">
-                        <i class="fa fa-fw fa-dashboard"></i>
-                        <span class="nav-link-text">借阅管理系统</span>
-                    </a>
-                </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                    <a class="nav-link" href="bookInuse/findInuseAll">
-                        <i class="fa fa-fw fa-area-chart"></i>
-                        <span class="nav-link-text">上架管理系统</span>
-                    </a>
-                </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                    <a class="nav-link" href="penalty/findAllPenalty">
-                        <i class="fa fa-fw fa-table"></i>
-                        <span class="nav-link-text">违规处罚系统</span>
-                    </a>
-                </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                    <a class="nav-link" href="staffManage.jsp">
-                        <i class="fa fa-fw fa-table"></i>
-                        <span class="nav-link-text">管理员管理</span>
-                    </a>
-                </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                    <a class="nav-link" href="test1.jsp">
-                        <i class="fa fa-fw fa-table"></i>
-                        <span class="nav-link-text">报废管理</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="content-wrapper">
+<body>
+
+    <div>
         <div class="container-fluid">
             <div class="card mb-3">
                 <div class="card-header">
@@ -111,21 +78,43 @@
                             <div id="main">
                                 <div>
                                     <ul>
-                                        <li> <a href="bookBorrow/borrowFindAllbyPage" > <button id="showAllInfor">借阅信息</button></a> </li>
-                                        <li>    <button type="button" id="no_back" >未归还信息</button> </li>
-                                        <li>    <button type="button" id="insert_val">插入信息</button></li>
-                                        <li>    <form >
-                                            <input type="text" id="rid" name="rid">
-                                            <select id="selectForm" name="type">
-                                                <option value="1">全部</option>
-                                                <option value="2">未还</option>
-                                                <option value="3">已还</option>
-                                            </select>
-                                            <input id="btnCheck" type="button" value="查询"/>
-                                        </form>
+                                        <li class="borrowLiCss">
+                                            <a href="bookBorrow/borrowFindAllbyPage" >
+                                                <button id="showAllInfor" class="btn btn-primary btn-lg">借阅信息</button>
+                                            </a>
                                         </li>
-                                        <li> <button type="button" id="yuqi">查询逾期</button> </li>
+                                        <li class="borrowLiCss">    <button type="button" id="no_back" class="btn btn-primary btn-lg" >未归还信息</button> </li>
+                                        <li class="borrowLiCss">    <button type="button" id="insert_val" class="btn btn-primary btn-lg">插入信息</button></li>
+                                        <li class="borrowLiCss">    <button type="button" id="yuqi" class="btn btn-primary btn-lg">查询逾期</button> </li>
+                                        <hr>
+                                        <li class="borrowLiCss">
+
+                                            <form class="form-inline" role="form">
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="rid">读者id</label>
+                                                    <input type="text" class="form-control" id="rid" name="rid"
+                                                           placeholder="请输入名称">
+                                                    <select class="form-control" id="selectForm" name="type">
+                                                        <option value="1">全部</option>
+                                                        <option value="2">未还</option>
+                                                        <option value="3">已还</option>
+                                                    </select>
+                                                </div>
+                                                <input type="button" class="btn btn-default" id="btnCheck" value="查询">
+                                            </form>
+
+                                            <%--<form >--%>
+                                            <%--&lt;%&ndash;<input type="text" id="rid" name="rid">&ndash;%&gt;--%>
+                                            <%--<select id="selectForm" name="type">--%>
+                                            <%--<option value="1">全部</option>--%>
+                                            <%--<option value="2">未还</option>--%>
+                                            <%--<option value="3">已还</option>--%>
+                                            <%--</select>--%>
+                                            <%--<input id="btnCheck" type="button" value="查询"/>--%>
+                                            <%--</form>--%>
+                                        </li>
                                     </ul>
+                                    <hr>
                                 </div>
                                 <div id="mainInfor">
                                     <div id="showAll">
@@ -226,12 +215,42 @@
                                         <div id="showLendpage"></div>
                                     </div>
                                     <div id="insert" >
-                                        <form action="bookBorrow/insertBorrow" method="post">
-                                            ISBN：<input type="text" name="isbn"><br>
-                                            读者id：<input type="text" name="stuId"><br>
-                                            <input type="submit" value="提交">
-                                            <input type="reset" value="重置">
+
+                                        <form class="form-horizontal" role="form" action="bookBorrow/insertBorrow" method="post">
+                                            <div class="form-group">
+                                                <label for="findISBN" class="col-sm-2 control-label">ISBN</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="findISBN" name="isbn"
+                                                           placeholder="请输入ISBN">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="findReaderID" class="col-sm-2 control-label">读者id</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="findReaderID" name="stuId"
+                                                           placeholder="请输入读者id">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <input type="submit" value="提交" class="btn btn-success">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <input type="reset" value="重置" class="btn btn-success">
+                                                </div>
+                                            </div>
+
                                         </form>
+
+
+                                        <%--<form action="bookBorrow/insertBorrow" method="post">--%>
+                                            <%--I S B N：<input type="text" name="isbn"><br>--%>
+                                            <%--读者 id：<input type="text" name="stuId"><br>--%>
+                                            <%--<input type="submit" value="提交">--%>
+                                            <%--<input type="reset" value="重置">--%>
+                                        <%--</form>--%>
                                     </div>
                                     <div id="showYuqi" >
                                         <table class="table table-bordered"  width="100%" cellspacing="0">
@@ -338,7 +357,9 @@
                             result += "<td>" + el.retTime + "</td>"
                             result += "<td>" + el.realTime + "</td>"
                             result +="<td>"  + el.borType +"</td>"
-                            result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
+                            result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> " +
+                                "<button type=\"button\" class=\"btn btn-success\">还书</button>" +
+                                "</a></td>"
                             result += "</tr>"
                         });
                         $("#showLend").children().children("tbody").html(result)
@@ -408,12 +429,13 @@
                                 result += "<td>" + el.retTime + "</td>"
                                 result += "<td>" + el.realTime + "</td>"
                                 result +="<td>"  + el.borType +"</td>"
-                                result +="<td> <input id='yueqi' type='button' value='逾期'> <button id='penalty1' type='button'>损坏</button></td>"
+                                result +="<td> <input id='yueqi' type=\"button\" class=\"btn btn-success\" value='逾期'> " +
+                                    "<button id='penalty1' type=\"button\" class=\"btn btn-success\">损坏</button></td>"
                                 result += "</tr>"
                             });
                             $("#showYuqi").children().children("tbody").html(result);
                         } else {
-                            alert("没有数据考研查询!")
+                            alert("没有数据条件查询!")
                         }
                     }
                 })
