@@ -1,0 +1,87 @@
+*{margin: 0; padding: 0; font-family: "微软雅黑"; font-size: 14px; line-height: 25px; color: #717578;}
+ul,ol,li{list-style: none;}
+a {
+  text-decoration: none;
+  color: orange;
+}
+body{
+  background-color: #F0F0F0;
+}
+#taskList{
+  width: 600px;
+  height: auto;
+  overflow: hidden;
+  margin: 5px auto 0 auto;
+  position: relative;
+  margin-top: 10%;
+  border: 1px;
+}
+#taskList>ul li{
+  float: left;
+  width: 130px;
+  height: 35px;
+  overflow: hidden;
+  line-height: 35px;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+#taskList>ul li:first-of-type{
+  margin-left: 10px;
+  margin-right: 1px;
+  background: #26a6e3;
+  height: 40px;
+}
+#taskList>ul li:last-of-type{
+  background: #ff9400;
+  height: 40px;
+}
+#show{
+  clear: both;
+}
+#form1,#form2{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+#name,#name1{
+  margin-top: 10px;
+  width: 200px;
+}
+#password,#password1{
+  margin-top: 10px;
+  width: 200px;
+}
+#inputCode,#inputCode1{
+  margin-top: 10px;
+  width: 200px;
+}
+#btn1,#btn{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#btn:hover{
+  color: red;
+}
+#btn1:hover{
+  color: red;
+}
+#btnLogin,#btnLogin1{
+  width: 260px;
+  height: 40px;
+  margin-top: 10px;
+}
+#b1,#b2{
+  width: 260px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+
+

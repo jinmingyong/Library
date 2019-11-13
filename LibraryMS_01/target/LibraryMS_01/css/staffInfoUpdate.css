@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.btn{
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    /*font-size: 18px;*/
+    /*font-weight: 300;*/
+    border-radius: 5%;
+}
+#staffInfoUpdate{
+    width: 400px;
+    margin: 10px auto;
+}
+#staffInfoUpdate li{
+    list-style: none;
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    /*font-size: 18px;*/
+
+}
+#staffInfoUpdate li:nth-of-type(6){
+    list-style: none;
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    /*font-size: 18px;*/
+    text-align: center;
+}
+.staffInfoUpdateInput{
+    width: 250px;
+    height: 30px;
+    /*font-size: 18px;*/
+}
+/*#staffResult{*/
+    /*width: 100px;*/
+    /*height: 40px;*/
+    /*margin: 0 auto;*/
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+
+/*}*/

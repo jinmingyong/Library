@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.ApplyBookMapper" >
+  <resultMap id="ApplyResultMap" type="com.entity.ApplyBook" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+    <result column="bname" property="bname" jdbcType="VARCHAR" />
+    <result column="adminid" property="adminid" jdbcType="INTEGER" />
+    <result column="applytime" property="applytime" jdbcType="TIMESTAMP" />
+    <result column="btype" property="btype" jdbcType="INTEGER" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, isbn, bname, adminid,applytime,btype
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ApplyResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from apply_book
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="findAll" resultMap="ApplyResultMap">
+    select * from apply_book
+  </select>
+
+  <select id="selectByIsbn" resultMap="ApplyResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from apply_book
+    where isbn = #{isbn,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from apply_book
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.entity.ApplyBook" >
+
+    insert into apply_book (isbn, bname, adminid,applytime,btype
+      )
+    values (#{isbn,jdbcType=VARCHAR},#{bname,jdbcType=VARCHAR},#{adminid,jdbcType=INTEGER},#{applytime,jdbcType=TIMESTAMP}, #{btype,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.entity.ApplyBook" >
+    update apply_book
+    set
+      isbn = #{isbn,jdbcType=VARCHAR},
+      bname = #{bname,jdbcType=VARCHAR},
+      adminid = #{bname,jdbcType=INTEGER},
+      applytime = #{applytime,jdbcType=TIMESTAMP},
+      btype = #{btype,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByIsbn" parameterType="com.entity.ApplyBook" >
+    update apply_book
+    set
+      bname = #{bname,jdbcType=VARCHAR},
+      adminid = #{bname,jdbcType=INTEGER},
+      applytime = #{applytime,jdbcType=TIMESTAMP},
+      btype = #{btype,jdbcType=INTEGER}
+    where isbn = #{isbn,jdbcType=VARCHAR},
+  </update>
+</mapper>

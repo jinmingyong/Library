@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.BorrowMapper" >
+  <resultMap id="BaseResultMap" type="com.entity.Borrow" >
+    <id column="bor_id" property="borId" jdbcType="BIGINT" />
+    <result column="isbn" property="isbn" jdbcType="VARCHAR" />
+    <result column="rid" property="rid" jdbcType="BIGINT" />
+    <result column="bor_time" property="borTime" jdbcType="TIMESTAMP" />
+    <result column="ret_time" property="retTime" jdbcType="TIMESTAMP" />
+    <result column="real_time" property="realTime" jdbcType="TIMESTAMP"/>
+    <result column="bor_type" property="borType" jdbcType="VARCHAR"/>
+    <association property="bookRes" column="isbn" fetchType="lazy" javaType="com.entity.BookRes" select="com.dao.IBookResDao.findBookResByIsbn"/>
+    <association property="reader" column="rid" fetchType="lazy" javaType="com.entity.Reader" select="com.dao.ReaderMapper.selectByPrimaryKey"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    bor_id, isbn, rid, bor_time, ret_time,real_time,bor_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from borrow
+    where bor_id = #{borId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAllBorrow" resultMap="BaseResultMap">
+    select * from borrow
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from borrow
+    where bor_id = #{borId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.entity.Borrow" >
+    <selectKey resultType="java.lang.Long" keyProperty="borId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into borrow (isbn, rid, bor_time, 
+      ret_time,real_time,bor_type)
+    values (#{isbn,jdbcType=VARCHAR}, #{rid,jdbcType=BIGINT}, #{borTime,jdbcType=TIMESTAMP}, 
+      #{retTime,jdbcType=TIMESTAMP},#{realTime,jdbcType=TIMESTAMP},#{borType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.entity.Borrow" >
+    <selectKey resultType="java.lang.Long" keyProperty="borId" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into borrow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="isbn != null" >
+        isbn,
+      </if>
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="borTime != null" >
+        bor_time,
+      </if>
+      <if test="retTime != null" >
+        ret_time,
+      </if>
+      <if test="realTime!=null">
+        real_time,
+      </if>
+      <if test="borType!=null">
+        bor_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="isbn != null" >
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="borTime != null" >
+        #{borTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="retTime != null" >
+        #{retTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realTime!=null">
+        #{realTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="borType!=null">
+        #{borType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.entity.Borrow" >
+    update borrow
+    <set >
+      <if test="isbn != null" >
+        isbn = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="rid != null" >
+        rid = #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="borTime != null" >
+        bor_time = #{borTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="retTime != null" >
+        ret_time = #{retTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realTime!=null">
+        #{real_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="borType!=null">
+        #{bor_type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bor_id = #{borId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.entity.Borrow" >
+    update borrow
+    set isbn = #{isbn,jdbcType=VARCHAR},
+      rid = #{rid,jdbcType=BIGINT},
+      bor_time = #{borTime,jdbcType=TIMESTAMP},
+      ret_time = #{retTime,jdbcType=TIMESTAMP},
+      real_time=#{realTime,jdbcType=TIMESTAMP},
+      bor_type=#{borType,jdbcType=VARCHAR}
+    where bor_id = #{borId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByBorType" resultMap="BaseResultMap" parameterType="com.entity.Borrow">
+    select * from borrow where bor_type!=1
+  </select>
+  <select id="selectByRid" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select * from borrow where rid=#{rid}
+  </select>
+  <select id="selectCheckTime" resultMap="BaseResultMap" parameterType="com.entity.Borrow">
+    select * from borrow where ret_time &lt;=NOW() and bor_type =0
+  </select>
+  <select id="selectByRidWithoutType1" resultMap="BaseResultMap" parameterType="java.lang.Long">
+   SELECT * FROM borrow WHERE real_time is null AND rid=#{rid}
+  </select>
+  <select id="selectByRidWithType1" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    SELECT * FROM borrow WHERE  bor_type=1 AND rid=#{rid}
+  </select>
+
+  <select id="moreBorrow" resultMap="BaseResultMap">
+    SELECT isbn from borrow GROUP BY isbn ORDER BY count(isbn) DESC LIMIT 6
+  </select>
+</mapper>
