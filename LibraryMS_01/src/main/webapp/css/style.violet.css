@@ -16,6 +16,7 @@
 html,
 body {
   overflow-x: hidden;
+  height: 100%;
 }
 
 strong {
@@ -382,6 +383,7 @@ OFF-CANVAS SIDEBAR BEHAVIOUR
     right: 0;
   }
   .row-offcanvas-left {
+    height: 100%;
     left: 0;
   }
   .row-offcanvas-right .sidebar-offcanvas {

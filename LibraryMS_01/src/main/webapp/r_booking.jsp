@@ -21,15 +21,15 @@
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
     <!-- 导入easyui的资源文件 -->
-    <script type="text/javascript" src="easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
-    <link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
-    <link id="themeLink" rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
 </head>
 
 <body>
-<h1 align="center">欢迎${reader.rname}登录！</h1>
+<jsp:include page="WEB-INF/pages/jsp/head.jsp"></jsp:include>
+<script type="text/javascript" src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<link id="themeLink" rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
 <table id="list"></table>
 
 <!-- 工具条 -->

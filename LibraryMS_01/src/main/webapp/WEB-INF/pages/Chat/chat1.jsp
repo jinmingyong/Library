@@ -15,12 +15,12 @@
     <base href="<%=basePath%>">
     <title>Title</title>
     <!-- Bundle Styles -->
-    <link rel="stylesheet" href="css/bundle.css">
-
-    <link rel="stylesheet" href="css/enjoyhint.css">
 
     <!-- App styles -->
     <link rel="stylesheet" href="css/app.min.css">
+    <link rel="stylesheet" href="css/bundle.css">
+
+    <link rel="stylesheet" href="css/enjoyhint.css">
     <style>
         .speed {
             float: left;
@@ -171,12 +171,7 @@
                             <i data-feather="message-square"></i>
                         </a>
                     </li>
-                    <li class="brackets">
-                        <a data-navigation-target="archived" href="#" data-toggle="tooltip"
-                           title="BookBooking" data-placement="right">
-                            <i data-feather="user-check"></i>
-                        </a>
-                    </li>
+
                     <li>
                         <a href="#" class="dark-light-switcher" data-toggle="tooltip" title="Dark mode"
                            data-placement="right">
@@ -398,13 +393,13 @@
 <!-- ./ layout -->
 </body>
 <script src="/js/jquery-3.3.1.min.js"></script>
+<!-- App scripts -->
+<script src="/js/vue.js"></script>
+<script src="/js/radialIndicator.min.js"></script>
 <script src="/js/bundle.js"></script>
 <script src="/js/feather.min.js"></script>
 <script src="/js/enjoyhint.min.js"></script>
-<!-- App scripts -->
 <script src="/js/app.min.js"></script>
-<script src="/js/vue.js"></script>
-<script src="/js/radialIndicator.min.js"></script>
 <script>
     var uploadUrl = 'reader/upload';
     //文件选择完毕时
@@ -637,5 +632,137 @@
             send();
         })
     })
+</script>
+<script type="text/javascript">
+    $(function(){
+
+        var u="/bookBooking/listByRid?rid=${reader.readId}";
+        $("#list").datagrid({
+            //url:后台数据查询的地址
+
+            url:u,
+            //columns：填充的列数据
+            //field:后台对象的属性
+            //tille:列标题
+            columns:[[
+                {
+                    field:"id",
+                    title:"预订号",
+                    width:100,
+                    checkbox:true
+                },
+                // {
+                //     field:"rid",
+                //     title:"客户编号",
+                //     width:200
+                // },
+                {
+                    field:"bid",
+                    title:"图书编号",
+                    width:200
+                },
+                {
+                    field:"bookingTime",
+                    title:"预订时间",
+                    width:200
+                },
+
+            ]],
+            //显示分页
+            pagination:true,
+            //工具条
+            toolbar:"#tb"
+        });
+
+        //打开编辑窗口
+        $("#addBtn").click(function(){
+            //清空表单数据
+            $("#editForm").form("clear");
+            $("#win").window("open");
+        });
+
+        //保存数据
+        $("#saveBtn").click(function(){
+            $("#editForm").form("submit",{
+                //url: 提交到后台的地址
+                url:"/bookBooking/insert?rid="+rid,
+                //onSubmit: 表单提交前的回调函数，true：提交表单   false：不提交表单
+                onSubmit:function(){
+                    //判断表单的验证是否都通过了
+                    return $("#editForm").form("validate");
+                },
+                //success:服务器执行完毕回调函数
+                success:function(data){ //data: 服务器返回的数据，类型字符串类
+                    //要求Controller返回的数据格式：
+                    //成功：{success:true} 失败:{success:false,msg:错误信息}
+
+                    //把data字符串类型转换对象类型
+                    data = eval("("+data+")");
+
+                    if(data.success){
+                        //关闭窗口
+                        $("#win").window("close");
+                        //刷新datagrid
+                        $("#list").datagrid("reload");
+
+                        $.messager.alert("提示","保存成功","info");
+                    }else{
+                        $.messager.alert("提示","保存失败："+data.msg,"error");
+                    }
+                }
+            });
+
+        });
+
+        // //修改数据
+        // $("#editBtn").click(function(){
+        // 	//判断只能选择一行
+        // 	var rows = $("#list").datagrid("getSelections");
+        // 	if(rows.length!=1){
+        // 		$.messager.alert("提示","修改操作只能选择一行","warning");
+        // 		return;
+        // 	}
+        //
+        // 	//表单回显
+        // 	$("#editForm").form("load","customer/findById.action?id="+rows[0].id);
+        //
+        // 	$("#win").window("open");
+        // });
+        //
+        //删除
+        $("#deleteBtn").click(function(){
+            var rows =$("#list").datagrid("getSelections");
+            if(rows.length==0){
+                $.messager.alert("提示","删除操作至少选择一行","warning");
+                return;
+            }
+
+            //格式： id=1&id=2&id=3
+            $.messager.confirm("提示","确认删除数据吗?",function(value){
+                if(value){
+                    var idStr = "";
+                    //遍历数据
+                    $(rows).each(function(i){
+                        idStr+=("id="+rows[i].id+"&");
+                    });
+                    idStr = idStr.substring(0,idStr.length-1);
+
+
+                    //传递到后台
+                    $.post("/bookBooking/delete",idStr,function(data){
+                        if(data.success){
+                            //刷新datagrid
+                            $("#list").datagrid("reload");
+
+                            $.messager.alert("提示","删除成功","info");
+                        }else{
+                            $.messager.alert("提示","删除失败："+data.msg,"error");
+                        }
+                    },"json");
+                }
+            });
+        });
+    });
+
 </script>
 </html>

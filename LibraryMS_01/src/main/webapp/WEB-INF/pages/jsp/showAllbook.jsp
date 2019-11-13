@@ -47,7 +47,6 @@
 </div>
 </div>
 </body>
-<script src="/js/jquery.infinitescroll.js"></script>
 <script>
     function searchToggle(obj, evt){
 
@@ -73,7 +72,6 @@
     }
 
 </script>
-<script type="module" src="/js/vueWaterfallEasy.js"></script>
 <script>
     var vue=new Vue({
         el:'#myVue',

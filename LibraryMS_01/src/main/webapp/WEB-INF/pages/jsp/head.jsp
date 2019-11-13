@@ -61,9 +61,9 @@
 <div id="all">
     <div class="container-fluid">
 
-        <div class="row row-offcanvas row-offcanvas-left">
+        <div class="row row-offcanvas row-offcanvas-left" style="height: 100%">
             <!--   *** SIDEBAR ***-->
-            <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas">
+            <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas" style="background-color: #ffdff5">
                 <div class="sidebar-content">
                     <h1 class="sidebar-heading">评论及聊天</h1>
                     <ul class="sidebar-menu">
