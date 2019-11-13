@@ -52,13 +52,19 @@ public class BookInuseController {
     //maki:add
     @RequestMapping("/updateBookInuse")
     public void updateBookInuse(@RequestParam String isbn, @RequestParam Integer account, HttpServletResponse response, HttpServletRequest request) throws IOException {
-        int i=iBookInuseService.updateInuseShelf(isbn,account);
-        if (i>0){
-            response.sendRedirect(request.getContextPath()+"/bookInuse/findInuseAll");
+        BookInuse list=iBookInuseService.selectByIsbn(isbn);
+        if (list.getAmount()>account){
+            int i=iBookInuseService.updateInuseShelf(isbn,account);
+            if (i>0){
+                response.sendRedirect(request.getContextPath()+"/bookInuse/findInuseAll");
+            }else {
+                System.out.println("插入失败！");
+                response.sendRedirect("/bookInuse/findInuseAll");
+            }
         }else {
-            System.out.println("插入失败！");
-            response.sendRedirect("/Test.jsp");
+            response.sendRedirect("/bookInuse/findInuseAll");
         }
+
 
     }
 

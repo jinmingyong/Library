@@ -287,13 +287,12 @@
 
 
         $(function () {
+            console.log("${msg}");
 
-
-
-
-
-
-
+            var flag = "${empty msg}";
+            if(flag!="true"){
+                alert("${msg}")
+            };
             $("#showLend").hide();
             $("#insert").hide();
             $("#showAll").show();

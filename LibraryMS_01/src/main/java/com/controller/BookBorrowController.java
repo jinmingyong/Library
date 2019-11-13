@@ -1,8 +1,10 @@
 package com.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.BookRes;
 import com.entity.Borrow;
 import com.github.pagehelper.PageInfo;
+import com.service.IBookResService;
 import com.service.IBorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,9 @@ public class BookBorrowController {
 
     @Autowired
     private IBorrowService iBorrowService;
+
+    @Autowired
+    private IBookResService iBookResService;
     public static Date addDate (int num) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, num);
@@ -79,19 +84,24 @@ public class BookBorrowController {
 
     }
     @RequestMapping("/insertBorrow")
-    public void insertBorrow(@RequestParam String isbn, @RequestParam String stuId, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Borrow borrow=new Borrow();
-        borrow.setIsbn(isbn);
-        borrow.setRid(Long.valueOf(stuId));
-        borrow.setBorTime(new Date());
-        borrow.setBorType("0");
-        borrow.setRetTime(addDate(7));
-        int i=iBorrowService.insert(borrow);
-        if (i>0){
-            response.sendRedirect(request.getContextPath()+"/bookBorrow/borrowFindAll");
+    public String insertBorrow(@RequestParam String isbn, @RequestParam String stuId, Model model) throws IOException {
+        BookRes bookRes=iBookResService.findBookResByisbn(isbn);
+        if (bookRes==null){
+            model.addAttribute("msg","此Isbn不存在");
         }else {
-            System.out.println("存入失败！");
+            Borrow borrow=new Borrow();
+            borrow.setIsbn(isbn);
+            borrow.setRid(Long.valueOf(stuId));
+            borrow.setBorTime(new Date());
+            borrow.setBorType("0");
+            borrow.setRetTime(addDate(7));
+            int i=iBorrowService.insert(borrow);
+            if (i==0){
+                model.addAttribute("msg","存入失败");
+            }
+
         }
+        return "borrow";
     }
     //还书
     @RequestMapping("/updateBorrowBackType")
