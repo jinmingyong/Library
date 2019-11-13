@@ -36,13 +36,19 @@
     <link rel="stylesheet" href="css/shortcode-common.css">
     <link rel="stylesheet" href="css/testimonial.css">
     <link rel="stylesheet" href="css/custom.css">
+
+
+
+
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
+<%--    <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>--%>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="js/zpageNav.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>

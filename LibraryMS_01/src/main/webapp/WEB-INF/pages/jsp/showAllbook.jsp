@@ -114,26 +114,29 @@
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
                         that.bookInuses=res.list;
-                        var $grid = $('.grid').imagesLoaded( function() {
+                        var $grid = $('.grid').imagesLoaded().progress( function() {
                             // init Masonry after all images have loaded
                             $grid.masonry({
                                 itemSelector: '.grid-item',
-                                // use element for option
                             });
                         });
-                        $grid.progress( function() {
+                $grid.masonry().masonry("destroy")
+                        /*$grid.progress( function() {
                             var $items = $('.grid-item');
-                            $grid.masonry('layout', $items);
-                        });
+                            $grid.masonry().append( $items )
+                                .masonry( 'appended', $items )
+                                // layout
+                                .masonry();
+                        });*/
                     }
                 })
             },
         },
 
         created:function(){
+            this.pageHandler(1);
         },
         mounted:function () {
-
             this.pageHandler(1);
         },
     })
