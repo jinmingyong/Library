@@ -29,7 +29,7 @@ public class MyWebSocketHandler implements WebSocketHandler {
     @Resource
     private IReaderService readerService;
 
-
+    //查询所有在线人 2 发送人员列表
     @RequestMapping("/findallonline")
     @ResponseBody
     public List<Reader> findallonline(@RequestParam("ids[]") Long[] ids)
@@ -44,6 +44,7 @@ public class MyWebSocketHandler implements WebSocketHandler {
 
 
     //握手实现连接后
+    //登陆的一个信息 一个人登陆的信息 1 登录
     public void afterConnectionEstablished(WebSocketSession webSocketSession)
             throws Exception {
         Long readerId = (Long) webSocketSession.getAttributes().get("readId");
@@ -136,6 +137,7 @@ public class MyWebSocketHandler implements WebSocketHandler {
 
     }
 
+    //推出
     public void afterConnectionClosed(WebSocketSession webSocketSession,
                                       CloseStatus closeStatus) throws Exception {
         //断开连接即将此用户对应的WebSocketSession移除，以便再次连接时添加新的WebSocketSession

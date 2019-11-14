@@ -1,0 +1,42 @@
+@startuml
+actor 读者
+participant chat1.jsp
+participant MyWebSocketHandler
+participant WebSocketMapService
+participant IReaderService
+participant ReaderMapper
+participant WebSocketMapService
+
+
+读者 ->  chat1.jsp : 聊天信息加载
+chat1.jsp -> MyWebSocketHandler :请求聊天信息
+activate MyWebSocketHandler
+MyWebSocketHandler -> IReaderService : 请求聊天信息
+activate IReaderService
+IReaderService -> ReaderMapper : 请求聊天信息
+activate ReaderMapper
+ReaderMapper --> IReaderService: 返回聊天信息
+deactivate ReaderMapper
+IReaderService --> MyWebSocketHandler : 返回聊天信息
+deactivate IReaderService
+activate MyWebSocketHandler
+MyWebSocketHandler -> MyWebSocketHandler : 给读者加载聊天信息
+MyWebSocketHandler -> WebSocketMapService : 获取在线读者列表
+activate WebSocketMapService
+WebSocketMapService-->MyWebSocketHandler:返回在线人员列表
+deactivate WebSocketMapService
+MyWebSocketHandler -> MyWebSocketHandler : 给读者组加载聊天信息
+activate MyWebSocketHandler
+MyWebSocketHandler -> MyWebSocketHandler : 给读者加载聊天信息
+deactivate MyWebSocketHandler
+MyWebSocketHandler -> WebSocketMapService : 获取在线读者列表
+activate WebSocketMapService
+WebSocketMapService-->MyWebSocketHandler:返回在线人员列表
+deactivate WebSocketMapService
+
+MyWebSocketHandler --> chat1.jsp : 返回聊天信息
+deactivate MyWebSocketHandler
+chat1.jsp --> 读者 : 返回聊天信息
+deactivate MyWebSocketHandler
+chat1.jsp-->读者 : 聊天信息加载完毕
+@enduml

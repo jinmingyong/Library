@@ -145,10 +145,13 @@
             $("#l2").height("45");
         });
         $("#btnLogin").click(function () {
+            var checkPhone="^[1][3,4,5,7,8][0-9]{9}$";
+            var checkEmail="^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
             var name=$("#name").val();
             var password=$("#password").val();
             var inputCode=$("#inputCode").val();
             if(name!=""&&password!=""&&inputCode!=""){
+
                 $.ajax({
                     url:"reader/ReaderLogin",
                     contentType:"application/json;charset=UTF-8",

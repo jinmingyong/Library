@@ -5,7 +5,9 @@ participant BookBorrowController
 participant IBookResService
 participant IBookResDao
 participant IBorrowService
+participant BookInuseMapper
 participant BorrowMapper
+
 
 管理员 -> index.jsp:登录成功
 管理员 -> index.jsp:录入借阅信息
@@ -14,11 +16,35 @@ index.jsp -> BookBorrowController: 录入借阅信息
 activate BookBorrowController
 BookBorrowController -> IBookResService:通过ISBN查询图书信息
 activate IBookResService
-IBookResService -> IBookResDao:
+IBookResService -> IBookResDao:通过ISBN查询图书信息
 activate IBookResDao
-IBookResDao --> IBookResService
+IBookResDao --> IBookResService:返回ISBN查询图书信息
 deactivate IBookResDao
-IBookResService --> BookBorrowController
+IBookResService --> BookBorrowController:返回ISBN查询图书信息
 deactivate IBookResService
+BookBorrowController->BookBorrowController:预计还书日期增加
+BookBorrowController->IBorrowService:借阅信息
+activate IBorrowService
+IBorrowService->BookInuseMapper:通过ISBN查询上架表
+activate BookInuseMapper
+BookInuseMapper-->IBorrowService:返回上架表信息
+deactivate BookInuseMapper
+IBorrowService->BookInuseMapper:数量变更信息
+activate BookInuseMapper
+BookInuseMapper-->IBorrowService:返回上架表信息
+deactivate BookInuseMapper
+IBorrowService->BorrowMapper:上架表信息
+activate BorrowMapper
+BorrowMapper-->IBorrowService:返回借阅表信息
+deactivate
+IBorrowService-->BookBorrowController
+deactivate
+BookBorrowController-->index.jsp:借阅表信息
+deactivate
+index.jsp-->管理员:借阅表信息
+deactivate
+
+
+
 
 @enduml

@@ -2,8 +2,10 @@ package com.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.entity.BookInuse;
+import com.entity.BookRes;
 import com.github.pagehelper.PageInfo;
 import com.service.IBookInuseService;
+import com.service.IBookResService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +27,8 @@ public class BookInuseController {
     //maki:add
     @Autowired
     private IBookInuseService iBookInuseService;
-
-
+    @Autowired
+    private IBookResService iBookResService;
     //maki:add
     @RequestMapping("/findInuseAll")
     public String findInuseAll(Model model){
@@ -55,13 +57,12 @@ public class BookInuseController {
     //maki:add
     @RequestMapping("/updateBookInuse")
     public void updateBookInuse(@RequestParam String isbn, @RequestParam Integer account, HttpServletResponse response, HttpServletRequest request) throws IOException {
-        BookInuse list=iBookInuseService.selectByIsbn(isbn);
+        BookRes list=iBookResService.findBookResByisbn(isbn);
         if (list.getAmount()>account){
             int i=iBookInuseService.updateInuseShelf(isbn,account);
             if (i>0){
                 response.sendRedirect(request.getContextPath()+"/bookInuse/findInuseAll");
             }else {
-                System.out.println("插入失败！");
                 response.sendRedirect("/bookInuse/findInuseAll");
             }
         }else {

@@ -1,0 +1,25 @@
+@startuml
+actor 管理员
+participant index.jsp
+participant BookBorrowController
+participant IBorrowService
+participant BorrowMapper
+
+管理员 -> index.jsp: 登录成功
+activate index.jsp
+index.jsp -> BookBorrowController:查询所有借阅信息
+activate BookBorrowController
+BookBorrowController -> IBorrowService:查询所有借阅信息
+activate IBorrowService
+IBorrowService -> BorrowMapper:查询所有借阅信息
+activate BorrowMapper
+BorrowMapper --> IBorrowService:返回所有借阅信息
+deactivate BorrowMapper
+IBorrowService --> BookBorrowController:返回所有借阅信息
+deactivate IBorrowService
+BookBorrowController --> index.jsp:返回所有借阅信息
+deactivate BookBorrowController
+index.jsp --> 管理员:显示所有借阅信息
+deactivate index.jsp
+
+@enduml

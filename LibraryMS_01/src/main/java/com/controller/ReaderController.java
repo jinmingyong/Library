@@ -100,6 +100,7 @@ public class ReaderController
             } else {
                 return "err";
             }
+            //return "err";
         }
     }
     @RequestMapping("/findByReader")

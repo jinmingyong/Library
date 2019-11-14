@@ -1,0 +1,59 @@
+@startuml
+actor 管理员
+participant index.jsp
+participant BookInuseController
+participant IBookInuseService
+participant BookInuseMapper
+participant IBookResService
+participant IBookResDao
+
+管理员-> index.jsp:登录成功
+
+activate index.jsp
+index.jsp->BookInuseController:新书上架
+activate BookInuseController
+BookInuseController -> IBookInuseService:提交ISBN&上架数量
+activate IBookInuseService
+IBookInuseService -> BookInuseMapper: 查询ISBN
+activate BookInuseMapper
+BookInuseMapper-->IBookInuseService:返回ISBN
+deactivate
+IBookInuseService ->IBookResService:根据ISBN查库存
+activate IBookResService
+IBookResService->IBookResDao:根据ISBN查库存
+activate IBookResDao
+IBookResDao --> IBookResService:返回库存ISBN信息
+deactivate IBookResDao
+IBookResService -->IBookInuseService:返回库存ISBN信息
+deactivate IBookResService
+IBookInuseService->IBookInuseService:插入上架表
+activate IBookInuseService
+IBookInuseService->BookInuseMapper:插入上架表
+activate BookInuseMapper
+BookInuseMapper-->IBookInuseService:返回上架信息
+deactivate BookInuseMapper
+deactivate IBookInuseService
+IBookInuseService -> IBookResService:图书数目变更信息
+activate IBookResService
+IBookResService->IBookResDao:更新库存图书数目
+activate IBookResDao
+IBookResDao-->IBookResService:返回库存信息
+deactivate
+IBookResService-->IBookInuseService:返回库存信息
+deactivate
+IBookInuseService-->BookInuseController:返回库存信息
+deactivate
+BookInuseController-->index.jsp:返回库存信息
+deactivate
+index.jsp-->管理员:返回库存信息
+deactivate
+
+
+
+
+
+
+
+
+
+@enduml

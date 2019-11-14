@@ -1,64 +1,25 @@
 @startuml
 actor 管理员
 participant index.jsp
-participant PenaltyController
-participant IReaderService
-participant ReaderMapper
-participant IBorrowService
-participant BorrowMapper
-
-participant IPenaltyService
-
-participant PenaltyMapper
-
+participant BookInuseController
+participant IBookInuseService
+participant BookInuseMapper
 
 管理员 -> index.jsp: 登录成功
-管理员 -> index.jsp: 处罚违规读者
 activate index.jsp
-index.jsp -> PenaltyController : 处罚违规读者
-activate PenaltyController
-PenaltyController -> IReaderService : 获取逾期信息的id
-activate IReaderService
-IReaderService -> ReaderMapper : 获取逾期信息的id
-activate ReaderMapper
-ReaderMapper --> IReaderService : 返回逾期信息id
-deactivate ReaderMapper
-IReaderService --> PenaltyController : 返回逾期信息id
-deactivate IReaderService
-PenaltyController -> IBorrowService : 获取借阅信息id
-activate IBorrowService
-IBorrowService -> BorrowMapper : 获取借阅信息id
-activate BorrowMapper
-BorrowMapper --> IBorrowService : 返回借阅信息id
-deactivate BorrowMapper
-IBorrowService --> PenaltyController : 返回借阅信息id
-deactivate IBorrowService
-PenaltyController -> IPenaltyService : 插入违规记录
-activate IPenaltyService
-IPenaltyService -> PenaltyMapper : 插入违规记录
-activate PenaltyMapper
-PenaltyMapper --> IPenaltyService :返回违规记录信息
-deactivate PenaltyMapper
-IPenaltyService --> PenaltyController : 返回违规记录信息
-deactivate IPenaltyService
-PenaltyController -> IReaderService : 携带扣除信誉分的读者id
-activate IReaderService
-IReaderService -> ReaderMapper : 更新该读者的信誉分
-activate ReaderMapper
-ReaderMapper --> IReaderService :返回读者信息
-deactivate ReaderMapper
-IReaderService --> PenaltyController : 返回读者信息
-deactivate IReaderService
-PenaltyController -> IBorrowService : 借阅信息修改
-activate IBorrowService
-IBorrowService -> BorrowMapper: 借阅信息修改
-activate BorrowMapper
-BorrowMapper --> IBorrowService : 返回借阅信息
-deactivate BorrowMapper
-IBorrowService --> PenaltyController :返回借阅信息
-deactivate IBorrowService
-PenaltyController-->index.jsp:违规读者处罚完成
-deactivate PenaltyController
-index.jsp -> 管理员 : 违规读者处罚完成
+index.jsp -> BookInuseController:查询所有上架图书
+activate BookInuseController
+BookInuseController -> IBookInuseService:查询所有上架图书
+activate IBookInuseService
+IBookInuseService -> BookInuseMapper:查询所有上架图书
+activate BookInuseMapper
+BookInuseMapper --> IBookInuseService:返回上架信息
+deactivate BookInuseMapper
+IBookInuseService --> BookInuseController:返回上架信息
+deactivate IBookInuseService
+BookInuseController --> index.jsp:返回上架信息
+deactivate BookInuseController
+index.jsp --> 管理员:显示上架信息
+deactivate index.jsp
 
 @enduml
