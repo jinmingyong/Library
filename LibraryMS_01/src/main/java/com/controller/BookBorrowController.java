@@ -1,9 +1,11 @@
 package com.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.entity.BookInuse;
 import com.entity.BookRes;
 import com.entity.Borrow;
 import com.github.pagehelper.PageInfo;
+import com.service.IBookInuseService;
 import com.service.IBookResService;
 import com.service.IBorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,8 @@ public class BookBorrowController {
 
     @Autowired
     private IBookResService iBookResService;
+    @Autowired
+    private IBookInuseService iBookInuseService;
     public static Date addDate (int num) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, num);
@@ -110,7 +114,10 @@ public class BookBorrowController {
         borrow.setBorType("1");
         borrow.setRealTime(new Date());
         int i=iBorrowService.updateByPrimaryKey(borrow);
-        if (i>0){
+        BookInuse bookInuse=iBookInuseService.selectByIsbn(borrow.getIsbn());
+        bookInuse.setAmount(bookInuse.getAmount()+1);
+        int ii=iBookInuseService.updateByPrimaryKey(bookInuse);
+        if (i>0&&ii>0){
             response.sendRedirect(request.getContextPath()+"/bookBorrow/borrowFindAll");
         }else {
             System.out.println("还书失败！");
