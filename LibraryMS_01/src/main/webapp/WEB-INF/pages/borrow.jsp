@@ -394,7 +394,35 @@
                     }
                 })
             }
-
+            function page2(index){
+                var that=this
+                $.ajax({
+                    url:"bookBorrow/findBookInuseByRidbyPage",
+                    dataType:'json',
+                    data:{pageNum:index},
+                    success:function (data) {
+                        var result=''
+                        console.log(data);
+                        $.each(data.list, function (i, el) {
+                            console.log(i);
+                            console.log(el);
+                            result += "<tr>"
+                            result += "<td>" + el.borId + "</td>"
+                            result += "<td>" + el.isbn + "</td>"
+                            result += "<td>" + el.bookRes.bname + "</td>"
+                            result += "<td>" + el.rid + "</td>"
+                            result += "<td>" + el.reader.rname + "</td>"
+                            result += "<td>" + el.borTime + "</td>"
+                            result += "<td>" + el.retTime + "</td>"
+                            result += "<td>" + el.realTime + "</td>"
+                            result +="<td>"  + el.borType +"</td>"
+                            result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button class='btn btn-success'>还书</button></a></td>"
+                            result += "</tr>"
+                        });
+                        $("#showLend").children().children("tbody").html(result)
+                    }
+                })
+            }
 
 
             $("#insert_val").click(function () {
@@ -506,7 +534,7 @@
                             prevPage:"上一页",//上翻页文字描述，默认“上一页”
                             nextPage:"下一页",//下翻页文字描述，默认“下一页”
                             backFun:function(page){
-                                page1(page)
+                                page2(page)
                             }});
                         var result=''
                         console.log(data);
