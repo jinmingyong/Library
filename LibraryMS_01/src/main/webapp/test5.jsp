@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-<h1>添加成功</h1>
+<h1>添加成功 </h1>
 </body>
 </html>
