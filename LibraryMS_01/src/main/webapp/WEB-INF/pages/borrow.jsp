@@ -394,7 +394,7 @@
                     }
                 })
             }
-            function page2(index,selectForm,rid){
+            function page2(index,rid,selectForm){
                 var that=this
                 $.ajax({
                     url:"bookBorrow/findBookInuseByRidbyPage",
