@@ -22,9 +22,10 @@
 
 <!-- 工具条 -->
 <div id="tb">
-    <a id="addBtn" href="javascrip" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">读者搜索</a>
-    <a id="editBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">图书搜索</a>
-    <a id="deleteBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
+    <a id="addBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">按读者搜索</a>
+    <a id="editBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">按图书搜索</a>
+    <a id="all" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">显示所有</a>
+    <a id="deleteBtn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">转为借出</a>
 </div>
 
 <!-- 编辑窗口 -->
@@ -104,6 +105,44 @@
             $("#win1").window("open");
         });
 
+        $("#all").click(function(){
+            //清空表单数据
+            $("#list").datagrid({
+                //url:后台数据查询的地址
+                url:"/bookBooking/listByPage",
+                //columns：填充的列数据
+                //field:后台对象的属性
+                //tille:列标题
+                columns:[[
+                    {
+                        field:"id",
+                        title:"预订号",
+                        width:100,
+                        checkbox:true
+                    },
+                    {
+                        field:"rid",
+                        title:"客户编号",
+                        width:200
+                    },
+                    {
+                        field:"bid",
+                        title:"图书编号",
+                        width:200
+                    },
+                    {
+                        field:"bookingTime",
+                        title:"预订时间",
+                        width:200
+                    },
+
+                ]],
+                //显示分页
+                pagination:true,
+                //工具条
+                toolbar:"#tb"
+            })
+        });
         //保存数据
         $("#selBtn").click(function(){
             var rid=document.getElementById("rid").value;
@@ -144,7 +183,7 @@
                 toolbar:"#tb"
             });
             $("#win").window("close");
-            $.messager.alert("提示","查询成功","info");
+            $.messager.alert("提示","查询完毕","info");
 
         });
 
@@ -188,7 +227,7 @@
             });
 
             $("#win1").window("close");
-            $.messager.alert("提示","查询成功","info");
+            $.messager.alert("提示","查询完毕","info");
 
         });
         // //修改数据

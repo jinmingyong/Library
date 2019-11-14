@@ -97,8 +97,6 @@ public class BookResController {
 
         bookResService.addNewBookResList(bookRes);
         int id= iApplyBookService.selectByIsbn(bookRes.getIsbn()).getId();
-        System.out.println("----------------");
-        System.out.println(id);
         iApplyBookService.deleteByPrimaryKey(id);
         return "redirect:/test3.jsp";
 

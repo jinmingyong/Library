@@ -19,7 +19,6 @@ $(document).ready(function(){
                     var state="审核通过";
                     var btn="  "+xiaohui;
                 }
-
                 $("#tb").append("<tr>" +
                     "<td>"+item.badId+"</td>" +
                     "<td>"+item.isbn+"</td>" +

@@ -84,7 +84,7 @@ BookBorrowController bookBorrowController =new BookBorrowController();
             }catch (Exception e){
                 e.printStackTrace();
                 result.put("success",false);
-                result.put("message",e.getMessage());
+                result.put("message","您的输入有误");
 
             }
 
