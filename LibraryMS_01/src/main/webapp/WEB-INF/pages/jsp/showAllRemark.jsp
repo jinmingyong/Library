@@ -30,7 +30,7 @@
                                     <div class="pl-text clearfix">
                                         <a class="comment-size-name" style="font-size: 15px">{{comment.reader.rname}}:</a>
                                         <span class="my-pl-con" style="font-size: 18px">&nbsp;{{comment.context}}<div style="display: inline-block; width: 200px">
-                                <img v-if="comment.image!=null" :src="'http://localhost:9090/uploads/'+comment.image" alt="" class=" img-fluid" style="height: 300px;width: 200px;float: left">
+                                <img v-if="comment.image!=null" :src="'http://localhost:9090/uploads/'+comment.image" alt="" class=" img-fluid" style="height: 300px;width: 200px;">
                                             </div></span>
                                     </div>
                                     <div class="date-dz">
@@ -140,6 +140,10 @@
             addRemark:function(){
                 var that=this;
                 var rcontext=this.rcontext.substring(this.rcontext.indexOf(":")+1);
+                if (rcontext.trim()==""){
+                    alert("提交评论不能为空")
+                    return
+                }
                 $.ajax({
                     url: "remark/addRemark",
                     data: {comid:that.r.comid,rcontext:rcontext,rid:${reader.readId},replyname:that.r.reader.rname,fatherremid:that.r.fatherremid==null?that.r.remId:that.r.fatherremid},
@@ -262,6 +266,10 @@
             methods:{
                 addRemark:function(){
                     var that=this;
+                    if (that.rcontext.trim()==""){
+                        alert("提交评论不能为空");
+                        return
+                    }
                     $.ajax({
                         url: "remark/addRemark",
                         data: {comid:that.comment.comId,rcontext:that.rcontext,rid:${reader.readId}},

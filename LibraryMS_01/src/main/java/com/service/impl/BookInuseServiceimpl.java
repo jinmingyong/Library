@@ -130,7 +130,7 @@ public class BookInuseServiceimpl implements IBookInuseService {
 
     @Override
     public PageInfo<BookInuse> findAllByPage(Integer pageNo, String bname) {
-        PageHelper.startPage(pageNo,4);
+        PageHelper.startPage(pageNo,8);
         List<BookInuse> list=bookInuseMapper.findAllByName("%"+bname+"%");
         PageInfo<BookInuse> pageInfo=new PageInfo<BookInuse>(list);
         return pageInfo;
