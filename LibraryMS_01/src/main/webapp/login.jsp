@@ -37,9 +37,23 @@
     <link rel="stylesheet" href="css/login.css">
 
 </head>
+<script type="text/javascript">
+    $(function(){
+        if(window.history && window.history.pushState){
+            $(window).on("popstate", function(){
+                window.history.pushState("forward", null, "#");
+                window.history.forward(1);
+            });
+        }
+        window.history.pushState("forward", null, "#"); //在IE中必须得有这两行
+        window.history.forward(1);
+    });
+</script>
 
 <body>
-
+<%
+    session.invalidate();
+%>
 <!-- Content -->
 <div class="top-content">
 
@@ -102,7 +116,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

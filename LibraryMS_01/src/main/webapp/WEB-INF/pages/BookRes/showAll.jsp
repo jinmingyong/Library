@@ -35,17 +35,15 @@
     <table class="table table-responsive table-striped">
         <thead>
         <tr>
-            <td>bid</td>
-            <td>bname</td>
+            <td>图书ID</td>
+            <td>书名</td>
             <td>isbn</td>
-            <td>btype</td>
-            <td>author</td>
-            <td>publish</td>
-            <td>amount</td>
-            <td>import_time</td>
-            <td>选择文件</td>
-            <td>操作</td>
-            <td>选择</td>
+            <td>图书种类</td>
+            <td>作者</td>
+            <td>出版社</td>
+            <td>库存数量</td>
+            <td>进书时间</td>
+            <td>上传图片</td>
         </tr>
         </thead>
         <tbody>
@@ -71,10 +69,6 @@
 
               <%--  </div>--%>
             </form></td>
-            <td>
-                <button class="btn btn-warning btn-sm"  type="button">删除</button>
-            </td>
-            <td><input class='checkbox' type='checkbox'  ></td>
         </tr>
         </c:forEach>
         </tbody>

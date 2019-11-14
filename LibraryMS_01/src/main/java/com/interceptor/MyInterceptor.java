@@ -17,7 +17,11 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("拦截器运行了----前-----");
-        /*request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request,response);*/
+        if (request.getSession().getAttribute("reader")==null){
+            request.setAttribute("msg","你的session过期了");
+        request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request,response);
+        return false;
+        }
         return true;
     }
     /*

@@ -133,7 +133,7 @@
                /* $('.row-offcanvasright').toggleClass('active')*/
                 container.removeClass('active');
                 // clear input
-                container.find('.search-input').val('');
+               /* container.find('.search-input').val('');*/
                 // clear and hide result container when we press close
                 container.find('.result-container').fadeOut(100, function(){$(this).empty();});
             }
