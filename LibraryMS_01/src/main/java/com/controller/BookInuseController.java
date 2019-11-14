@@ -46,6 +46,9 @@ public class BookInuseController {
         BookInuse bookInuse=iBookInuseService.selectByIsbn(isbn);
         List<BookInuse> list=new ArrayList<BookInuse>();
         list.add(0,bookInuse);
+        if (list.isEmpty()){
+            return null;
+        }
         return list;
     }
 

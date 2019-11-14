@@ -99,7 +99,6 @@ public class BookBorrowController {
             if (i==0){
                 model.addAttribute("msg","存入失败");
             }
-
         }
         return "borrow";
     }

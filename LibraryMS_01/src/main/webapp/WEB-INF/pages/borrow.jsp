@@ -481,114 +481,67 @@
                     }
                 });
             });
+            function btnCheck(selectForm){
+                $("#showLend").show();
+                $("#insert").hide();
+                $("#showAll").hide();
+                $("#showYuqi").hide();
+                var rid=$("#rid").val();
+                $.ajax({
+                    url:"bookBorrow/findBookInuseByRidbyPage",
+                    data:{type:selectForm,rid:rid,pageNum:1},
+                    type:"post",
+                    dataType: "json",
+                    success:function (data) {
+                        total=data.total;
+                        page=data.pageNum;
+                        $("#showLendpage").sPage({
+                            page:page,//当前页码，必填
+                            total:total,//数据总条数，必填
+                            pageSize:5,//每页显示多少条数据，默认10条
+                            totalTxt:"共{total}条",//数据总条数文字描述，{total}为占位符，默认"共{total}条"
+                            showTotal:true,//是否显示总条数，默认关闭：false
+                            showSkip:true,//是否显示跳页，默认关闭：false
+                            showPN:true,//是否显示上下翻页，默认开启：true
+                            prevPage:"上一页",//上翻页文字描述，默认“上一页”
+                            nextPage:"下一页",//下翻页文字描述，默认“下一页”
+                            backFun:function(page){
+                                page1(page)
+                            }});
+                        var result=''
+                        console.log(data);
+                        if (data.list!=null){
+                            $.each(data.list, function (i, el) {
+                                console.log(i);
+                                console.log(el);
+                                result += "<tr>"
+                                result += "<td>" + el.borId + "</td>"
+                                result += "<td>" + el.isbn + "</td>"
+                                result += "<td>" + el.bookRes.bname + "</td>"
+                                result += "<td>" + el.rid + "</td>"
+                                result += "<td>" + el.reader.rname + "</td>"
+                                result += "<td>" + el.borTime + "</td>"
+                                result += "<td>" + el.retTime + "</td>"
+                                result += "<td>" + el.realTime + "</td>"
+                                result +="<td>"  + el.borType +"</td>"
+                                result +="<td><a  href='/updateBorrowBackType?id="+el.borId+"'> <button class='btn btn-success'>还书</button></a></td>"
+                                result += "</tr>"
+                            });
+                            $("#showLend").children().children("tbody").html(result)
+                        }
+                    }
+                })
+            }
 
             $("#btnCheck").click(function () {
                 var selectForm=$("#selectForm").val();
                 if (selectForm=="1"){//全部信息
-                    $("#showLend").hide();
-                    $("#insert").hide();
-                    $("#showAll").show();
-                    $("#showYuqi").hide();
-                    var rid=$("#rid").val();
-                    $.ajax({
-                        url:"bookBorrow/findBookInuseByRid",
-                        data:{type:selectForm,rid:rid},
-                        type:"post",
-                        dataType: "json",
-                        success:function (data) {
-                            var result=''
-                            console.log(data);
-                            if (data!=null){
-                                $.each(data, function (i, el) {
-                                    console.log(i);
-                                    console.log(el);
-                                    result += "<tr>"
-                                    result += "<td>" + el.borId + "</td>"
-                                    result += "<td>" + el.isbn + "</td>"
-                                    result += "<td>" + el.bookRes.bname + "</td>"
-                                    result += "<td>" + el.rid + "</td>"
-                                    result += "<td>" + el.reader.rname + "</td>"
-                                    result += "<td>" + el.borTime + "</td>"
-                                    result += "<td>" + el.retTime + "</td>"
-                                    result += "<td>" + el.realTime + "</td>"
-                                    result +="<td>"  + el.borType +"</td>"
-                                    // result +="<td><a href='/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
-                                    result += "</tr>"
-                                });
-                                $("#showAll").children().children("tbody").html(result)
-                            }
-                        }
-                    })
+                    btnCheck(selectForm)
                 } else if (selectForm=="2"){//未还
-                    $("#showLend").show();
-                    $("#insert").hide();
-                    $("#showAll").hide();
-                    $("#showYuqi").hide();
-                    var rid=$("#rid").val();
-                    $.ajax({
-                        url: "bookBorrow/findBookInuseByRid",
-                        data: {type: selectForm, rid: rid},
-                        type:"post",
-                        dataType: "json",
-                        success:function (data) {
-                            var result=''
-                            console.log(data);
-                            if (data!=null){
-                                $.each(data, function (i, el) {
-                                    console.log(i);
-                                    console.log(el);
-                                    result += "<tr>"
-                                    result += "<td>" + el.borId + "</td>"
-                                    result += "<td>" + el.isbn + "</td>"
-                                    result += "<td>" + el.bookRes.bname + "</td>"
-                                    result += "<td>" + el.rid + "</td>"
-                                    result += "<td>" + el.reader.rname + "</td>"
-                                    result += "<td>" + el.borTime + "</td>"
-                                    result += "<td>" + el.retTime + "</td>"
-                                    result += "<td>" + el.realTime + "</td>"
-                                    result +="<td>"  + el.borType +"</td>"
-                                    result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
-                                    result += "</tr>"
-                                });
-                                $("#showLend").children().children("tbody").html(result);
-                            }
-                        }
-                    })
+               btnCheck(selectForm)
                 } else if (selectForm=="3"){//已还
-                    $("#showLend").hide();
-                    $("#insert").hide();
-                    $("#showAll").show();
-                    $("#showYuqi").hide();
-                    var rid=$("#rid").val();
-                    $.ajax({
-                        url:"bookBorrow/findBookInuseByRid",
-                        data:{type:selectForm,rid:rid},
-                        type:"post",
-                        dataType: "json",
-                        success:function (data) {
-                            var result='';
-                            console.log(data);
-                            if (data!=null){
-                                $.each(data, function (i, el) {
-                                    console.log(i);
-                                    console.log(el);
-                                    result += "<tr>"
-                                    result += "<td>" + el.borId + "</td>"
-                                    result += "<td>" + el.isbn + "</td>"
-                                    result += "<td>" + el.bookRes.bname + "</td>"
-                                    result += "<td>" + el.rid + "</td>"
-                                    result += "<td>" + el.reader.rname + "</td>"
-                                    result += "<td>" + el.borTime + "</td>"
-                                    result += "<td>" + el.retTime + "</td>"
-                                    result += "<td>" + el.realTime + "</td>"
-                                    result +="<td>"  + el.borType +"</td>"
-                                    // result +="<td><a href='/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
-                                    result += "</tr>"
-                                });
-                                $("#showAll").children().children("tbody").html(result)
-                            }
-                        }
-                    });
+
+                    btnCheck(selectForm)
                 }else {
                     alert("检查您的学号信息!");
                 }

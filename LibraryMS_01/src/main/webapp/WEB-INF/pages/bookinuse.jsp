@@ -205,6 +205,11 @@
                 dateType:'json',
                 type:"post",
                 success:function (data) {
+                    if (data[0]==null)
+                    {
+                        alert("未查到此ISBN的信息")
+                        return
+                    }
                     var result=''
                     $.each(data, function (i, el) {
                         result += "<tr>"
@@ -273,7 +278,7 @@
                 success:function (data) {
                     if (data=="success"){
                         alert("删除成功！");
-                        window.location.href="/findInuseAll";
+                        window.location.href="bookInuse/findInuseAll";
                     }else {
                         alert("删除失败！")
                     }

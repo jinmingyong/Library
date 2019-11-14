@@ -1,6 +1,8 @@
 package com.service.impl;
 
+import com.dao.BookInuseMapper;
 import com.dao.BorrowMapper;
+import com.entity.BookInuse;
 import com.entity.Borrow;
 import com.github.pagehelper.PageHelper;
 import com.service.IBorrowService;
@@ -14,6 +16,8 @@ public class BorrowServiceimpl implements IBorrowService {
 
     @Resource
     private  BorrowMapper borrowMapper;
+    @Resource
+    private BookInuseMapper bookInuseMapper;
 
     @Override
     //删除
@@ -24,6 +28,9 @@ public class BorrowServiceimpl implements IBorrowService {
     @Override
     //插入
     public int insert(Borrow record) {
+        BookInuse bookInuse=bookInuseMapper.selectByIsbn(record.getIsbn());
+        bookInuse.setAmount(bookInuse.getAmount()-1);
+        bookInuseMapper.updateByPrimaryKeySelective(bookInuse);
         return borrowMapper.insert(record);
     }
 
