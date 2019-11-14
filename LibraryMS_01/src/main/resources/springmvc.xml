@@ -88,13 +88,16 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <!--要拦截的具体方法-->
-            <mvc:mapping path="/chat"/>
-            <mvc:mapping path="/bookRes"/>
-            <mvc:mapping path="/bookInuse"/>
-            <mvc:mapping path="/comment"/>
-            <mvc:mapping path="/remark"/>
+            <mvc:mapping path="/chat/*"/>
+            <mvc:mapping path="/bookRes/*"/>
+            <mvc:mapping path="/bookInuse/*"/>
+            <mvc:mapping path="/comment/*"/>
+            <mvc:mapping path="/remark/*"/>
+            <mvc:mapping path="/reader/*"/>
             <!--不拦截的具体方法-->
             <!--<mvc:exclude-mapping path=""/>-->
+            <mvc:exclude-mapping path="/reader/ReaderLogin"/>
+            <mvc:exclude-mapping path="/reader/findByReader"/>
             <!--配置拦截器对象-->
             <bean class="com.interceptor.MyInterceptor"></bean>
         </mvc:interceptor>
