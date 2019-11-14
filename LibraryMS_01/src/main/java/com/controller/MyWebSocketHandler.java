@@ -97,7 +97,6 @@ public class MyWebSocketHandler implements WebSocketHandler {
         //将信息保存至数据库
          //chatService.insertSelective(chat);
         // 给自己发送消息
-        System.out.println(chat);
         sendMessageToUser(chat.getRid(),
                 new TextMessage(
                         new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")

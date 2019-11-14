@@ -577,7 +577,7 @@
                         })
                         $("#readerlist").html(result)
                     }
-                })
+                });
                 return
             }
             var Who=msg.rid;
