@@ -30,7 +30,7 @@
         <h3>${bookRes.bname}</h3>
                 <div class="comment-body">
             <div style="display: inline-block; width: 200px">
-                <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="img-fluid" style="height: 300px;width: 200px">
+                <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="img-fluid" style="height: 300px;width: 200px;float: left">
             </div>
                 <div class="card-body" style="width: 300px;display: inline-block;">
                     <p>${bookRes.introduce}</p>
@@ -198,7 +198,7 @@
                 var that=this;
                 $.ajax({
                     url: "comment/findCommentByTitle",
-                    data: {title:this.input_value,pageNum:page==null?1:page,isbn:${isbn}},
+                    data: {title:this.input_value.trim(),pageNum:page==null?1:page,isbn:${isbn}},
                     dataType: "json",
                     type: "post",
                     success: function (res) {

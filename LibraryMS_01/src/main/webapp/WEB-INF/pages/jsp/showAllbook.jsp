@@ -83,7 +83,7 @@
             pageSize:null, //每一页显示的数据条数
             total:null, //记录总数
             maxPage:null, //最大页数
-            input_value:null,
+            input_value:"",
         },
         watch:{
             input_value: function () {
@@ -102,7 +102,7 @@
                 var that=this;
                 $.ajax({
                     url: "${request.getContextPath()}bookInuse/showAllBooks",
-                    data: {page:page,name:that.input_value==""?null:that.input_value},
+                    data: {page:page,name:that.input_value.trim()},
                     dataType: "json",
                     type: "post",
                     success: function (res) {

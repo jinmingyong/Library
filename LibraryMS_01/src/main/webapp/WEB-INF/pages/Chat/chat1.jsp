@@ -56,7 +56,7 @@
                             <div class="form-group">
                                 <label for="rname" class="col-form-label">Fullname</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="rname" v-model="rname" value="">
+                                    <input type="text" class="form-control" id="rname" v-model="rname" value="" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i data-feather="user"></i>
@@ -86,7 +86,7 @@
                             <div class="form-group">
                                 <label for="city" class="col-form-label">City</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="city" v-model="raddress" placeholder="Ex: Columbia" value="">
+                                    <input type="text" class="form-control" id="city" v-model="raddress" placeholder="Ex: Columbia" value="" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i data-feather="target"></i>
@@ -97,7 +97,7 @@
                             <div class="form-group">
                                 <label for="phone" class="col-form-label">Phone</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="phone" v-model="rphone" placeholder="(888) 888 88 88" value="">
+                                    <input type="text" class="form-control" id="phone" v-model="rphone" placeholder="(888) 888 88 88" value="" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i data-feather="phone"></i>
@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label for="email" class="col-form-label">Email</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="email" v-model="remail"  placeholder="www.@" value="">
+                                    <input type="text" class="form-control" id="email" v-model="remail"  placeholder="www.@" value="" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i data-feather="mail"></i>

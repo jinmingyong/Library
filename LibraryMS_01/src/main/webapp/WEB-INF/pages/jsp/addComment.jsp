@@ -18,7 +18,7 @@
                     <h3>${bookRes.bname}</h3>
                     <div class="comment-body">
                       <div style="display: inline-block; width: 200px">
-                        <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="img-fluid" style="height: 300px;width: 200px">
+                        <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="img-fluid" style="float:left;height: 300px;width: 200px">
                       </div>
                       <div class="card-body" style="width: 300px;display: inline-block">
                         <p>${bookRes.introduce}</p>

@@ -65,7 +65,7 @@
                     <div class="speed">
                     </div>
                 <span style="float: left;line-height: 40px;color: #5cb85c"></span>
-                <div class="imgdiv">
+                <div class="imgdiv" style="display: none;position: absolute;z-index: 2">
                     <img src="" id="img${status.index}">
                 </div>
 
