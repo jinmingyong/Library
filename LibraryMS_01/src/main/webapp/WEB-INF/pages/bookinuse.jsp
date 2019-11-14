@@ -44,7 +44,8 @@
                             <div>
                                 <ul>
                                     <li class="bookInUseLiCss"><a href="bookInuse/findInuseAll">
-                                        <button id="btn1" class="btn btn-primary btn-lg" type="button">查看inuse信息 </button></a></li>
+                                        <button id="btn1" class="btn btn-primary btn-lg" type="button">查看inuse信息 </button></a>
+                                    </li>
                                     <li class="bookInUseLiCss"><button id="btn3" class="btn btn-primary btn-lg" type="button">上架图书</button></li>
                                     <li class="bookInUseLiCss"><button id="btn4" class="btn btn-primary btn-lg" type="button">图书补货</button></li>
                                     <hr>

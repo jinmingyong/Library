@@ -53,7 +53,7 @@
                                                 <div class="form-group">
                                                     <label class="sr-only" for="rid">读者id</label>
                                                     <input type="text" class="form-control" id="rid" name="rid"
-                                                           placeholder="请输入ISBN">
+                                                           placeholder="请输入读者id">
                                                 </div>
                                                 <input type="button" class="btn btn-default" id="selByRid" value="读者查询">
                                             </form>
