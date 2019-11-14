@@ -1,0 +1,24 @@
+@startuml
+actor 管理员
+participant index.jsp
+participant BookBorrowController
+participant IBookResService
+participant IBookResDao
+participant IBorrowService
+participant BorrowMapper
+
+管理员 -> index.jsp:登录成功
+管理员 -> index.jsp:录入借阅信息
+activate index.jsp
+index.jsp -> BookBorrowController: 录入借阅信息
+activate BookBorrowController
+BookBorrowController -> IBookResService:通过ISBN查询图书信息
+activate IBookResService
+IBookResService -> IBookResDao:
+activate IBookResDao
+IBookResDao --> IBookResService
+deactivate IBookResDao
+IBookResService --> BookBorrowController
+deactivate IBookResService
+
+@enduml
