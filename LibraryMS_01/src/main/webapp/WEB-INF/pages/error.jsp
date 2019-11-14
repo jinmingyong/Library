@@ -17,5 +17,6 @@
 </head>
 <body>
 ${errorMsg}
+${msg}
 </body>
 </html>
