@@ -394,12 +394,12 @@
                     }
                 })
             }
-            function page2(index){
+            function page2(index,selectForm,rid){
                 var that=this
                 $.ajax({
                     url:"bookBorrow/findBookInuseByRidbyPage",
                     dataType:'json',
-                    data:{pageNum:index},
+                    data:{pageNum:index,type:selectForm,rid:rid},
                     success:function (data) {
                         var result=''
                         console.log(data);
@@ -534,7 +534,7 @@
                             prevPage:"上一页",//上翻页文字描述，默认“上一页”
                             nextPage:"下一页",//下翻页文字描述，默认“下一页”
                             backFun:function(page){
-                                page2(page)
+                                page2(page,rid,selectForm)
                             }});
                         var result=''
                         console.log(data);
