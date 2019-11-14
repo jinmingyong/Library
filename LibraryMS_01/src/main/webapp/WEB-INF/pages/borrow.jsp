@@ -387,7 +387,7 @@
                             result += "<td>" + el.retTime + "</td>"
                             result += "<td>" + el.realTime + "</td>"
                             result +="<td>"  + el.borType +"</td>"
-                            result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button>还书</button></a></td>"
+                            result +="<td><a href='bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button class='btn btn-success'>还书</button></a></td>"
                             result += "</tr>"
                         });
                         $("#showLend").children().children("tbody").html(result)
