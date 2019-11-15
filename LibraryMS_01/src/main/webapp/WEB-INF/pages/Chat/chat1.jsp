@@ -98,7 +98,7 @@
                             <div class="form-group">
                                 <label for="phone" class="col-form-label">Phone</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="phone" v-model="rphone" placeholder="(888) 888 88 88" value="" required>
+                                    <input type="text" class="form-control" id="phone" v-model="rphone" placeholder="(888) 888 88 88" value="" required pattern="^[1][3,4,5,7,8][0-9]{9}$">
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i data-feather="phone"></i>
@@ -109,7 +109,7 @@
                             <div class="form-group">
                                 <label for="email" class="col-form-label">Email</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="email" v-model="remail"  placeholder="www.@" value="" required>
+                                    <input type="text" class="form-control" id="email" v-model="remail"  placeholder="www.@" value="" required pattern="^([a-z0-9A-Z]+[-|_|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$">
                                     <div class="input-group-append">
                                         <span class="input-group-text">
                                             <i data-feather="mail"></i>

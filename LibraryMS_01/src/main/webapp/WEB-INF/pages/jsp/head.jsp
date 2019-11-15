@@ -23,10 +23,10 @@
     <!-- Google fonts - Roboto-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
     <!-- owl carousel-->
-    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.css">
-    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">
+<%--    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.css">--%>
     <!-- theme stylesheet-->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<%--    <link rel="stylesheet" type="text/css" href="css/style.css">--%>
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <link rel="stylesheet" type="text/css" href="css/search-form.css">
     <!-- Custom stylesheet - for your changes-->
@@ -36,8 +36,8 @@
     <link rel="stylesheet" href="css/input.css">
     <link rel="stylesheet" href="css/shortcode-common.css">
     <link rel="stylesheet" href="css/testimonial.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <%--    <link rel="stylesheet" href="css/slick.css">--%>
     <link rel="stylesheet" href="css/sweetalert.css">
 
 
@@ -46,20 +46,20 @@
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+<%--    <script src="vendor/popper.js/umd/popper.min.js"> </script>--%>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+<%--    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>--%>
+<%--    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>--%>
     <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/custom.js"></script>
+<%--    <script src="js/slick.min.js"></script>
+    <script src="js/custom.js"></script>--%>
 <%--    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>--%>
     <script src="js/zpageNav.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/portamento-min.js"></script>
     <script src="js/sweetalert.min.js"></script>
-    <script src="js/main.js"></script>
+<%--    <script src="js/main.js"></script>--%>
 <%--    <script src="js/front.js"></script>--%>
 
 </head>
@@ -84,40 +84,3 @@
                     <p class="social"><a href="#" data-animate-hover="pulse" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" data-animate-hover="pulse" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" data-animate-hover="pulse" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="external instagram"><i class="fa fa-instagram"></i></a><a href="#" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a></p>
                 </div>
             </div>
-         <%--   <header id="mu-header" class="" role="banner">
-                <div class="container">
-                    <nav class="navbar navbar-default mu-navbar">
-                        <div class="container-fluid">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-
-                                <!-- Text Logo -->
-                                <a class="navbar-brand" href="index.html"><i class="fa fa-book" aria-hidden="true"></i> Kindle</a>
-
-                                <!-- Image Logo -->
-                                <!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png"></a> -->
-
-
-                            </div>
-
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav mu-menu navbar-right">
-                                    <li><a href="#">HOME</a></li>
-                                    <li><a href="#mu-book-overview">OVERVIEW</a></li>
-                                    <li><a href="#mu-author">AUTHOR</a></li>
-                                    <li><a href="#mu-pricing">PRICE</a></li>
-                                    <li><a href="#mu-testimonials">TESTIMONIALS</a></li>
-                                    <li><a href="#mu-contact">CONTACT</a></li>
-                                </ul>
-                            </div><!-- /.navbar-collapse -->
-                        </div><!-- /.container-fluid -->
-                    </nav>
-                </div>
-            </header>--%>
