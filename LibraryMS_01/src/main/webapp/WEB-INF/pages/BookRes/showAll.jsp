@@ -16,6 +16,7 @@
     <base href="<%=basePath%>">
     <title>Title</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/sweetalert.css">
     <style>
 /*        .speed {
             width:0;
@@ -78,6 +79,7 @@
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/radialIndicator.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
 <script>
     $(function () {
         $(".oFile").hover(function () {
@@ -89,8 +91,18 @@
     var uploadUrl = 'bookres/upload';
     //文件选择完毕时
     function FileChangeFn(index,current) {
+        var filetype=$(current).val().substring($(current).val().lastIndexOf(".") + 1).toLowerCase();
+        if(filetype !=="png"&&filetype!=="jpg"&&filetype!=="gif"&&filetype!=="webp"){
+            $(current).val("")
+            Swal.fire({
+                icon: 'error',
+                title: '请求出错!',
+                text: '图片格式错误',
+            })
+            return
+        }
         current = current.nextElementSibling;
-        console.log(current)
+        console.log(filetype)
         $(current).children(0).remove();
         var event = event || window.event,
             dom = '',
@@ -154,12 +166,20 @@
                 document.getElementById("img"+index).setAttribute("src",returndata);
         /*        $("#img"+index).setAttribute("src",returndata)*/
                 console.log($(target).children().next().next());
-                $(target).next().html("上传成功");
+                Swal.fire({
+                    icon: 'success',
+                    title: '上传成功',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
                 //alert(returndata);
             },
             error: function(returndata) {
-
-                $(target).html("上传失败");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '上传失败',
+                })
                 console.log(returndata)
                 alert('请正确配置后台服务！');
             }

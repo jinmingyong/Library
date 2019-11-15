@@ -27,13 +27,13 @@
             <div class=" flick_button_style style2 pb_50 col-lg-12" style="position: relative">
             <div class="buttons">
             <%--    <button type="button" id="showbtn" data-toggle="offcanvas-right" class="button5 border_color_f9b radius_50 j2"  ><i class="fa fa-search"></i> </button>--%>
-        <h3>${bookRes.bname}</h3>
+        <h3>${reader.rname}</h3>
                 <div class="comment-body">
             <div style="display: inline-block; width: 200px">
-                <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="img-fluid" style="height: 300px;width: 200px;float: left">
+                <img src="http://localhost:9090/uploads/${reader.image}" alt="" class="img-fluid" style="height: 300px;width: 200px;float: left">
             </div>
                 <div class="card-body" style="width: 300px;display: inline-block;">
-                    <p>${bookRes.introduce}</p>
+                    <p>${}</p>
                     <section class="container" style="position: absolute;top: 20px;right: 30px;width: auto">
                         <form onsubmit="submitFn(this, event);">
                             <div class="search-wrapper">
@@ -77,47 +77,8 @@
             <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
             </zpagenav>
         </div>
-   <%--     <div class="col-md-8 col-lg-12">
-            <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="findCommentTitle">
-            </zpagenav>
-        </div>--%>
-        <div class="wrap" style="position: absolute;right: 0;width: 250px;top: 20px;right: -300px">
-            <div :class="'pic'+(index+1)+' pic'" v-for="(image,index) in images">
-                <a :href="'comment/showAllComments?isbn='+image.isbn"> <img :class="'pic_num'+(index+1)+' pic_num'" :src="'http://localhost:9090/uploads/'+image.image"></a>
-            </div>
-        </div>
-    </div>
 </div>
-<%--<div class="col-md-5 col-lg-4" id="myVue2">
-    <div class=" row-offcanvasright row-offcanvas-right">
-        <div id="sidebar2" class="sidebar-offcanvasright" style="padding-top: 3.5rem;">
-                <div class="sidebar-content">
-                    <h1 class="sidebar-heading">
-                        &lt;%&ndash;<section class="container" style="">
-                            <form onsubmit="submitFn(this, event);">
-                                <div class="search-wrapper">
-                                    <div class="input-holder">
-                                        <input type="text" class="search-input" v-model="input_value" placeholder="Type to search" />
-                                        <button class="btn-info search-icon" onclick="searchToggle(this, event);"><span><i class="fa fa-search"></i></span></button>
-                                    </div>
-                                    <span class="close" onclick="searchToggle(this, event);"></span>
-                                    <div class="result-container">
-
-                                    </div>
-                                </div>
-                            </form>
-                        </section>&ndash;%&gt;
-                    </h1>
-                    <ul class="sidebar-menu" style="padding-left: 100px;margin-top: 100px">
-                        <h3>最热图书</h3>
-                        &lt;%&ndash; <li class="sidebar-item"></li>&ndash;%&gt;
-
-                    </ul>
-            </div>
-        </div>
-    </div>
-</div>--%>
-
+</div>
 </body>
 <script>
     function searchToggle(obj, evt){

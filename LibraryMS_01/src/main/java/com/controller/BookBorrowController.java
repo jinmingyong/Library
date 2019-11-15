@@ -197,12 +197,12 @@ public class BookBorrowController {
 
     @RequestMapping("/moreBorrow")
     public @ResponseBody String imagenames(){
-        List<String> imageList=new ArrayList<String>();
+        List<BookRes> imageList= new ArrayList<BookRes>();
         List<Borrow> list=iBorrowService.moreBorrow();
         for (Borrow b:list
              ) {
-            System.out.println(b.getBookRes().getImage());
-                imageList.add(b.getBookRes().getImage());
+            System.out.println(b.getBookRes());
+                imageList.add(b.getBookRes());
         }
         return JSON.toJSONString(imageList);
     }

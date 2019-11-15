@@ -32,7 +32,7 @@
                         </div>
                     <div class="form-group">
                       <label for="image">image</label>
-                      <input type="file" name="upload" id="image" class="form-control-file">
+                      <input type="file" name="upload" id="image" class="form-control-file" onchange="uploadImg()">
                     </div>
                     <div class="form-group">
                       <label for="context">context</label>
@@ -51,4 +51,22 @@
     </div>
   </div>
 </body>
+<script>
+    function uploadImg() {
+      var _name, _fileName, personsFile;
+      personsFile = document.getElementById("image");
+      _name = personsFile.value;
+      _fileName = _name.substring(_name.lastIndexOf(".") + 1).toLowerCase();
+      if (_fileName !== "png" && _fileName !== "jpg" &&_fileName !== "gif") {
+        personsFile.value="";
+        Swal.fire({
+          icon: 'error',
+          title: '请求出错!',
+          text: '图片格式错误',
+        });
+
+        return
+      }
+    }
+</script>
 </html>

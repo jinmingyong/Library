@@ -141,7 +141,11 @@
                 var that=this;
                 var rcontext=this.rcontext.substring(this.rcontext.indexOf(":")+1);
                 if (rcontext.trim()==""){
-                    alert("提交评论不能为空")
+                    Swal.fire({
+                        icon: 'error',
+                        title: '发送失败！',
+                        text: '消息不能为空',
+                    })
                     return
                 }
                 $.ajax({
@@ -160,10 +164,6 @@
                     }
                 })
             },
-         /*   deleRemark:function (remId) {
-                alert("111")
-                this.$emit('deleRemark',remId)
-            }*/
         },
     }
     var sonreply={
@@ -247,27 +247,16 @@
             },
             components:{
                 commentRemark
-               /* template:"#sonRemark",
-                props: ['remark'],
-                data: function () {
-                    return {commentText: ""}
-                },
-                methods: {
-                    addComment: function () {
-                        this.$emit("submit", this.commentText);
-                        this.commentText = "";
-                    },
-                    canelComment: function () {
-                        this.$emit("canel");
-                        this.commentText = "";
-                    }
-                }*/
             },
             methods:{
                 addRemark:function(){
                     var that=this;
                     if (that.rcontext.trim()==""){
-                        alert("提交评论不能为空");
+                        Swal.fire({
+                            icon: 'error',
+                            title: '发送失败！',
+                            text: '消息不能为空',
+                        })
                         return
                     }
                     $.ajax({
@@ -307,7 +296,6 @@
                     $.ajax({
                         url: "remark/deleRemark",
                         data: {remId:remId},
-     /*                   dataType: "json",*/
                         type: "post",
                         success: function (res) {
                             window.location.reload()

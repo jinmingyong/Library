@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/bundle.css">
 
     <link rel="stylesheet" href="css/enjoyhint.css">
+    <link rel="stylesheet" href="/css/sweetalert.css">
     <style>
         .speed {
             float: left;
@@ -229,7 +230,7 @@
                 </div>
             </div>
             <div class="chat-footer">
-                    <input type="text" id="context" class="form-control" placeholder="Write a message."  style="margin-bottom: 20px" maxlength="20">
+                <textarea type="text" id="context" class="form-control" placeholder="Write a message."  style="margin-bottom: 20px" maxlength="50"></textarea>
                     <div class="form-buttons" style="float: right" >
                         <button class="btn btn-primary" type="button" id="btn" style="width: 100px;padding-left: 40px">
                             <i data-feather="send"></i>
@@ -400,6 +401,7 @@
 <script src="/js/feather.min.js"></script>
 <script src="/js/enjoyhint.min.js"></script>
 <script src="/js/app.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
 <script>
     var uploadUrl = 'reader/upload';
     //文件选择完毕时
@@ -608,7 +610,11 @@
             var msg = input.val();
              msg = $.trim(msg);
              if (msg==""){
-                 alert("不能为空")
+                 Swal.fire({
+                     icon: 'error',
+                     title: '发送失败！',
+                     text: '消息不能为空',
+                 })
                  return
              }
             var rid=${reader.readId}
