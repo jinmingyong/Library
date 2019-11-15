@@ -6,16 +6,14 @@ $(function () {
         var a_email=$("#a_email").val();
         var phoneNum=$("#phoneNum").val();
         var type=$("input:radio:checked").val();
-        if(a_name==""||a_name==null) {
-            alert("请填写员工姓名");
-        }
-        // else if (a_password==""||a_password==null){
-        //     alert("请填写员工密码");
-        // }
-        else if (a_email==""||a_email==null){
-            alert("请填写员工邮箱");
+        if (a_id==""||a_id==null){
+            alert("请填写管理员id");
+        }else if(a_name==""||a_name==null) {
+            alert("请填写管理员姓名");
+        } else if (a_email==""||a_email==null){
+            alert("请填写管理员邮箱");
         }else if (phoneNum==""||phoneNum==null){
-            alert("请填写员工职位");
+            alert("请填写管理员电话");
         }else {
             var admin = {
                 a_id:a_id,

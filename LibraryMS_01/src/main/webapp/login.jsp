@@ -98,7 +98,7 @@
                     </ul>
                     <div id="show">
                         <form id="form1" class="registration-form">
-                            用户名：<input type="text" id="name" name="name" placeholder="学生学号/手机号/邮箱"><br>
+                            用户名：<input type="text" id="name" name="name" placeholder="学生手机号/邮箱"><br>
                             密&nbsp;&nbsp;&nbsp;码：<input type="password" id="password" name="password"><br>
                             验证码：<input type='text' name='inputCode' id="inputCode" /><img id="image" src="verifyCodeServlet/VerifyCodeServlet"><input type="button"  value="看不清楚？换一张" id="btn"> <br/>
                             <a href="findPassword.jsp">忘记密码？</a><br>
@@ -106,7 +106,7 @@
                             <button id="b1"><a href="register.jsp">注册</a></button>
                         </form>
                         <form id="form2" class="registration-form">
-                            用户名：<input type="text" id="name1"  placeholder="管理员号/手机号/邮箱"><br>
+                            用户名：<input type="text" id="name1"  placeholder="管理员手机号/邮箱"><br>
                             密&nbsp;&nbsp;&nbsp;码：<input type="password" id="password1" ><br>
                             验证码：<input type="text" id="inputCode1" ><img id="image1" src="verifyCodeServlet/VerifyCodeServlet"><input type="button" value="看不清楚？换一张" id="btn1"> <br/>
                             <a href="findPassword.jsp">忘记密码？</a><br>
@@ -164,23 +164,26 @@
             var password=$("#password").val();
             var inputCode=$("#inputCode").val();
             if(name!=""&&password!=""&&inputCode!=""){
-
-                $.ajax({
-                    url:"reader/ReaderLogin",
-                    contentType:"application/json;charset=UTF-8",
-                    data:{name:name,password:password,inputCode:inputCode},
-                    type:"get",
-                    dataType: "text",
-                    success:function (data) {
-                        if (data=="msg"){
-                            alert("您的验证码错误！");
-                        }else if(data=="err"){
-                            alert("您的账户或者密码错误！");
-                        }else if (data=="list") {
-                            window.location.href="reader/findByReader?name="+name+"&password="+password+"&inputCode="+inputCode;
+                if ((/^[1][3,4,5,7,8][0-9]{9}$/.test(name))||(/^([a-z0-9A-Z]+[-|_|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$/.test(name))){
+                    $.ajax({
+                        url:"reader/ReaderLogin",
+                        contentType:"application/json;charset=UTF-8",
+                        data:{name:name,password:password,inputCode:inputCode},
+                        type:"get",
+                        dataType: "text",
+                        success:function (data) {
+                            if (data=="msg"){
+                                alert("您的验证码错误！");
+                            }else if(data=="err"){
+                                alert("您的账户或者密码错误！");
+                            }else if (data=="list") {
+                                window.location.href="reader/findByReader?name="+name+"&password="+password+"&inputCode="+inputCode;
+                            }
                         }
-                    }
-                })
+                    })
+                }else {
+                    alert("手机或者邮箱格式不正确!");
+                }
             }else {
                 alert("用户名或者密码或者验证码没有填写！");
             }
@@ -191,22 +194,26 @@
             var password1=$("#password1").val();
             var inputCode1=$("#inputCode1").val();
             if (name1!=""&&password1!=""&&inputCode1!="") {
-                $.ajax({
-                    url:"admin/findInputCode",
-                    contentType:"application/json;charset=UTF-8",
-                    data:{name1:name1,password1:password1,inputCode1:inputCode1},
-                    type:"get",
-                    dataType: "text",
-                    success:function (data) {
-                        if (data=="msg1"){
-                            alert("您的验证码错误！");
-                        }else if(data=="err1"){
-                            alert("您的账户或者密码错误！");
-                        }else if (data=="list1") {
-                            window.location.href="admin/findByAdmin?name="+name1+"&password="+password1+"&inputCode="+inputCode1;
+                if ((/^[1][3,4,5,7,8][0-9]{9}$/.test(name1))||(/^([a-z0-9A-Z]+[-|_|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$/.test(name1))) {
+                    $.ajax({
+                        url: "admin/findInputCode",
+                        contentType: "application/json;charset=UTF-8",
+                        data: {name1: name1, password1: password1, inputCode1: inputCode1},
+                        type: "get",
+                        dataType: "text",
+                        success: function (data) {
+                            if (data == "msg1") {
+                                alert("您的验证码错误！");
+                            } else if (data == "err1") {
+                                alert("您的账户或者密码错误！");
+                            } else if (data == "list1") {
+                                window.location.href = "admin/findByAdmin?name=" + name1 + "&password=" + password1 + "&inputCode=" + inputCode1;
+                            }
                         }
-                    }
-                })
+                    })
+                }else {
+                    alert("手机号或者邮箱格式不正确！");
+                }
             }else {
                 alert("用户名或者密码或者验证码没有填写！");
             }

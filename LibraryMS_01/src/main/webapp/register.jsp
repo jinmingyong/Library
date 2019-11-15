@@ -57,17 +57,21 @@
         $("#btn").click(function () {
             phone=$("#phone").val();
             if (phone!=""){
-                $.ajax({
-                    url:"messageUtils/message",
-                    data:{name:phone},
-                    contentType:"application/json;charset=UTF-8",
-                    type:"get",
-                    dataType: "text",
-                    success:function (data) {
-                        code=data;
-                        alert("发送成功！");
-                    }
-                });
+                if ((/^[1][3,4,5,7,8][0-9]{9}$/.test(phone))){
+                    $.ajax({
+                        url:"messageUtils/message",
+                        data:{name:phone},
+                        contentType:"application/json;charset=UTF-8",
+                        type:"get",
+                        dataType: "text",
+                        success:function (data) {
+                            code=data;
+                            alert("发送成功！");
+                        }
+                    });
+                }else {
+                    alert("手机格式不正确！");
+                }
             }else {
                 alert("手机号不能为空！");
             }

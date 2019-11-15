@@ -91,16 +91,7 @@ public class ReaderController
             }
 
         }else {
-            System.out.println("id登录");
-            user.setReadId(Long.valueOf(name));
-            user.setRpwd(password);
-            List<Reader> list=readerService.findLogin(user);
-            if (list.size()>0){
-                return "list";
-            } else {
-                return "err";
-            }
-            //return "err";
+            return "err";
         }
     }
     @RequestMapping("/findByReader")

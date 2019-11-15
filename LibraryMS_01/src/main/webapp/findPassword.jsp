@@ -59,21 +59,25 @@
             var phone1 = $("#phone").val();
             console.log("手机号：" + phone1);
             if (phone1!=""){
-                $.ajax({
-                    url: "messageUtils/message",
-                    data: {name: phone1},
-                    contentType: "application/json;charset=UTF-8",
-                    type: "get",
-                    dataType: "text",
-                    success: function (data) {
-                        console.log(data);
-                        if (data!="success"){
-                            alert("消息发送失败！");
-                        }else {
-                            alert("发送成功!");
+                if ((/^[1][3,4,5,7,8][0-9]{9}$/.test(phone1))) {
+                    $.ajax({
+                        url: "messageUtils/message",
+                        data: {name: phone1},
+                        contentType: "application/json;charset=UTF-8",
+                        type: "get",
+                        dataType: "text",
+                        success: function (data) {
+                            console.log(data);
+                            if (data != "success") {
+                                alert("消息发送失败！");
+                            } else {
+                                alert("发送成功!");
+                            }
                         }
-                    }
-                });
+                    });
+                }else {
+                    alert("手机号码格式不正确!");
+                }
             }else {
                 alert("手机号不能为空！");
             }
@@ -98,7 +102,7 @@
                        }else if (data=="update"){
                            alert("不能与上次密码一致！");
                        } else if (data=="err1"){
-                           alert("两次密码不一致！");
+                           alert("验证码不一致！");
                        }else if (data=="err"){
                            alert("没有此手机号，请先注册！");
                            window.location.reload();
@@ -116,21 +120,25 @@
             var phone11 = $("#phone1").val();
             console.log("手机号：" + phone11);
             if (phone11!=""){
-                $.ajax({
-                    url: "messageUtils/message",
-                    data: {name: phone11},
-                    contentType: "application/json;charset=UTF-8",
-                    type: "get",
-                    dataType: "text",
-                    success: function (data) {
-                        console.log(data);
-                        if (data!="success"){
-                            alert("消息发送失败！");
-                        }else {
-                            alert("发送成功!");
+                if ((/^[1][3,4,5,7,8][0-9]{9}$/.test(phone11))) {
+                    $.ajax({
+                        url: "messageUtils/message",
+                        data: {name: phone11},
+                        contentType: "application/json;charset=UTF-8",
+                        type: "get",
+                        dataType: "text",
+                        success: function (data) {
+                            console.log(data);
+                            if (data != "success") {
+                                alert("消息发送失败！");
+                            } else {
+                                alert("发送成功!");
+                            }
                         }
-                    }
-                });
+                    });
+                }else {
+                    alert("手机号码格式不正确!");
+                }
             }else {
                 alert("手机号不能为空！");
             }
@@ -155,7 +163,7 @@
                             }else if (data=="update"){
                                 alert("不能与上次密码一致！");
                             } else if (data=="err1"){
-                                alert("两次密码不一致！");
+                                alert("验证码不一致！");
                             }else if (data=="err"){
                                 alert("没有此手机号，请先注册!");
                                 window.location.reload();

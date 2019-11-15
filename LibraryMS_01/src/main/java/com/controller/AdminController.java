@@ -86,18 +86,8 @@ public class AdminController
             }else {
                 return "err1";
             }
-
         }else {
-            System.out.println("id登录");
-            admin.setA_id(Integer.parseInt(name));
-            admin.setA_password(password);
-            List<Admin> list=adminService.findLogin(admin);
-            System.out.println("是我！");
-            if (list.size()>0){
-                return "list1";
-            } else {
-                return "err1";
-            }
+          return "err1";
         }
     }
     @RequestMapping("/findByAdmin")

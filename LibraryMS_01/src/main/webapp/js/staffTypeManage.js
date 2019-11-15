@@ -2,7 +2,9 @@ $(function () {
     $("#staffTypeUpdate_btn").click(function () {
         var a_id = $("#aid").val();
         var type = $("input:radio:checked").val();
-        console.log(a_id);
+        if (type==""||type==null){
+            alert("请选择管理员职位");
+        }
         var admin={
             a_id:a_id,
             type:type
