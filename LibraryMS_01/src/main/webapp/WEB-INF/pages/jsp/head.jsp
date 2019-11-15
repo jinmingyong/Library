@@ -66,7 +66,6 @@
 <body>
 <div id="all">
     <div class="container-fluid">
-
         <div class="row row-offcanvas row-offcanvas-left" style="height: 100%">
             <!--   *** SIDEBAR ***-->
             <div id="sidebar" class="col-md-3 col-lg-2 sidebar-offcanvas" style="background-color: #e2e6d5">
@@ -75,8 +74,6 @@
                     <ul class="sidebar-menu">
                         <!-- Link-->
                         <li class="sidebar-item"><a href="bookInuse/showAllbookjsp" class="sidebar-link">查看评论</a></li>
-                        <!-- Link-->
-                        <!-- Link-->
                         <li class="sidebar-item"><a href="chat/chatjsp" class="sidebar-link">开始聊天</a></li>
                         <li class="sidebar-item"><a href="r_booking.jsp" class="sidebar-link">预约书籍</a></li>
                         <li class="sidebar-item"><a href="login.jsp" class="sidebar-link">退出</a></li>
