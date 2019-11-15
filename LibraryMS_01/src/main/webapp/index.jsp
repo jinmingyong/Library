@@ -116,7 +116,7 @@
 <div data-options="region:'center'" style="padding:5px;background:#eee;">
     <div id="tt" class="easyui-tabs" style="width:500px;height:250px;" data-options="fit:true">
         <div title="起始页" style="padding:20px;display:none;">
-            欢迎来到祖安！
+          欢迎进入5组实训Library
         </div>
     </div>
 </div>

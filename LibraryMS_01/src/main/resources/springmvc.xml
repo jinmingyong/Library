@@ -83,14 +83,14 @@
         </property>
     </bean>
     <!--配置异常处理器-->
-    <bean id="sysExceptionResolver" class="com.exception.SysExceptionResolver"/>
+<!--    <bean id="sysExceptionResolver" class="com.exception.SysExceptionResolver"/>-->
     <!--配置拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
             <!--要拦截的具体方法-->
             <mvc:mapping path="/chat/*"/>
             <mvc:mapping path="/bookRes/*"/>
-            <mvc:mapping path="/bookInuse/*"/>
+            <mvc:mapping path="/bookInuse/showAllBooks"/>
             <mvc:mapping path="/comment/*"/>
             <mvc:mapping path="/remark/*"/>
             <!--不拦截的具体方法-->
