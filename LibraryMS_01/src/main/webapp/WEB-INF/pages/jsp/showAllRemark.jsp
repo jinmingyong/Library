@@ -12,25 +12,22 @@
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
-<div class="col-md-8 col-lg-9 content-column" id="myVue">
-    <div class="small-navbar d-flex d-md-none">
-        <button type="button" data-toggle="offcanvas" class="btn btn-outline-primary"> <i class="fa fa-align-left mr-2"></i>Menu</button>
-    </div>
-    <div class="col-lg-8">
+<div class="col-md-8 col-lg-11 content-column" id="myVue">
+    <div class="col-lg-10">
         <div class="content-column-content">
 
             <div class="commentAll">
                 <div class="col-lg-10">
-                    <div class="card mb-lg-5">
+                    <div class="card">
                         <div class="card-header">
                             <div class="card-body" style="padding: 10px 0 0 20px"><h3 style="margin: 0">标题：{{comment.title}}</h3></div>
                             <div class="comment-show-con clearfix">
-                                <div class="comment-show-con-img pull-left"><img :src="path+comment.reader.image" alt="" class="rounded-circle img-fluid"></div>
+                                <div class="comment-show-con-img pull-left"><img :src="path+comment.reader.image" alt="" class="img-responsive img-circle"></div>
                                 <div class="comment-show-con-list pull-left clearfix">
                                     <div class="pl-text clearfix">
                                         <a class="comment-size-name" style="font-size: 15px">{{comment.reader.rname}}:</a>
-                                        <span class="my-pl-con" style="font-size: 18px">&nbsp;{{comment.context}}<div style="display: inline-block; width: 200px">
-                                <img v-if="comment.image!=null" :src="'http://localhost:9090/uploads/'+comment.image" alt="" class=" img-fluid" style="height: 300px;width: 200px;">
+                                        <span class="my-pl-con" style="font-size: 18px">&nbsp;{{comment.context}}<div style="display: inline-block; width: 200px;float: left">
+                                <img v-if="comment.image!=null" :src="'http://localhost:9090/uploads/'+comment.image" alt="" class="" style="height: 300px;width: 200px;">
                                             </div></span>
                                     </div>
                                     <div class="date-dz">
@@ -97,7 +94,7 @@
 </template>
 <template id="comments" >
     <li class="comment-show-con clearfix">
-        <div class="comment-show-con-img pull-left"><img :src="'http://localhost:9090/uploads/'+item.reader.image" alt="" class="rounded-circle img-fluid"></div>
+        <div class="comment-show-con-img pull-left"><img :src="'http://localhost:9090/uploads/'+item.reader.image" alt="" class="img-responsive img-circle"></div>
         <div class="comment-show-con-list pull-left clearfix" style="margin-bottom: 20px">
             <div class="pl-text clearfix">
                 <a href="#" class="comment-size-name">{{item.reader.rname}}:</a>

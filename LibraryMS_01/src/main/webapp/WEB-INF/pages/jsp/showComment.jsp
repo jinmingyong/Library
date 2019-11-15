@@ -21,20 +21,18 @@
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
-<div class="col-md-8 col-lg-10 content-column" id="myVue">
-    <div class="col-md-8 col-lg-8">
-        <div class="content-column-content">
-            <div class=" flick_button_style style2 pb_50 col-lg-12" style="position: relative">
-            <div class="buttons">
-            <%--    <button type="button" id="showbtn" data-toggle="offcanvas-right" class="button5 border_color_f9b radius_50 j2"  ><i class="fa fa-search"></i> </button>--%>
+<div class="col-md-8 col-lg-12 content-column" id="myVue">
+    <div class="col-md-8 col-lg-10">
+        <div class="content-column-content" style="overflow: hidden">
+            <div class="col-lg-12" style="position: relative">
         <h3>${bookRes.bname}</h3>
                 <div class="comment-body">
-            <div style="display: inline-block; width: 200px">
-                <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="img-fluid" style="height: 300px;width: 200px;float: left">
+            <div style="display: inline-block; width: 200px;float: left">
+                <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="" style="height: 300px;width: 200px;float: left">
             </div>
-                <div class="card-body" style="width: 300px;display: inline-block;">
-                    <p>${bookRes.introduce}</p>
-                    <section class="container" style="position: absolute;top: 20px;right: 30px;width: auto">
+                <div class="card-body" style="width: 300px;display: inline-block;float: left">
+                    <p style="font-size: 15px">${bookRes.introduce}</p>
+                    <section class="container" style="position: absolute;top: 20px;right: 85px;width: auto">
                         <form onsubmit="submitFn(this, event);">
                             <div class="search-wrapper">
                                 <div class="input-holder">
@@ -49,12 +47,13 @@
                         </form>
                     </section>
                 </div>
-            </div></div>
             </div>
-            <div class="grid row" >
-                <div v-if ="comments!=null||comments!='' " class="col-lg-8 col-lg-12 grid-item" v-for="(comment,index) in comments" >
-                    <div class="box-masonry"> <a :href="'/comment/findCommentById?comId='+comment.comId" title="" class="box-masonry-image with-hover-overlay" style="width: 20%;display: inline-block;float: left"><img :src="path+comment.image" alt="" class="img-fluid"></a>
-                        <div style="padding:2% 23%;"> {{comment.reader.rname}}<a :href="'/comment/findCommentById?comId='+comment.comId" class="tile-link"> </a>
+            </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 grid row" >
+                <div v-if ="comments!=null||comments!='' " class="col-lg-12 col-md-12 col-sm-12 grid-item" v-for="(comment,index) in comments" >
+                    <div class="box-masonry"> <a :href="'/comment/findCommentById?comId='+comment.comId" title="" class="box-masonry-image with-hover-overlay" style="width: 20%;display: inline-block;float: left"><img :src="path+comment.image" alt="" class="img-thumbnail"></a>
+                        <div style="padding:2% 23%;font-size: 15px"> {{comment.reader.rname}}<a :href="'/comment/findCommentById?comId='+comment.comId" class="tile-link"> </a>
                             <h2 style="margin: 0 ;position: absolute;top: 30%">{{comment.title}}</h2>
                             <div class="box-masonry-desription">
                                 <p><span style="position: absolute;right: 1%;bottom: 1%">{{comment.comCreatetime}}</span></p>
@@ -62,8 +61,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 col-lg-12 grid-item">
-                    <div class="box-masonry"> <a href="comment/addCommentjsp?bid=${bookRes.bid}" title="" class="box-masonry-image with-hover-overlay whiadd" style="text-align: center"><img src="img/icons8-plus-math-100.png" class="img-fluid"></a>
+                <div class="col-lg-12 col-md-12 col-sm-12 grid-item">
+                    <div class="box-masonry"> <a href="comment/addCommentjsp?bid=${bookRes.bid}" title="" class="box-masonry-image with-hover-overlay whiadd" style="text-align: center"><img src="img/icons8-plus-math-100.png" class="img-thumbnail"></a>
                         <div class="box-masonry-hover-text-header"> <a href="comment/addCommentjsp?bid=${bookRes.bid}" class="tile-link">  </a>
                             <div class="box-masonry-desription" style="text-align: center;">
                                 <p style="margin-top: 50px;font-weight: bolder;font-size: larger">添加帖子</p>
@@ -73,20 +72,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-lg-12" style="position: relative;bottom: 0">
-            <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
-            </zpagenav>
-        </div>
-   <%--     <div class="col-md-8 col-lg-12">
-            <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="findCommentTitle">
-            </zpagenav>
-        </div>--%>
-        <div class="wrap" style="position: absolute;right: 0;width: 250px;top: 20px;right: -300px">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="position: relative;bottom: 0">
+        <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
+        </zpagenav>
+    </div>
+        <div class="wrap" style="position: absolute;right: 0;width: 250px;top: 20px;right: -100px">
             <div :class="'pic'+(index+1)+' pic'" v-for="(image,index) in images">
                 <a :href="'comment/showAllComments?isbn='+image.isbn"> <img :class="'pic_num'+(index+1)+' pic_num'" :src="'http://localhost:9090/uploads/'+image.image"></a>
             </div>
         </div>
-    </div>
 </div>
 <%--<div class="col-md-5 col-lg-4" id="myVue2">
     <div class=" row-offcanvasright row-offcanvas-right">

@@ -11,9 +11,9 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<div>
 <jsp:include page="head.jsp"></jsp:include>
-<div class="col-md-8 col-lg-9 content-column" id="myVue">
+<div class="col-md-11 col-lg-12 col-sm-10 col-xs-9 content-column" id="myVue">
     <section class="container" style="height: 100px">
         <form onsubmit="submitFn(this, event);">
             <div class="search-wrapper">
@@ -30,8 +30,8 @@
     </section>
 
     <div class="grid row" >
-        <div class="col-md-6 col-lg-3 grid-item" v-for="(bookInuse,index) in bookInuses">
-                <div class="box-masonry"> <a v-bind:href=url+bookInuse.bookRes.isbn title="" class="box-masonry-image with-hover-overlay"><img v-bind:src="path+bookInuse.bookRes.image" alt="" class="img-fluid"></a>
+        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-8 grid-item" v-for="(bookInuse,index) in bookInuses">
+                <div class="box-masonry"> <a v-bind:href=url+bookInuse.bookRes.isbn title="" class="box-masonry-image with-hover-overlay"><img v-bind:src="path+bookInuse.bookRes.image" alt="" class="img-thumbnail"></a>
                     <div class="box-masonry-hover-text-header"> <a v-bind:href=url+bookInuse.bookRes.isbn class="tile-link">  </a>
                         <h4>{{bookInuse.bookRes.bname}}</h4>
                         <div class="box-masonry-desription">
@@ -41,9 +41,11 @@
                 </div>
     </div>
     </div>
-    <div class="col-lg-8" style="position: absolute;bottom: 0">
+    <div class="col-lg-12" style="position: relative;bottom: 0">
     <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
     </zpagenav>
+</div>
+</div>
 </div>
 </div>
 </body>

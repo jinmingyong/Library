@@ -9,21 +9,22 @@
 <jsp:include page="head.jsp"></jsp:include>
         <!--   *** SIDEBAR END ***  -->
         <!--   *** DETAIL ***-->
-        <div class="col-md-8 col-lg-9 content-column white-background">
+        <div class="col-md-8 col-lg-10 content-column white-background">
           <div class="row" id="mvVue">
-            <div class="col-lg-8">
-              <div class="content-column-content">
-                <div class="col-lg-10">
-                  <div class="jumbotron">
-                    <h3>${bookRes.bname}</h3>
-                    <div class="comment-body">
-                      <div style="display: inline-block; width: 200px">
-                        <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="img-fluid" style="float:left;height: 300px;width: 200px">
-                      </div>
-                      <div class="card-body" style="width: 300px;display: inline-block">
-                        <p>${bookRes.introduce}</p>
-                      </div>
-                    </div></div></div>
+            <div class="content-column-content" style="overflow: hidden">
+              <div class="col-lg-12" style="position: relative">
+                <h3 class="card-header">${bookRes.bname}</h3>
+                <div class="comment-body">
+                  <div style="display: inline-block; width: 200px;float: left">
+                    <img src="http://localhost:9090/uploads/${bookRes.image}" alt="" class="" style="height: 300px;width: 200px;float: left">
+                  </div>
+                  <div class="card-body" style="width: 400px;display: inline-block;float: left">
+                    <p style="font-size: 15px">${bookRes.introduce}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
                 <form id="contact-form" method="post" action="comment/addComment?isbn=${bookRes.isbn}&rid=${reader.readId}" class="contact-form form" enctype="multipart/form-data">
                   <div class="controls">
                         <div class="form-group">

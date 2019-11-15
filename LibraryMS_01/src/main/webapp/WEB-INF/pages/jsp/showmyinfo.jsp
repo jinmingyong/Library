@@ -30,7 +30,7 @@
         <h3>${reader.rname}</h3>
                 <div class="comment-body">
             <div style="display: inline-block; width: 200px">
-                <img src="http://localhost:9090/uploads/${reader.image}" alt="" class="img-fluid" style="height: 300px;width: 200px;float: left">
+                <img src="http://localhost:9090/uploads/${reader.image}" alt="" class="" style="height: 300px;width: 200px;float: left">
             </div>
                 <div class="card-body" style="width: 300px;display: inline-block;">
                     <p>${}</p>

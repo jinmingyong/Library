@@ -44,8 +44,12 @@
     delete from remark
     where rem_id = #{remId,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByfatherremid" parameterType="java.lang.Long" >
+    delete from remark
+    where fatherremid = #{fatherremid,jdbcType=BIGINT}
+  </delete>
 
-  <insert id="insert" parameterType="com.entity.Remark" >
+    <insert id="insert" parameterType="com.entity.Remark" >
     <selectKey resultType="java.lang.Long" keyProperty="remId" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>

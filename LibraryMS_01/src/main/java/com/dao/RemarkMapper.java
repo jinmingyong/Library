@@ -10,6 +10,8 @@ import java.util.List;
 public interface RemarkMapper {
     int deleteByPrimaryKey(Long remId);
 
+    int deleteByfatherremid(Long fatherremid);
+
     int insert(Remark record);
 
     int insertSelective(Remark record);

@@ -14,6 +14,7 @@ public class RemarkServiceimpl implements IRemarkService {
     private RemarkMapper remarkMapper;
     @Override
     public int deleteByPrimaryKey(Long remId) {
+        remarkMapper.deleteByfatherremid(remId);
         return remarkMapper.deleteByPrimaryKey(remId);
     }
 
