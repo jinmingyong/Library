@@ -22,9 +22,9 @@
 %>
 <div id="staffInfoUpdate">
     <ul>
-        <li>要更改员工的id：<input id="a_id_input" class="staffInfoUpdateInput" type="text" name="a_id" value="<%=a_id1%>" readonly></li>
+        <li style="display: none">要更改员工的id：<input id="a_id_input" class="staffInfoUpdateInput" type="text" name="a_id" value="<%=a_id1%>" readonly></li>
         <li>请输入员工姓名：<input id="a_name_input" class="staffInfoUpdateInput" type="text" name="a_name" value="<%=aname%>"></li>
-        <li>请输入员工密码：<input id="a_password_input" class="staffInfoUpdateInput" type="password" name="a_password" value="<%=apassword%>" readonly></li>
+        <li style="display: none">请输入员工密码：<input id="a_password_input" class="staffInfoUpdateInput" type="password" name="a_password" value="<%=apassword%>" readonly></li>
         <li>请输入员工邮箱：<input id="a_email_input" class="staffInfoUpdateInput" type="email" name="a_email" value="<%=aemail%>"></li>
         <li>请输入员工电话：<input id="phoneNum_input" class="staffInfoUpdateInput" type="text" name="phoneNum" value="<%=phoneN%>"></li>
         <li><button class="btn" type="button" id="updatebtn">更改员工信息</button></li>

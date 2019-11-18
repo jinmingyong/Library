@@ -22,6 +22,7 @@
 <!-- Page level plugin CSS-->
 <link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/bookInUse.css">
 <!-- Custom styles for this template-->
 <link href="css/sb-admin.css" rel="stylesheet">
@@ -80,11 +81,11 @@
                                     <table class="table table-bordered"  width="100%" cellspacing="0">
                                         <thead>
                                         <tr align="center">
-                                            <th>inuse_id</th>
-                                            <th>isbn</th>
-                                            <th>book_name</th>
-                                            <th>inusetime</th>
-                                            <th>amount</th>
+                                            <th>上架号</th>
+                                            <th>ISBN</th>
+                                            <th>图书名</th>
+                                            <th>上架时间</th>
+                                            <th>架上数量</th>
                                         </tr>
                                         </thead>
 
@@ -163,11 +164,11 @@
                                     <table class="table table-bordered"  width="100%" cellspacing="0">
                                         <thead>
                                         <tr align="center">
-                                            <th>inuse_id</th>
-                                            <th>isbn</th>
+                                            <th>上架号</th>
+                                            <th>ISBN</th>
                                             <th>图书名</th>
-                                            <th>inusetime</th>
-                                            <th>amount</th>
+                                            <th>上架时间</th>
+                                            <th>架上数量</th>
                                             <th>操作</th>
                                         </tr>
                                         </thead>

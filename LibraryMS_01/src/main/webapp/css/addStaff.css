@@ -1,35 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-.btn{
-    width: 200px;
-    height: 40px;
-    line-height: 40px;
-    /*font-size: 18px;*/
-    /*font-weight: 300;*/
-    border-radius: 5%;
-}
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
 #staffAdd{
-    width: 400px;
+    width: 800px;
     margin: 10px auto;
 }
-#staffAdd li{
-    list-style: none;
-    width: auto;
-    height: 50px;
-    line-height: 50px;
-    /*font-size: 18px;*/
-    /*text-align: center;*/
-}
-#staffAdd li:nth-of-type(7){
+#staffAdd th,#staffAdd td{
     text-align: center;
-}
-#staffAdd li:nth-of-type(1){
-    text-align: center;
-}
-.staffAddInput{
-    width: 250px;
     height: 30px;
-    /*font-size: 18px;*/
+    line-height: 30px;
 }

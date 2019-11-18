@@ -28,19 +28,19 @@
                 <form id="contact-form" method="post" action="comment/addComment?isbn=${bookRes.isbn}&rid=${reader.readId}" class="contact-form form" enctype="multipart/form-data">
                   <div class="controls">
                         <div class="form-group">
-                          <label for="title">Title</label>
+                          <label for="title">标题</label>
                           <input type="text" name="title" id="title" required="required" class="form-control">
                         </div>
                     <div class="form-group">
-                      <label for="image">image</label>
+                      <label for="image">图片</label>
                       <input type="file" name="upload" id="image" class="form-control-file" onchange="uploadImg()">
                     </div>
                     <div class="form-group">
-                      <label for="context">context</label>
+                      <label for="context">内容</label>
                       <textarea rows="4" name="context" id="context" required="required" class="form-control"></textarea>
                     </div>
                     <div>
-                      <input type="submit" value="Send" class="btn btn-outline-primary">
+                      <input type="submit" value="发送" class="btn btn-outline-primary">
                     </div>
                   </div>
                 </form>

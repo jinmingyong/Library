@@ -71,9 +71,16 @@ public class AdminController
             admin.setA_password(password);
             List<Admin> list=adminService.findLogin(admin);
             if (list.size()>0){
-                return "list1";
+                for (Admin a:list){
+                    admin.setType(a.getType());
+                }
+                if (admin.getType().equals("0")){
+                    return "msg";
+                }else {
+                    return "list1";
+                }
             }else {
-                return "err1";
+                return "err";
             }
 
         }else if (name.matches("^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$")){
@@ -84,7 +91,7 @@ public class AdminController
             if (list.size()>0){
                 return "list1";
             }else {
-                return "err1";
+                return "err";
             }
         }else {
           return "err1";
@@ -207,7 +214,7 @@ public class AdminController
         return "adminInfor";
     }
     @RequestMapping("/adminRegiser")
-    public String adminRegiser(@RequestParam String stuId, @RequestParam String name, @RequestParam String email, @RequestParam String type, @RequestParam("fileUp") MultipartFile pic, @RequestParam String phone, HttpServletRequest request, Model model) throws IOException
+    public String adminRegiser(@RequestParam String stuId, @RequestParam String name, @RequestParam String email,  @RequestParam("fileUp") MultipartFile pic, @RequestParam String phone, HttpServletRequest request, Model model) throws IOException
     {
         HttpSession session=request.getSession();
         String password= (String) session.getAttribute(phone);
@@ -235,20 +242,20 @@ public class AdminController
         } catch (IOException e) {
             new Exception("文件上传失败！");
         }
-        Admin admin=new Admin(Integer.parseInt(stuId),name,password,email,phone,type,filename);
+        Admin admin=new Admin(Integer.parseInt(stuId),name,password,email,phone,"0",filename);
         List<Admin> list=adminService.findLogin(admin);
         for (Admin admin1:list){
             admin.setId(admin1.getId());
         }
         adminService.updateAdmin(admin);
 
-        if (admin.getType().equals("1")){
-            model.addAttribute("admin",admin);
-            return "redirect:/login.jsp";//普通管理员界面
-        }else {
-            model.addAttribute("admin",admin);
-            return "redirect:/login.jsp";//返回到高级管理员界面
-        }
+        //if (admin.getType().equals("1")){
+        model.addAttribute("admin",admin);
+        return "redirect:/login.jsp";//普通管理员界面
+        //}else {
+            //model.addAttribute("admin",admin);
+           // return "redirect:/login.jsp";
+        //}
     }
     @RequestMapping("/findAdminPassword")
     @ResponseBody

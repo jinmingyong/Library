@@ -42,4 +42,7 @@
     <update id="updateAdminType" parameterType="admin">
         update admin set type=#{type} where a_id=#{a_id}
     </update>
+    <select id="findAllStaff" resultMap="adminMap">
+        select * from admin where type='0'
+    </select>
 </mapper>

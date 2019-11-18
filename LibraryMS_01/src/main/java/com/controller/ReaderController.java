@@ -76,7 +76,7 @@ public class ReaderController
             if (list.size()>0){
                 return "list";
             }else {
-                return "err";
+                return "err1";
             }
 
         }else if (name.matches("^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$")){
@@ -87,7 +87,7 @@ public class ReaderController
             if (list.size()>0){
                 return "list";
             }else {
-                return "err";
+                return "err1";
             }
 
         }else {

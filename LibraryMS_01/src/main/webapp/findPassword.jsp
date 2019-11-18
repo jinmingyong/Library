@@ -12,6 +12,8 @@
     <title>密码找回</title>
 </head>
 <link href="css/findPassword.css" rel="stylesheet">
+<link rel="stylesheet" href="css/sweetalert.css">
+<script src="js/sweetalert.min.js"></script>
 <body>
 <div id="taskList">
     <ul id="ul">
@@ -69,17 +71,33 @@
                         success: function (data) {
                             console.log(data);
                             if (data != "success") {
-                                alert("消息发送失败！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '消息发送失败！',
+                                })
                             } else {
-                                alert("发送成功!");
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: '请求成功!',
+                                    text: '发送成功！',
+                                })
                             }
                         }
                     });
                 }else {
-                    alert("手机号码格式不正确!");
+                    Swal.fire({
+                        icon: 'error',
+                        title: '请求出错!',
+                        text: '手机号码格式不正确！',
+                    })
                 }
             }else {
-                alert("手机号不能为空！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '手机号不能为空！',
+                })
             }
     });
        $("#btn2").click(function () {
@@ -97,23 +115,47 @@
                    dataType: "text",
                    success: function (data) {
                        if(data=="list"){
-                           alert("修改成功！");
+                           Swal.fire({
+                               icon: 'success',
+                               title: '请求成功!',
+                               text: '修改成功！',
+                           })
                            window.location.href="reader/updateReaderPassword?name="+phone12;
                        }else if (data=="update"){
-                           alert("不能与上次密码一致！");
+                           Swal.fire({
+                               icon: 'error',
+                               title: '请求出错!',
+                               text: '不能与上次密码一致！',
+                           })
                        } else if (data=="err1"){
-                           alert("验证码不一致！");
+                           Swal.fire({
+                               icon: 'error',
+                               title: '请求出错!',
+                               text: '验证码不一致！',
+                           })
                        }else if (data=="err"){
-                           alert("没有此手机号，请先注册！");
+                           Swal.fire({
+                               icon: 'error',
+                               title: '请求出错!',
+                               text: '没有此手机号，请先注册！',
+                           })
                            window.location.reload();
                        }
                    }
                })
            } else {
-               alert("您的两次密码不一致！");
+               Swal.fire({
+                   icon: 'error',
+                   title: '请求出错!',
+                   text: '您的两次密码不一致！',
+               })
            }
            }else {
-               alert("此处全部为必填项！");
+               Swal.fire({
+                   icon: 'error',
+                   title: '请求出错!',
+                   text: '此处全部为必填项！',
+               })
            }
        });
         $("#btn1").click(function () {
@@ -130,17 +172,33 @@
                         success: function (data) {
                             console.log(data);
                             if (data != "success") {
-                                alert("消息发送失败！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '消息发送失败！',
+                                })
                             } else {
-                                alert("发送成功!");
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: '请求成功!',
+                                    text: '发送成功！',
+                                })
                             }
                         }
                     });
                 }else {
-                    alert("手机号码格式不正确!");
+                    Swal.fire({
+                        icon: 'error',
+                        title: '请求出错!',
+                        text: '手机号码格式不正确！',
+                    })
                 }
             }else {
-                alert("手机号不能为空！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '手机号不能为空！',
+                })
             }
     });
         $("#btn22").click(function () {
@@ -158,23 +216,47 @@
                         dataType: "text",
                         success: function (data) {
                             if(data=="list"){
-                                alert("修改成功！");
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: '请求成功!',
+                                    text: '修改成功！',
+                                })
                                 window.location.href="admin/updateAdminPassword?name="+phone123;
                             }else if (data=="update"){
-                                alert("不能与上次密码一致！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '不能与上次密码一致！',
+                                })
                             } else if (data=="err1"){
-                                alert("验证码不一致！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '验证码不一致！',
+                                })
                             }else if (data=="err"){
-                                alert("没有此手机号，请先注册!");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '没有此手机号，请先注册！',
+                                })
                                 window.location.reload();
                             }
                         }
                     })
                 } else {
-                    alert("您的两次密码不一致！");
+                    Swal.fire({
+                        icon: 'error',
+                        title: '请求出错!',
+                        text: '您的两次密码不一致！',
+                    })
                 }
             }else {
-                alert("此处为必填项！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '此处为必填项！',
+                })
             }
         });
     });

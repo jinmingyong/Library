@@ -26,4 +26,6 @@ public interface AdminDao
     void updateByPhoneNum(Admin admin);
 
     int updateAdminType(@Param("a_id") Integer a_id, @Param("type") String type);
+
+    List<Admin> findAllStaff();
 }

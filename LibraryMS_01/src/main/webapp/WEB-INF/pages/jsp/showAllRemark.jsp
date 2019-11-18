@@ -12,12 +12,12 @@
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
-<div class="col-md-8 col-lg-11 content-column" id="myVue">
-    <div class="col-lg-10">
+<div class="col-md-8 col-lg-12 content-column" id="myVue">
+    <div class="col-lg-12">
         <div class="content-column-content">
 
             <div class="commentAll">
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <div class="card-body" style="padding: 10px 0 0 20px"><h3 style="margin: 0">标题：{{comment.title}}</h3></div>
@@ -25,7 +25,7 @@
                                 <div class="comment-show-con-img pull-left"><img :src="path+comment.reader.image" alt="" class="img-responsive img-circle"></div>
                                 <div class="comment-show-con-list pull-left clearfix">
                                     <div class="pl-text clearfix">
-                                        <a class="comment-size-name" style="font-size: 15px">{{comment.reader.rname}}:</a>
+                                        <a class="comment-size-name" style="font-size: 15px;margin-left: 20px">{{comment.reader.rname}}:</a>
                                         <span class="my-pl-con" style="font-size: 18px">&nbsp;{{comment.context}}<div style="display: inline-block; width: 200px;float: left">
                                 <img v-if="comment.image!=null" :src="'http://localhost:9090/uploads/'+comment.image" alt="" class="" style="height: 300px;width: 200px;">
                                             </div></span>
@@ -92,7 +92,7 @@
     <button @click="addRemark()" class="btn btn-group-lg btn-info" style="float: right">评论</button>
     </div>
 </template>
-<template id="comments" >
+<template id="comments">
     <li class="comment-show-con clearfix">
         <div class="comment-show-con-img pull-left"><img :src="'http://localhost:9090/uploads/'+item.reader.image" alt="" class="img-responsive img-circle"></div>
         <div class="comment-show-con-list pull-left clearfix" style="margin-bottom: 20px">
@@ -108,7 +108,7 @@
                 </div>
                 <reply v-show="flag" :r="item"></reply>
                <sonreply v-for="sonreply in sonreplys" :sonreply="sonreply"></sonreply>
-                <div>
+                <div class="sonpages" style="float: right">
                     <zpagenav v-if="total>=3" v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
                     </zpagenav>
                 </div>
@@ -142,7 +142,7 @@
                         icon: 'error',
                         title: '发送失败！',
                         text: '消息不能为空',
-                    })
+                    });
                     return
                 }
                 $.ajax({

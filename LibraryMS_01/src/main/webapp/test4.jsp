@@ -54,10 +54,10 @@
 
                                 <div class="card-header">
                                     报废管理
-                                    <span style="float:right;">添加报废书
-                                        <input id="isbn" type="text" value="请输入isbn号" onfocus="if(value=='请输入isbn号')value=''" onblur="if(!value)value='请输入isbn号'" >
-                                        <button id="add" type="button" class="btn btn-primary mb-2">添加</button>
-                                    </span>
+<%--                                    <span style="float:right;">添加报废书--%>
+<%--                                        <input id="isbn" type="text" value="请输入isbn号" onfocus="if(value=='请输入isbn号')value=''" onblur="if(!value)value='请输入isbn号'" >--%>
+<%--                                        <button id="add" type="button" class="btn btn-primary mb-2">添加</button>--%>
+<%--                                    </span>--%>
                                 </div>
 
                                 <div class="card-body">

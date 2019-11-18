@@ -17,6 +17,8 @@
     <!-- CSS -->
 
     <link rel="stylesheet" href="css/register.css" type="text/css">
+<link rel="stylesheet" href="css/sweetalert.css">
+<script src="js/sweetalert.min.js"></script>
    <body>
    <div id="show">
        <ul>
@@ -66,14 +68,26 @@
                         dataType: "text",
                         success:function (data) {
                             code=data;
-                            alert("发送成功！");
+                            Swal.fire({
+                                icon: 'success',
+                                title: '请求成功!',
+                                text: '发送成功！',
+                            })
                         }
                     });
                 }else {
-                    alert("手机格式不正确！");
+                    Swal.fire({
+                        icon: 'error',
+                        title: '请求出错!',
+                        text: '手机格式不正确！',
+                    })
                 }
             }else {
-                alert("手机号不能为空！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '手机号不能为空！',
+                })
             }
         });
         $("#btn1").click(function () {
@@ -93,9 +107,18 @@
                             dataType: "text",
                             success: function (data) {
                                 if (data == "err") {
-                                    alert("验证码不正确，亲！")
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: '请求出错!',
+                                        text: '验证码不正确，亲！',
+                                    })
                                 } else if (data == "err1") {
-                                    alert("该号码已经注册！亲");
+                                    alert("");
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: '请求出错!',
+                                        text: '该号码已经注册！亲！',
+                                    })
                                     window.location.reload();
                                 } else if (data == "list") {
                                     window.location.href = "admin/saveAdminRigester?name=" + phone;
@@ -111,9 +134,17 @@
                             dataType: "text",
                             success: function (data) {
                                 if (data == "err") {
-                                    alert("验证码不正确，亲！")
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: '请求出错!',
+                                        text: '验证码不正确，亲！',
+                                    })
                                 } else if (data == "err1") {
-                                    alert("该号码已经注册！亲");
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: '请求出错!',
+                                        text: '该号码已经注册！亲！',
+                                    })
                                     window.location.reload();
                                 } else if (data == "list") {
                                     window.location.href = "reader/saveRegister?name=" + phone;
@@ -122,10 +153,18 @@
                         });
                     }
             } else {
-                alert("验证码发送失败，请检查你的手机号码是否正确！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '验证码发送失败，请检查你的手机号码是否正确！',
+                })
             }
             }else {
-                alert("您的手机号或者密码或者验证码或者选择没有操作！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '您的手机号或者密码或者验证码或者选择没有操作！',
+                })
             }
         })
     });

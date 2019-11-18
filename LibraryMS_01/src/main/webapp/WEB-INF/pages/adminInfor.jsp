@@ -38,10 +38,6 @@
             <input type="email" name="email" placeholder="记得写对格式偶！" required="required" pattern="^([a-z0-9A-Z]+[-|_|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$">
         </label>
         <label>
-            <span>类别：</span>
-            <input type="text" name="type" placeholder="1位普通管理员/2为高级管理员">
-        </label>
-        <label>
         <span>头像：</span>
         <input type="file" name="fileUp" placeholder="这是必须弄的偶(  ｰ̀ωｰ́ )⊃⌒" required="required">
         </label><br>

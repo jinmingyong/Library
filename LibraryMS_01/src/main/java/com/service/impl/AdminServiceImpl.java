@@ -66,4 +66,9 @@ public class AdminServiceImpl implements AdminService
     public int updateAdminType(Integer a_id, String type) {
         return adminDao.updateAdminType(a_id,type);
     }
+
+    @Override
+    public List<Admin> findAllStaff() {
+        return adminDao.findAllStaff();
+    }
 }

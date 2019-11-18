@@ -38,7 +38,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">
-                    <i data-feather="edit-2" class="mr-2"></i> Edit Profile
+                    <i data-feather="edit-2" class="mr-2"></i> 编辑信息
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i data-feather="x"></i>
@@ -48,14 +48,14 @@
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#personal" role="tab"
-                           aria-controls="personal" aria-selected="true">Personal</a>
+                           aria-controls="personal" aria-selected="true">个人信息</a>
                     </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane show active" id="personal" role="tabpanel">
                         <form enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="rname" class="col-form-label">Fullname</label>
+                                <label for="rname" class="col-form-label">昵称</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="rname" v-model="rname" value="" required>
                                     <div class="input-group-append">
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-form-label">Avatar</label>
+                                <label class="col-form-label">头像</label>
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <figure class="avatar mr-3 item-rtl">
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="city" class="col-form-label">City</label>
+                                <label for="city" class="col-form-label">地址</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="city" v-model="raddress" placeholder="Ex: Columbia" value="" required>
                                     <div class="input-group-append">
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="phone" class="col-form-label">Phone</label>
+                                <label for="phone" class="col-form-label">手机</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="phone" v-model="rphone" placeholder="(888) 888 88 88" value="" required pattern="^[1][3,4,5,7,8][0-9]{9}$">
                                     <div class="input-group-append">
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary"  v-on:click="updateReader()">Save</button>
+                <button type="button" class="btn btn-primary"  v-on:click="updateReader()">保存</button>
             </div>
         </div>
     </div>
@@ -186,11 +186,10 @@
                             </figure>
                         </a>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#editProfileModal">Edit
-                                profile</a>
-                            <a class="dropdown-item" data-navigation-target="contact-information">Profile</a>
+                            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#editProfileModal">编辑信息</a>
+                            <a class="dropdown-item" data-navigation-target="contact-information">个人信息</a>
                             <div class="dropdown-divider"></div>
-                            <a href="login.jsp" class="dropdown-item text-danger">Logout</a>
+                            <a href="login.jsp" class="dropdown-item text-danger">退出登录</a>
                         </div>
                     </li>
                 </ul>
@@ -203,7 +202,7 @@
             <!-- Chats sidebar -->
             <div id="chats" class="sidebar active">
                 <header>
-                    <span>Chats</span>
+                    <span>聊天室</span>
                 </header>
                 <div class="sidebar-body">
                     <ul class="list-group list-group-flush" id="readerlist">
@@ -242,7 +241,8 @@
         <div class="sidebar-group">
             <div id="contact-information" class="sidebar">
                 <header>
-                    <span>Profile</span>
+                    <span>个人信息
+                    </span>
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <a class="btn btn-outline-light text-danger sidebar-close">
@@ -258,33 +258,32 @@
                                 <img src="http://localhost:9090/uploads/${reader.image}" class="rounded-circle" alt="image">
                             </figure>
                             <h5 class="mb-1">${reader.rname}</h5>
-                            <small class="text-muted font-italic">Last seen: Today</small>
 
                             <ul class="nav nav-tabs justify-content-center mt-5" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                       aria-controls="home" aria-selected="true">About</a>
+                                       aria-controls="home" aria-selected="true">关于</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                       aria-controls="profile" aria-selected="false">Media</a>
+                                       aria-controls="profile" aria-selected="false">其他</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="mt-4 mb-4">
-                                    <h6>Phone</h6>
+                                    <h6>手机</h6>
                                     <p class="text-muted">${reader.rphone}</p>
                                 </div>
                                 <div class="mt-4 mb-4">
-                                    <h6>City</h6>
+                                    <h6>地址</h6>
                                     <p class="text-muted">${reader.raddress}</p>
                                 </div>
                                 <div class="mt-4 mb-4">
-                                    <h6>Credit</h6>
-                                    <p>
-                                        <a href="#">${reader.credit}</a>
+                                    <h6>信用</h6>
+                                    <p class="text-muted">
+                                        ${reader.credit}
                                     </p>
                                 </div>
                             </div>

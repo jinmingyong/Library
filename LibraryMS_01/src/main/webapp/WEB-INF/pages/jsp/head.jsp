@@ -42,8 +42,6 @@
 
 
 
-
-
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/vue.js"></script>
 <%--    <script src="vendor/popper.js/umd/popper.min.js"> </script>--%>

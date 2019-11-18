@@ -25,4 +25,6 @@ public interface AdminService
     void updateByPhoneNum(Admin admin);
 
     int updateAdminType( Integer a_id, String type);
+
+    List<Admin> findAllStaff();
 }

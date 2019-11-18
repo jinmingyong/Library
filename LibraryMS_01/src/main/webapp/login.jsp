@@ -35,6 +35,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <script src="js/sweetalert.min.js"></script>
 
 </head>
 <script type="text/javascript">
@@ -79,8 +81,8 @@
 </div>
 <!-- MODAL -->
 <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog" style="margin-top: 100px">
+        <div class="modal-content" >
 
             <div class="modal-header">
                 <%--<button type="button" class="close" data-dismiss="modal">--%>
@@ -90,7 +92,7 @@
                 <%--<p>进入系统进行你的书海畅游吧！</p>--%>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body" >
 
                 <div id="taskList">
                     <ul id="ul">
@@ -133,15 +135,6 @@
 
 </body>
 <script>
-    // document.getElementById("btn").onclick = function () {
-    //     // 获取img元素
-    //     // 为了让浏览器发送请求到servlet, 所以一定要改变src
-    //     document.getElementsByTagName("img")[0].src =
-    //         "VerifyCodeServlet?time=" + new Date().getTime();
-    // };
-    // $(function () {
-    //
-    // });
     console.log("456")
     $(function () {
         $("#form2").hide();
@@ -173,19 +166,41 @@
                         dataType: "text",
                         success:function (data) {
                             if (data=="msg"){
-                                alert("您的验证码错误！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '您的验证码错误！',
+                                })
                             }else if(data=="err"){
-                                alert("您的账户或者密码错误！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '您的账户或者密码错误！',
+                                })
                             }else if (data=="list") {
                                 window.location.href="reader/findByReader?name="+name+"&password="+password+"&inputCode="+inputCode;
+                            }else if (data=="err1"){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '您的账户没有注册！',
+                                });
                             }
                         }
                     })
                 }else {
-                    alert("手机或者邮箱格式不正确!");
+                    Swal.fire({
+                        icon: 'error',
+                        title: '请求出错!',
+                        text: '手机或者邮箱格式不正确！',
+                    })
                 }
             }else {
-                alert("用户名或者密码或者验证码没有填写！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '用户名或者密码或者验证码没有填写！',
+                })
             }
 
         });
@@ -203,19 +218,47 @@
                         dataType: "text",
                         success: function (data) {
                             if (data == "msg1") {
-                                alert("您的验证码错误！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '您的验证码错误！',
+                                })
                             } else if (data == "err1") {
-                                alert("您的账户或者密码错误！");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '您的账户或者密码错误！',
+                                })
                             } else if (data == "list1") {
                                 window.location.href = "admin/findByAdmin?name=" + name1 + "&password=" + password1 + "&inputCode=" + inputCode1;
+                            }else if (data=="err"){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '您的账户没有注册！',
+                                });
+                            }else if (data=="msg"){
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '请求出错!',
+                                    text: '您的账户还没有审核通过！',
+                                });
                             }
                         }
                     })
                 }else {
-                    alert("手机号或者邮箱格式不正确！");
+                    Swal.fire({
+                        icon: 'error',
+                        title: '请求出错!',
+                        text: '手机号或者邮箱格式不正确！',
+                    })
                 }
             }else {
-                alert("用户名或者密码或者验证码没有填写！");
+                Swal.fire({
+                    icon: 'error',
+                    title: '请求出错!',
+                    text: '！用户名或者密码或者验证码没有填写',
+                })
             }
 
         });

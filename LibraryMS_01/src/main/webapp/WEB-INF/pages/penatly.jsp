@@ -16,12 +16,10 @@
     <base href="<%=basePath%>">
 </head>
 
-<link rel="stylesheet" href="/css/bootstrap.min.css">
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom fonts for this template-->
 <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <!-- Page level plugin CSS-->
-<link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
 <!-- Custom styles for this template-->
 <link rel="stylesheet" href="css/penatly.css">
 
@@ -74,12 +72,13 @@
                                     <thead>
                                         <%--<tr align="center">--%>
                                         <tr>
-                                            <th>id</th>
+                                            <th>违规号</th>
                                             <th>isbn</th>
-                                            <th>rid</th>
-                                            <th>penType</th>
-                                            <th>repay</th>
-                                            <th>penTime</th>
+                                            <th>读者号</th>
+                                            <th>违规状态</th>
+                                            <th>扣分值</th>
+                                            <th>违规时间</th>
+
                                         </tr>
                                     </thead>
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -18,11 +19,29 @@ public class StaffManageController {
     private AdminService adminService;
 
     //员工入职
-    @RequestMapping(value = "startWork",method = RequestMethod.POST)
+    @RequestMapping(value = "startWork",produces="text/html;charset=UTF-8")
     public @ResponseBody
-    void startWork(@RequestBody Admin admin){
-        admin.setA_password("123456");
-        adminService.saveAdmin(admin);
+    String startWork(@RequestBody Admin admin){
+        String msg="";
+        List<Admin> alist = adminService.findById(admin.getA_id());
+        if (alist.size()!=0){
+            for (Admin a:alist){
+                admin.setId(a.getId());
+            }
+            adminService.updateAdmin(admin);
+            msg="员工入职成功！";
+        }else {
+            msg="员工入职失败！";
+        }
+        return msg;
+//        admin.setA_password("123456");
+//        adminService.saveAdmin(admin);
+    }
+
+    @RequestMapping(value = "/findAllStaff")
+    public @ResponseBody List findAllStaff(){
+        List<Admin> admins = adminService.findAllStaff();
+        return admins;
     }
 
     //职位管理
@@ -63,8 +82,14 @@ public class StaffManageController {
     @RequestMapping(value = "/findAll",method = RequestMethod.POST)
     public @ResponseBody
     List findAll(){
-        List slist = adminService.findAll();
-        return slist;
+        List<Admin> slist = adminService.findAll();
+        List alist=new ArrayList();
+        for (Admin admin:slist){
+            if (!admin.getType().equals("0")){
+                alist.add(admin);
+            }
+        }
+        return alist;
     }
 
     @RequestMapping("/sendJsp")

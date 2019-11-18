@@ -15,8 +15,17 @@
 <head>
     <base href="<%=basePath%>">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/sweetalert.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.sPage.css">
+
+    <link rel="stylesheet" href="css/borrow.css">
+    <link href="css/sb-admin.css" rel="stylesheet">
     <style>
 /*        .speed {
             width:0;
@@ -32,8 +41,17 @@
     </style>
 </head>
 <body>
+<div>
+    <div class="container-fluid">
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> 借阅管理系统
+            </div>
+            <div class="card-body">
+                <div class="table table-bordered">
+                    <div class="container">
 <div id="myVue">
-    <table class="table table-responsive table-striped">
+    <table class="table-responsive">
         <thead>
         <tr>
             <td>图书ID</td>
@@ -75,11 +93,18 @@
         </tbody>
     </table>
 </div>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+</div>
 <script src="/js/vue.js"></script>
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/radialIndicator.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
+<script src="/js/jquery.sPage.js"></script>
+
 <script>
     $(function () {
         $(".oFile").hover(function () {

@@ -89,8 +89,8 @@
             <ul class="func">
                 <li><a href="javascript:void(0)" pageUrl="attence.jsp"><strong>打卡</strong></a></li>
                 <li><a href="javascript:void(0)" pageUrl="salary.jsp"><strong>工资查询</strong></a></li>
-                <li><a href="javascript:void(0)" pageUrl="addStaff.jsp"><strong>管理员入职</strong></a></li>
-                <li><a href="javascript:void(0)" pageUrl="staffManage.jsp"><strong>管理员管理</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="addStaff.jsp"><strong>员工入职</strong></a></li>
+                <li><a href="javascript:void(0)" pageUrl="staffManage.jsp"><strong>员工管理</strong></a></li>
                 <li><a href="javascript:void(0)" pageUrl="test4.jsp"><strong>销毁审核</strong></a></li>
             </ul>
         </div>

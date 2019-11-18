@@ -96,7 +96,7 @@ public class MyWebSocketHandler implements WebSocketHandler {
         chat.setChatCreatime(new Date());
         //...
         //将信息保存至数据库
-         //chatService.insertSelective(chat);
+         chatService.insertSelective(chat);
         // 给自己发送消息
         sendMessageToUser(chat.getRid(),
                 new TextMessage(

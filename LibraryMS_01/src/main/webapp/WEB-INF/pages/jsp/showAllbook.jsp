@@ -12,25 +12,25 @@
     <title>Title</title>
 </head>
 <div>
-<jsp:include page="head.jsp"></jsp:include>
-<div class="col-md-11 col-lg-12 col-sm-10 col-xs-9 content-column" id="myVue">
-    <section class="container" style="height: 100px">
-        <form onsubmit="submitFn(this, event);">
-            <div class="search-wrapper">
-                <div class="input-holder">
-                    <input type="text" class="search-input" v-model="input_value" placeholder="Type to search" />
-                    <button class="btn-info search-icon" onclick="searchToggle(this, event);"><span><i class="fa fa-search"></i></span></button>
-                </div>
-                <span class="close" onclick="searchToggle(this, event);"></span>
-                <div class="result-container">
+    <jsp:include page="head.jsp"></jsp:include>
+    <div class="col-md-11 col-lg-12 col-sm-10 col-xs-9 content-column" id="myVue">
+        <section class="container" style="height: 100px">
+            <form onsubmit="submitFn(this, event);">
+                <div class="search-wrapper">
+                    <div class="input-holder">
+                        <input type="text" class="search-input" v-model="input_value" placeholder="Type to search" />
+                        <button class="btn-info search-icon" onclick="searchToggle(this, event);"><span><i class="fa fa-search"></i></span></button>
+                    </div>
+                    <span class="close" onclick="searchToggle(this, event);"></span>
+                    <div class="result-container">
 
+                    </div>
                 </div>
-            </div>
-        </form>
-    </section>
+            </form>
+        </section>
 
-    <div class="grid row" >
-        <div class="col-md-3 col-lg-3 col-sm-6 col-xs-8 grid-item" v-for="(bookInuse,index) in bookInuses">
+        <div class="grid row">
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-8 grid-item" v-for="(bookInuse,index) in bookInuses">
                 <div class="box-masonry"> <a v-bind:href=url+bookInuse.bookRes.isbn title="" class="box-masonry-image with-hover-overlay"><img v-bind:src="path+bookInuse.bookRes.image" alt="" class="img-thumbnail"></a>
                     <div class="box-masonry-hover-text-header"> <a v-bind:href=url+bookInuse.bookRes.isbn class="tile-link">  </a>
                         <h4>{{bookInuse.bookRes.bname}}</h4>
@@ -39,13 +39,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-lg-12" style="position: relative;bottom: 0">
+            <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
+            </zpagenav>
+        </div>
     </div>
-    </div>
-    <div class="col-lg-12" style="position: relative;bottom: 0">
-    <zpagenav v-bind:page="page" v-bind:page-size="pageSize" v-bind:total="total" v-bind:max-page="maxPage" v-on:pagehandler="pageHandler">
-    </zpagenav>
-</div>
-</div>
 </div>
 </div>
 </body>
@@ -63,7 +63,7 @@
             /* $('.row-offcanvasright').toggleClass('active')*/
             container.removeClass('active');
             // clear input
-           /* container.find('.search-input').val('');*/
+            /* container.find('.search-input').val('');*/
             // clear and hide result container when we press close
             container.find('.result-container').fadeOut(100, function(){$(this).empty();});
         }
@@ -75,10 +75,11 @@
 
 </script>
 <script>
+
     var vue=new Vue({
         el:'#myVue',
         data:{
-            bookInuses:{},
+            bookInuses:[],
             path:'http://localhost:9090/uploads/',
             url:"${request.getContextPath()}/comment/showAllComments?isbn=",
             page:1,  //显示的是哪一页
@@ -109,30 +110,24 @@
                     type: "post",
                     success: function (res) {
                         console.log(res);
-                        that.page=page;
+                        that.page=page
                         that.total = res.total;
                         that.pageSize = res.pageSize;
                         that.maxPage = res.pages;
-                        that.bookInuses=res.list;
-                        var $grid = $('.grid').imagesLoaded().progress( function() {
+                        that.bookInuses=res.list
+                        var $grid = $('.grid').imagesLoaded(function () {
+                            var $items = $('.grid-item');
                             // init Masonry after all images have loaded
                             $grid.masonry({
                                 itemSelector: '.grid-item',
-                            });
+                                columnWidth:100,
                         });
-                $grid.masonry().masonry("destroy")
-                        /*$grid.progress( function() {
-                            var $items = $('.grid-item');
-                            $grid.masonry().append( $items )
-                                .masonry( 'appended', $items )
-                                // layout
-                                .masonry();
-                        });*/
+                        });
+                        $grid.masonry().masonry("destroy");
                     }
                 })
             },
         },
-
         created:function(){
             this.pageHandler(1);
         },

@@ -121,16 +121,16 @@
                                         <%--id="dataTable"--%>
                                         <table class="table table-bordered"  width="100%" cellspacing="0">
                                             <thead>
-                                            <tr>
-                                                <th>id</th>
-                                                <th>isbn</th>
-                                                <th>图书名</th>
-                                                <th>rid</th>
-                                                <th>读者姓名</th>
-                                                <th>bor_time</th>
-                                                <th>ret_time</th>
-                                                <th>real_time</th>
-                                                <th>bor_type</th>
+                                            <tr align="center" >
+                                                <th width="130">借阅号</th>
+                                                <th width="130">ISBN</th>
+                                                <th width="130">图书名</th>
+                                                <th width="130">读者号</th>
+                                                <th width="130">姓名</th>
+                                                <th width="130">借阅时间</th>
+                                                <th width="130">应还时间</th>
+                                                <th width="130">归还时间</th>
+                                                <th width="130">借出状态</th>
                                             </tr>
                                             </thead>
 
@@ -195,15 +195,15 @@
                                         <table class="table table-bordered"  width="100%" cellspacing="0">
                                             <thead>
                                             <tr>
-                                                <th>id</th>
+                                                <th>借阅号</th>
                                                 <th>isbn</th>
                                                 <th>图书名</th>
-                                                <th>rid</th>
+                                                <th>读者号</th>
                                                 <th>读者姓名</th>
-                                                <th>bor_time</th>
-                                                <th>ret_time</th>
-                                                <th>real_time</th>
-                                                <th>bor_type</th>
+                                                <th>借出时间</th>
+                                                <th>应还时间</th>
+                                                <th>归还时间</th>
+                                                <th>借阅状态</th>
                                                 <th>操作</th>
                                             </tr>
                                             </thead>
@@ -256,15 +256,15 @@
                                         <table class="table table-bordered"  width="100%" cellspacing="0">
                                             <thead>
                                             <tr>
-                                                <th>id</th>
+                                                <th>借阅号</th>
                                                 <th>isbn</th>
                                                 <th>图书名</th>
-                                                <th>rid</th>
+                                                <th>读者号</th>
                                                 <th>读者姓名</th>
-                                                <th>bor_time</th>
-                                                <th>ret_time</th>
-                                                <th>real_time</th>
-                                                <th>bor_type</th>
+                                                <th>借出时间</th>
+                                                <th>应还时间</th>
+                                                <th>归还时间</th>
+                                                <th>借阅状态</th>
                                                 <th>操作</th>
                                             </tr>
                                             </thead>
@@ -552,7 +552,7 @@
                                 result += "<td>" + el.retTime + "</td>"
                                 result += "<td>" + el.realTime + "</td>"
                                 result +="<td>"  + el.borType +"</td>"
-                                result +="<td><a  href='/updateBorrowBackType?id="+el.borId+"'> <button class='btn btn-success'>还书</button></a></td>"
+                                result +="<td><a  href='/bookBorrow/updateBorrowBackType?id="+el.borId+"'> <button class='btn btn-success'>还书</button></a></td>"
                                 result += "</tr>"
                             });
                             $("#showLend").children().children("tbody").html(result)
